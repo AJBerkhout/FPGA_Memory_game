@@ -1,0 +1,391 @@
+Analysis & Synthesis report for memory_game
+Tue Apr 20 17:57:57 2021
+Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. User-Specified and Inferred Latches
+  9. General Register Statistics
+ 10. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 11. Post-Synthesis Netlist Statistics for Top Partition
+ 12. Elapsed Time Per Partition
+ 13. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2020  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++---------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Tue Apr 20 17:57:57 2021       ;
+; Quartus Prime Version           ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
+; Revision Name                   ; memory_game                                 ;
+; Top-level Entity Name           ; memory_game                                 ;
+; Family                          ; Cyclone V                                   ;
+; Logic utilization (in ALMs)     ; N/A                                         ;
+; Total registers                 ; 42                                          ;
+; Total pins                      ; 11                                          ;
+; Total virtual pins              ; 0                                           ;
+; Total block memory bits         ; 0                                           ;
+; Total DSP Blocks                ; 0                                           ;
+; Total HSSI RX PCSs              ; 0                                           ;
+; Total HSSI PMA RX Deserializers ; 0                                           ;
+; Total HSSI TX PCSs              ; 0                                           ;
+; Total HSSI PMA TX Serializers   ; 0                                           ;
+; Total PLLs                      ; 0                                           ;
+; Total DLLs                      ; 0                                           ;
++---------------------------------+---------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                             ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                          ; Setting            ; Default Value      ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                          ; 5CSEMA5F31C6       ;                    ;
+; Top-level entity name                                                           ; memory_game        ; memory_game        ;
+; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
+; Use smart compilation                                                           ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation                ; On                 ; On                 ;
+; Enable compact report table                                                     ; Off                ; Off                ;
+; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
+; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
+; Preserve fewer node names                                                       ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                                   ; Enable             ; Enable             ;
+; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                                    ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                        ; Auto               ; Auto               ;
+; Safe State Machine                                                              ; Off                ; Off                ;
+; Extract Verilog State Machines                                                  ; On                 ; On                 ;
+; Extract VHDL State Machines                                                     ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                               ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                      ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                       ; On                 ; On                 ;
+; Parallel Synthesis                                                              ; On                 ; On                 ;
+; DSP Block Balancing                                                             ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                              ; On                 ; On                 ;
+; Power-Up Don't Care                                                             ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                                    ; Off                ; Off                ;
+; Remove Duplicate Registers                                                      ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                            ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                          ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                           ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                            ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                             ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                ; Off                ;
+; Optimization Technique                                                          ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                              ; 70                 ; 70                 ;
+; Auto Carry Chains                                                               ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                            ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                ; Off                ;
+; Auto ROM Replacement                                                            ; On                 ; On                 ;
+; Auto RAM Replacement                                                            ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                      ; On                 ; On                 ;
+; Auto Shift Register Replacement                                                 ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                                   ; On                 ; On                 ;
+; Strict RAM Replacement                                                          ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                               ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                           ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                               ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                         ; On                 ; On                 ;
+; Report Parameter Settings                                                       ; On                 ; On                 ;
+; Report Source Assignments                                                       ; On                 ; On                 ;
+; Report Connectivity Checks                                                      ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
+; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
+; Power Optimization During Synthesis                                             ; Normal compilation ; Normal compilation ;
+; HDL message level                                                               ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                ; 100                ;
+; Clock MUX Protection                                                            ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                     ; Off                ; Off                ;
+; Block Design Naming                                                             ; Auto               ; Auto               ;
+; SDC constraint protection                                                       ; Off                ; Off                ;
+; Synthesis Effort                                                                ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                              ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                     ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                          ; On                 ; On                 ;
+; Automatic Parallel Synthesis                                                    ; On                 ; On                 ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                ; Off                ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 4           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-4         ;   0.0%      ;
++----------------------------+-------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                      ;
++----------------------------------+-----------------+-----------------+--------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path               ; Library ;
++----------------------------------+-----------------+-----------------+--------------------------------------------+---------+
+; input_handler.vhd                ; yes             ; User VHDL File  ; C:/FPGA/FPGA_Memory_game/input_handler.vhd ;         ;
+; memory_game.vhd                  ; yes             ; User VHDL File  ; C:/FPGA/FPGA_Memory_game/memory_game.vhd   ;         ;
+; clk_divider.vhd                  ; yes             ; User VHDL File  ; C:/FPGA/FPGA_Memory_game/clk_divider.vhd   ;         ;
+; 2_lfsr.vhd                       ; yes             ; User VHDL File  ; C:/FPGA/FPGA_Memory_game/2_lfsr.vhd        ;         ;
++----------------------------------+-----------------+-----------------+--------------------------------------------+---------+
+
+
++------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                ;
++---------------------------------------------+--------------+
+; Resource                                    ; Usage        ;
++---------------------------------------------+--------------+
+; Estimate of Logic utilization (ALMs needed) ; 43           ;
+;                                             ;              ;
+; Combinational ALUT usage for logic          ; 80           ;
+;     -- 7 input functions                    ; 0            ;
+;     -- 6 input functions                    ; 5            ;
+;     -- 5 input functions                    ; 1            ;
+;     -- 4 input functions                    ; 16           ;
+;     -- <=3 input functions                  ; 58           ;
+;                                             ;              ;
+; Dedicated logic registers                   ; 42           ;
+;                                             ;              ;
+; I/O pins                                    ; 11           ;
+;                                             ;              ;
+; Total DSP Blocks                            ; 0            ;
+;                                             ;              ;
+; Maximum fan-out node                        ; clk_50~input ;
+; Maximum fan-out                             ; 41           ;
+; Total fan-out                               ; 390          ;
+; Average fan-out                             ; 2.71         ;
++---------------------------------------------+--------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                           ;
++---------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------+---------------+--------------+
+; Compilation Hierarchy Node            ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                           ; Entity Name   ; Library Name ;
++---------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------+---------------+--------------+
+; |memory_game                          ; 80 (0)              ; 42 (0)                    ; 0                 ; 0          ; 11   ; 0            ; |memory_game                                  ; memory_game   ; work         ;
+;    |LFSR:lsfr_inst|                   ; 15 (15)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |memory_game|LFSR:lsfr_inst                   ; LFSR          ; work         ;
+;    |clk_divider:clock_divider_inst|   ; 56 (56)             ; 41 (41)                   ; 0                 ; 0          ; 0    ; 0            ; |memory_game|clk_divider:clock_divider_inst   ; clk_divider   ; work         ;
+;    |input_handler:input_handler_inst| ; 9 (9)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |memory_game|input_handler:input_handler_inst ; input_handler ; work         ;
++---------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------+---------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++----------------------------------------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                                                    ;
++-------------------------------------------------------+-------------------------------------------------------+------------------------+
+; Latch Name                                            ; Latch Enable Signal                                   ; Free of Timing Hazards ;
++-------------------------------------------------------+-------------------------------------------------------+------------------------+
+; LFSR:lsfr_inst|q[0]                                   ; input_handler:input_handler_inst|state_current        ; yes                    ;
+; LFSR:lsfr_inst|q[1]                                   ; input_handler:input_handler_inst|state_current        ; yes                    ;
+; input_handler:input_handler_inst|input_to_validate[0] ; input_handler:input_handler_inst|input_to_validate[1] ; yes                    ;
+; input_handler:input_handler_inst|input_to_validate[1] ; input_handler:input_handler_inst|input_to_validate[1] ; yes                    ;
+; input_handler:input_handler_inst|input_to_validate[2] ; input_handler:input_handler_inst|input_to_validate[1] ; yes                    ;
+; input_handler:input_handler_inst|input_to_validate[3] ; input_handler:input_handler_inst|input_to_validate[1] ; yes                    ;
+; LFSR:lsfr_inst|q[7]                                   ; input_handler:input_handler_inst|state_current        ; yes                    ;
+; LFSR:lsfr_inst|q[6]                                   ; input_handler:input_handler_inst|state_current        ; yes                    ;
+; LFSR:lsfr_inst|q[5]                                   ; input_handler:input_handler_inst|state_current        ; yes                    ;
+; LFSR:lsfr_inst|q[4]                                   ; input_handler:input_handler_inst|state_current        ; yes                    ;
+; LFSR:lsfr_inst|q[3]                                   ; input_handler:input_handler_inst|state_current        ; yes                    ;
+; LFSR:lsfr_inst|q[2]                                   ; input_handler:input_handler_inst|state_current        ; yes                    ;
+; Number of user-specified and inferred latches = 12    ;                                                       ;                        ;
++-------------------------------------------------------+-------------------------------------------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 42    ;
+; Number of registers using Synchronous Clear  ; 40    ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 1     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 30    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------+
+; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |memory_game|clk_divider:clock_divider_inst|count1[9] ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |memory_game|clk_divider:clock_divider_inst|count2[0] ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |memory_game|clk_divider:clock_divider_inst|count3[0] ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_ff             ; 42                          ;
+;     CLR               ; 1                           ;
+;     ENA SCLR          ; 30                          ;
+;     SCLR              ; 10                          ;
+;     plain             ; 1                           ;
+; arriav_lcell_comb     ; 81                          ;
+;     arith             ; 40                          ;
+;         1 data inputs ; 40                          ;
+;     normal            ; 41                          ;
+;         1 data inputs ; 1                           ;
+;         2 data inputs ; 10                          ;
+;         3 data inputs ; 8                           ;
+;         4 data inputs ; 16                          ;
+;         5 data inputs ; 1                           ;
+;         6 data inputs ; 5                           ;
+; boundary_port         ; 11                          ;
+;                       ;                             ;
+; Max LUT depth         ; 3.00                        ;
+; Average LUT depth     ; 2.05                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+    Info: Processing started: Tue Apr 20 17:57:45 2021
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off memory_game -c memory_game
+Info (125069): Default assignment values were changed in the current version of the Quartus Prime software -- changes to default assignments values are contained in file c:/intelfpga_lite/20.1/quartus/bin64/assignment_defaults.qdf
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file input_handler.vhd
+    Info (12022): Found design unit 1: input_handler-MEALY_ARCHITECTURE File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 17
+    Info (12023): Found entity 1: input_handler File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file edge_detect.vhd
+    Info (12022): Found design unit 1: edge_detect-MEALY_ARCHITECTURE File: C:/FPGA/FPGA_Memory_game/edge_detect.vhd Line: 12
+    Info (12023): Found entity 1: edge_detect File: C:/FPGA/FPGA_Memory_game/edge_detect.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file memory_game.vhd
+    Info (12022): Found design unit 1: memory_game-my_structural File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 15
+    Info (12023): Found entity 1: memory_game File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file clk_divider.vhd
+    Info (12022): Found design unit 1: clk_divider-Behavioral File: C:/FPGA/FPGA_Memory_game/clk_divider.vhd Line: 15
+    Info (12023): Found entity 1: clk_divider File: C:/FPGA/FPGA_Memory_game/clk_divider.vhd Line: 8
+Info (12021): Found 2 design units, including 1 entities, in source file 3_fifo.vhd
+    Info (12022): Found design unit 1: fifo-arch File: C:/FPGA/FPGA_Memory_game/3_fifo.vhd Line: 22
+    Info (12023): Found entity 1: fifo File: C:/FPGA/FPGA_Memory_game/3_fifo.vhd Line: 8
+Info (12021): Found 2 design units, including 1 entities, in source file 2_lfsr.vhd
+    Info (12022): Found design unit 1: LFSR-arc_1_to_many File: C:/FPGA/FPGA_Memory_game/2_lfsr.vhd Line: 13
+    Info (12023): Found entity 1: LFSR File: C:/FPGA/FPGA_Memory_game/2_lfsr.vhd Line: 4
+Info (12127): Elaborating entity "memory_game" for the top level hierarchy
+Info (12128): Elaborating entity "clk_divider" for hierarchy "clk_divider:clock_divider_inst" File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 69
+Info (12128): Elaborating entity "LFSR" for hierarchy "LFSR:lsfr_inst" File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 74
+Warning (10492): VHDL Process Statement warning at 2_lfsr.vhd(29): signal "q" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/2_lfsr.vhd Line: 29
+Warning (10492): VHDL Process Statement warning at 2_lfsr.vhd(30): signal "q" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/2_lfsr.vhd Line: 30
+Warning (10492): VHDL Process Statement warning at 2_lfsr.vhd(31): signal "q" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/2_lfsr.vhd Line: 31
+Warning (10492): VHDL Process Statement warning at 2_lfsr.vhd(32): signal "q" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/2_lfsr.vhd Line: 32
+Warning (10492): VHDL Process Statement warning at 2_lfsr.vhd(33): signal "q" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/2_lfsr.vhd Line: 33
+Warning (10492): VHDL Process Statement warning at 2_lfsr.vhd(34): signal "q" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/2_lfsr.vhd Line: 34
+Warning (10492): VHDL Process Statement warning at 2_lfsr.vhd(37): signal "q" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/2_lfsr.vhd Line: 37
+Warning (10631): VHDL Process Statement warning at 2_lfsr.vhd(23): inferring latch(es) for signal or variable "q", which holds its previous value in one or more paths through the process File: C:/FPGA/FPGA_Memory_game/2_lfsr.vhd Line: 23
+Info (10041): Inferred latch for "q[0]" at 2_lfsr.vhd(23) File: C:/FPGA/FPGA_Memory_game/2_lfsr.vhd Line: 23
+Info (10041): Inferred latch for "q[1]" at 2_lfsr.vhd(23) File: C:/FPGA/FPGA_Memory_game/2_lfsr.vhd Line: 23
+Info (10041): Inferred latch for "q[2]" at 2_lfsr.vhd(23) File: C:/FPGA/FPGA_Memory_game/2_lfsr.vhd Line: 23
+Info (10041): Inferred latch for "q[3]" at 2_lfsr.vhd(23) File: C:/FPGA/FPGA_Memory_game/2_lfsr.vhd Line: 23
+Info (10041): Inferred latch for "q[4]" at 2_lfsr.vhd(23) File: C:/FPGA/FPGA_Memory_game/2_lfsr.vhd Line: 23
+Info (10041): Inferred latch for "q[5]" at 2_lfsr.vhd(23) File: C:/FPGA/FPGA_Memory_game/2_lfsr.vhd Line: 23
+Info (10041): Inferred latch for "q[6]" at 2_lfsr.vhd(23) File: C:/FPGA/FPGA_Memory_game/2_lfsr.vhd Line: 23
+Info (10041): Inferred latch for "q[7]" at 2_lfsr.vhd(23) File: C:/FPGA/FPGA_Memory_game/2_lfsr.vhd Line: 23
+Info (12128): Elaborating entity "input_handler" for hierarchy "input_handler:input_handler_inst" File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 82
+Warning (10492): VHDL Process Statement warning at input_handler.vhd(31): signal "tick1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 31
+Warning (10492): VHDL Process Statement warning at input_handler.vhd(32): signal "tick2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 32
+Warning (10492): VHDL Process Statement warning at input_handler.vhd(33): signal "tick3" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 33
+Warning (10492): VHDL Process Statement warning at input_handler.vhd(34): signal "tick4" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 34
+Warning (10492): VHDL Process Statement warning at input_handler.vhd(59): signal "input_to_validate" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 59
+Warning (10492): VHDL Process Statement warning at input_handler.vhd(59): signal "expected_input" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 59
+Warning (10492): VHDL Process Statement warning at input_handler.vhd(65): signal "internal_done" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 65
+Warning (10492): VHDL Process Statement warning at input_handler.vhd(66): signal "internal_success" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 66
+Warning (10631): VHDL Process Statement warning at input_handler.vhd(43): inferring latch(es) for signal or variable "input_to_validate", which holds its previous value in one or more paths through the process File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
+Info (10041): Inferred latch for "input_to_validate[0]" at input_handler.vhd(43) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
+Info (10041): Inferred latch for "input_to_validate[1]" at input_handler.vhd(43) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
+Info (10041): Inferred latch for "input_to_validate[2]" at input_handler.vhd(43) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
+Info (10041): Inferred latch for "input_to_validate[3]" at input_handler.vhd(43) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
+Warning (13012): Latch input_handler:input_handler_inst|input_to_validate[0] has unsafe behavior File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal btn_one File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 7
+Warning (13012): Latch input_handler:input_handler_inst|input_to_validate[1] has unsafe behavior File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal btn_two File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 7
+Warning (13012): Latch input_handler:input_handler_inst|input_to_validate[2] has unsafe behavior File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal btn_three File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 7
+Warning (13012): Latch input_handler:input_handler_inst|input_to_validate[3] has unsafe behavior File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal btn_four File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 7
+Info (286030): Timing-Driven Synthesis is running
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 92 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 6 input pins
+    Info (21059): Implemented 5 output pins
+    Info (21061): Implemented 81 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 26 warnings
+    Info: Peak virtual memory: 4845 megabytes
+    Info: Processing ended: Tue Apr 20 17:57:57 2021
+    Info: Elapsed time: 00:00:12
+    Info: Total CPU time (on all processors): 00:00:28
+
+

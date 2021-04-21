@@ -1,0 +1,103 @@
+|memory_game
+clk_50 => clk_divider:clock_divider_inst.CLK_IN
+btn_one => input_handler:input_handler_inst.tick1
+btn_two => input_handler:input_handler_inst.tick2
+btn_three => input_handler:input_handler_inst.tick3
+btn_four => input_handler:input_handler_inst.tick4
+power_switch => LFSR:lsfr_inst.reset
+power_switch => input_handler:input_handler_inst.reset
+leds[0] << LFSR:lsfr_inst.z[0]
+leds[1] << LFSR:lsfr_inst.z[1]
+leds[2] << LFSR:lsfr_inst.z[2]
+leds[3] << LFSR:lsfr_inst.z[3]
+input_val << input_handler:input_handler_inst.success
+
+
+|memory_game|clk_divider:clock_divider_inst
+CLK_IN => D.CLK
+CLK_IN => count3[0].CLK
+CLK_IN => count3[1].CLK
+CLK_IN => count3[2].CLK
+CLK_IN => count3[3].CLK
+CLK_IN => count3[4].CLK
+CLK_IN => count3[5].CLK
+CLK_IN => count3[6].CLK
+CLK_IN => count3[7].CLK
+CLK_IN => count3[8].CLK
+CLK_IN => count3[9].CLK
+CLK_IN => count2[0].CLK
+CLK_IN => count2[1].CLK
+CLK_IN => count2[2].CLK
+CLK_IN => count2[3].CLK
+CLK_IN => count2[4].CLK
+CLK_IN => count2[5].CLK
+CLK_IN => count2[6].CLK
+CLK_IN => count2[7].CLK
+CLK_IN => count2[8].CLK
+CLK_IN => count2[9].CLK
+CLK_IN => count1[0].CLK
+CLK_IN => count1[1].CLK
+CLK_IN => count1[2].CLK
+CLK_IN => count1[3].CLK
+CLK_IN => count1[4].CLK
+CLK_IN => count1[5].CLK
+CLK_IN => count1[6].CLK
+CLK_IN => count1[7].CLK
+CLK_IN => count1[8].CLK
+CLK_IN => count1[9].CLK
+CLK_IN => count0[0].CLK
+CLK_IN => count0[1].CLK
+CLK_IN => count0[2].CLK
+CLK_IN => count0[3].CLK
+CLK_IN => count0[4].CLK
+CLK_IN => count0[5].CLK
+CLK_IN => count0[6].CLK
+CLK_IN => count0[7].CLK
+CLK_IN => count0[8].CLK
+CLK_IN => count0[9].CLK
+CLK_OUT <= D.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|memory_game|LFSR:lsfr_inst
+clk => ~NO_FANOUT~
+gen_next => q[0].LATCH_ENABLE
+gen_next => q[1].LATCH_ENABLE
+gen_next => q[2].LATCH_ENABLE
+gen_next => q[3].LATCH_ENABLE
+gen_next => q[4].LATCH_ENABLE
+gen_next => q[5].LATCH_ENABLE
+gen_next => q[6].LATCH_ENABLE
+gen_next => q[7].LATCH_ENABLE
+reset => q[0].PRESET
+reset => q[1].ACLR
+reset => q[2].ACLR
+reset => q[3].ACLR
+reset => q[4].ACLR
+reset => q[5].ACLR
+reset => q[6].ACLR
+reset => q[7].ACLR
+z[0] <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
+z[1] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
+z[2] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
+z[3] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|memory_game|input_handler:input_handler_inst
+tick1 => input_to_validate[0].DATAIN
+tick1 => Equal0.IN3
+tick2 => input_to_validate[1].DATAIN
+tick2 => Equal0.IN2
+tick3 => input_to_validate[2].DATAIN
+tick3 => Equal0.IN1
+tick4 => input_to_validate[3].DATAIN
+tick4 => Equal0.IN0
+reset => state_current.ACLR
+clk => state_current.CLK
+expected_input[0] => Equal1.IN3
+expected_input[1] => Equal1.IN2
+expected_input[2] => Equal1.IN1
+expected_input[3] => Equal1.IN0
+done <= state_current.DB_MAX_OUTPUT_PORT_TYPE
+success <= internal_success.DB_MAX_OUTPUT_PORT_TYPE
+
+

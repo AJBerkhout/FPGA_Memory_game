@@ -1,0 +1,53 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "leds[0]",
+					"strict" : false
+				},
+				{
+					"name" : "leds[1]",
+					"strict" : false
+				},
+				{
+					"name" : "leds[2]",
+					"strict" : false
+				},
+				{
+					"name" : "leds[3]",
+					"strict" : false
+				},
+				{
+					"name" : "input_val",
+					"strict" : false
+				},
+				{
+					"name" : "power_switch",
+					"strict" : false
+				},
+				{
+					"name" : "btn_one",
+					"strict" : false
+				},
+				{
+					"name" : "btn_two",
+					"strict" : false
+				},
+				{
+					"name" : "btn_three",
+					"strict" : false
+				},
+				{
+					"name" : "btn_four",
+					"strict" : false
+				},
+				{
+					"name" : "clk_50",
+					"strict" : false
+				}
+			]
+		}
+	]
+}
