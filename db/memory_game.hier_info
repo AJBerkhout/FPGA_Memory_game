@@ -1,9 +1,13 @@
 |memory_game
 clk_50 => clk_divider:clock_divider_inst.CLK_IN
-btn_one => input_handler:input_handler_inst.tick1
-btn_two => input_handler:input_handler_inst.tick2
-btn_three => input_handler:input_handler_inst.tick3
-btn_four => input_handler:input_handler_inst.tick4
+btn_one => edge_detect:edge_detect_inst1.level
+btn_two => edge_detect:edge_detect_inst2.level
+btn_three => edge_detect:edge_detect_inst3.level
+btn_four => edge_detect:edge_detect_inst4.level
+power_switch => edge_detect:edge_detect_inst1.reset
+power_switch => edge_detect:edge_detect_inst2.reset
+power_switch => edge_detect:edge_detect_inst3.reset
+power_switch => edge_detect:edge_detect_inst4.reset
 power_switch => LFSR:lsfr_inst.reset
 power_switch => input_handler:input_handler_inst.reset
 leds[0] << LFSR:lsfr_inst.z[0]
@@ -58,16 +62,59 @@ CLK_IN => count0[9].CLK
 CLK_OUT <= D.DB_MAX_OUTPUT_PORT_TYPE
 
 
+|memory_game|edge_detect:edge_detect_inst1
+clk => state_current.CLK
+reset => state_current.ACLR
+level => state_next.OUTPUTSELECT
+level => tick.DATAB
+level => state_next.OUTPUTSELECT
+tick <= tick.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|memory_game|edge_detect:edge_detect_inst2
+clk => state_current.CLK
+reset => state_current.ACLR
+level => state_next.OUTPUTSELECT
+level => tick.DATAB
+level => state_next.OUTPUTSELECT
+tick <= tick.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|memory_game|edge_detect:edge_detect_inst3
+clk => state_current.CLK
+reset => state_current.ACLR
+level => state_next.OUTPUTSELECT
+level => tick.DATAB
+level => state_next.OUTPUTSELECT
+tick <= tick.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|memory_game|edge_detect:edge_detect_inst4
+clk => state_current.CLK
+reset => state_current.ACLR
+level => state_next.OUTPUTSELECT
+level => tick.DATAB
+level => state_next.OUTPUTSELECT
+tick <= tick.DB_MAX_OUTPUT_PORT_TYPE
+
+
 |memory_game|LFSR:lsfr_inst
-clk => ~NO_FANOUT~
-gen_next => q[0].LATCH_ENABLE
-gen_next => q[1].LATCH_ENABLE
-gen_next => q[2].LATCH_ENABLE
-gen_next => q[3].LATCH_ENABLE
-gen_next => q[4].LATCH_ENABLE
-gen_next => q[5].LATCH_ENABLE
-gen_next => q[6].LATCH_ENABLE
-gen_next => q[7].LATCH_ENABLE
+clk => q[0].CLK
+clk => q[1].CLK
+clk => q[2].CLK
+clk => q[3].CLK
+clk => q[4].CLK
+clk => q[5].CLK
+clk => q[6].CLK
+clk => q[7].CLK
+gen_next => q[7].ENA
+gen_next => q[6].ENA
+gen_next => q[5].ENA
+gen_next => q[4].ENA
+gen_next => q[3].ENA
+gen_next => q[2].ENA
+gen_next => q[1].ENA
+gen_next => q[0].ENA
 reset => q[0].PRESET
 reset => q[1].ACLR
 reset => q[2].ACLR
@@ -83,13 +130,13 @@ z[3] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |memory_game|input_handler:input_handler_inst
-tick1 => input_to_validate[0].DATAIN
+tick1 => Equal1.IN7
 tick1 => Equal0.IN3
-tick2 => input_to_validate[1].DATAIN
+tick2 => Equal1.IN6
 tick2 => Equal0.IN2
-tick3 => input_to_validate[2].DATAIN
+tick3 => Equal1.IN5
 tick3 => Equal0.IN1
-tick4 => input_to_validate[3].DATAIN
+tick4 => Equal1.IN4
 tick4 => Equal0.IN0
 reset => state_current.ACLR
 clk => state_current.CLK
@@ -97,7 +144,7 @@ expected_input[0] => Equal1.IN3
 expected_input[1] => Equal1.IN2
 expected_input[2] => Equal1.IN1
 expected_input[3] => Equal1.IN0
-done <= state_current.DB_MAX_OUTPUT_PORT_TYPE
+done <= internal_done.DB_MAX_OUTPUT_PORT_TYPE
 success <= internal_success.DB_MAX_OUTPUT_PORT_TYPE
 
 

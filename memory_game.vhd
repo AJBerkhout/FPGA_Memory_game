@@ -67,10 +67,10 @@ btn3 <= not btn_three; --when the button is pressed
 btn4 <= not btn_four; --when the button is pressed
 reset <= not power_switch;
 clock_divider_inst : clk_divider port map (clk_50, clk); --instance of clk_divider component
---edge_detect_inst1 : edge_detect port map (clk, reset, btn1, tick1);
---edge_detect_inst2 : edge_detect port map (clk, reset, btn2, tick2);
---edge_detect_inst3 : edge_detect port map (clk, reset, btn3, tick3);
---edge_detect_inst4 : edge_detect port map (clk, reset, btn4, tick4);
+edge_detect_inst1 : edge_detect port map (clk, reset, btn1, tick1);
+edge_detect_inst2 : edge_detect port map (clk, reset, btn2, tick2);
+edge_detect_inst3 : edge_detect port map (clk, reset, btn3, tick3);
+edge_detect_inst4 : edge_detect port map (clk, reset, btn4, tick4);
 lsfr_inst : LFSR port map (clk, input_done, reset, random_led_output);
 
 leds <= random_led_output;
@@ -79,7 +79,7 @@ leds <= random_led_output;
 
 -- inputs: (tick1, tick2, tick3, tick4), clk, random_led, started_switch, reset_switch
 -- outputs: updated score
-input_handler_inst : input_handler port map (btn1, btn2, btn3, btn4, reset, clk, random_led_output, input_done, input_val);
+input_handler_inst : input_handler port map (tick1, tick2, tick3, tick4, reset, clk, random_led_output, input_done, input_val);
 
 -- sequence generator
 -- states: generating, full

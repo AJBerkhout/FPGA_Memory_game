@@ -28,19 +28,19 @@
 					"strict" : false
 				},
 				{
-					"name" : "btn_one",
-					"strict" : false
-				},
-				{
-					"name" : "btn_two",
-					"strict" : false
-				},
-				{
 					"name" : "btn_three",
 					"strict" : false
 				},
 				{
 					"name" : "btn_four",
+					"strict" : false
+				},
+				{
+					"name" : "btn_one",
+					"strict" : false
+				},
+				{
+					"name" : "btn_two",
 					"strict" : false
 				},
 				{

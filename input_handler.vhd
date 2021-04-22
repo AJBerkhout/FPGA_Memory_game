@@ -26,7 +26,7 @@ architecture MEALY_ARCHITECTURE of input_handler is
   
       
 		-- state register; process #1
-		process (clk , reset)
+		process (clk, reset)
 		begin
 		   received_input(0) <= tick1;
 			received_input(1) <= tick2;
@@ -40,7 +40,7 @@ architecture MEALY_ARCHITECTURE of input_handler is
 	  end process;
     
 		-- next state and output logic; process #2
-		process (state_current, received_input)
+		process (state_current, expected_input, clk)
 		begin
 			state_next <= state_current;
 			case state_current is 
@@ -50,17 +50,17 @@ architecture MEALY_ARCHITECTURE of input_handler is
 					if (received_input = "0000") then
 						state_next <= waiting_input;
 					else 
-						input_to_validate <= received_input;
 						state_next <= validating_input;
+						internal_done <= '1';
+						if (received_input = expected_input) then
+							internal_success <= '1';
+						else
+							internal_success <= '0';
+						end if;
 					end if;
 				when validating_input =>
-					state_next <= waiting_input;
 					internal_done <= '1';
-					if (input_to_validate = expected_input) then
-						internal_success <= '1';
-					else
-						internal_success <= '0';
-					end if;	
+					state_next <= waiting_input;	
 			end case;
 		done <= internal_done;
 		success <= internal_success;
