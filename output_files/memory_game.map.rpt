@@ -1,5 +1,5 @@
 Analysis & Synthesis report for memory_game
-Thu Apr 22 11:09:26 2021
+Thu Apr 22 11:57:39 2021
 Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
 
 
@@ -13,13 +13,14 @@ Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. User-Specified and Inferred Latches
-  9. General Register Statistics
- 10. Inverted Register Statistics
- 11. Multiplexer Restructuring Statistics (Restructuring Performed)
- 12. Post-Synthesis Netlist Statistics for Top Partition
- 13. Elapsed Time Per Partition
- 14. Analysis & Synthesis Messages
+  8. Analysis & Synthesis IP Cores Summary
+  9. User-Specified and Inferred Latches
+ 10. General Register Statistics
+ 11. Parameter Settings for User Entity Instance: my_altpll:alt_pll_inst|my_altpll_0002:my_altpll_inst|altera_pll:altera_pll_i
+ 12. Port Connectivity Checks: "my_altpll:alt_pll_inst"
+ 13. Post-Synthesis Netlist Statistics for Top Partition
+ 14. Elapsed Time Per Partition
+ 15. Analysis & Synthesis Messages
 
 
 
@@ -46,13 +47,13 @@ agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Thu Apr 22 11:09:26 2021       ;
+; Analysis & Synthesis Status     ; Successful - Thu Apr 22 11:57:39 2021       ;
 ; Quartus Prime Version           ; 16.1.0 Build 196 10/24/2016 SJ Lite Edition ;
 ; Revision Name                   ; memory_game                                 ;
 ; Top-level Entity Name           ; memory_game                                 ;
 ; Family                          ; Cyclone V                                   ;
 ; Logic utilization (in ALMs)     ; N/A                                         ;
-; Total registers                 ; 54                                          ;
+; Total registers                 ; 1                                           ;
 ; Total pins                      ; 11                                          ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 0                                           ;
@@ -61,7 +62,7 @@ agreement for further details.
 ; Total HSSI PMA RX Deserializers ; 0                                           ;
 ; Total HSSI TX PCSs              ; 0                                           ;
 ; Total HSSI PMA TX Serializers   ; 0                                           ;
-; Total PLLs                      ; 0                                           ;
+; Total PLLs                      ; 1                                           ;
 ; Total DLLs                      ; 0                                           ;
 +---------------------------------+---------------------------------------------+
 
@@ -170,61 +171,72 @@ agreement for further details.
 +----------------------------+-------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                      ;
-+----------------------------------+-----------------+-----------------+--------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path               ; Library ;
-+----------------------------------+-----------------+-----------------+--------------------------------------------+---------+
-; input_handler.vhd                ; yes             ; User VHDL File  ; C:/FPGA/FPGA_Memory_game/input_handler.vhd ;         ;
-; edge_detect.vhd                  ; yes             ; User VHDL File  ; C:/FPGA/FPGA_Memory_game/edge_detect.vhd   ;         ;
-; memory_game.vhd                  ; yes             ; User VHDL File  ; C:/FPGA/FPGA_Memory_game/memory_game.vhd   ;         ;
-; clk_divider.vhd                  ; yes             ; User VHDL File  ; C:/FPGA/FPGA_Memory_game/clk_divider.vhd   ;         ;
-; 2_lfsr.vhd                       ; yes             ; User VHDL File  ; C:/FPGA/FPGA_Memory_game/2_lfsr.vhd        ;         ;
-+----------------------------------+-----------------+-----------------+--------------------------------------------+---------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                             ;
++----------------------------------+-----------------+-----------------------------+---------------------------------------------------------------------+-----------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                   ; File Name with Absolute Path                                        ; Library   ;
++----------------------------------+-----------------+-----------------------------+---------------------------------------------------------------------+-----------+
+; input_handler.vhd                ; yes             ; User VHDL File              ; C:/FPGA/FPGA_Memory_game/input_handler.vhd                          ;           ;
+; memory_game.vhd                  ; yes             ; User VHDL File              ; C:/FPGA/FPGA_Memory_game/memory_game.vhd                            ;           ;
+; 2_lfsr.vhd                       ; yes             ; User VHDL File              ; C:/FPGA/FPGA_Memory_game/2_lfsr.vhd                                 ;           ;
+; my_altpll.vhd                    ; yes             ; User Wizard-Generated File  ; C:/FPGA/FPGA_Memory_game/my_altpll.vhd                              ; my_altpll ;
+; my_altpll/my_altpll_0002.v       ; yes             ; User Verilog HDL File       ; C:/FPGA/FPGA_Memory_game/my_altpll/my_altpll_0002.v                 ; my_altpll ;
+; altera_pll.v                     ; yes             ; Megafunction                ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/altera_pll.v ;           ;
++----------------------------------+-----------------+-----------------------------+---------------------------------------------------------------------+-----------+
 
 
-+------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                ;
-+---------------------------------------------+--------------+
-; Resource                                    ; Usage        ;
-+---------------------------------------------+--------------+
-; Estimate of Logic utilization (ALMs needed) ; 42           ;
-;                                             ;              ;
-; Combinational ALUT usage for logic          ; 78           ;
-;     -- 7 input functions                    ; 0            ;
-;     -- 6 input functions                    ; 5            ;
-;     -- 5 input functions                    ; 0            ;
-;     -- 4 input functions                    ; 11           ;
-;     -- <=3 input functions                  ; 62           ;
-;                                             ;              ;
-; Dedicated logic registers                   ; 54           ;
-;                                             ;              ;
-; I/O pins                                    ; 11           ;
-;                                             ;              ;
-; Total DSP Blocks                            ; 0            ;
-;                                             ;              ;
-; Maximum fan-out node                        ; clk_50~input ;
-; Maximum fan-out                             ; 41           ;
-; Total fan-out                               ; 405          ;
-; Average fan-out                             ; 2.63         ;
-+---------------------------------------------+--------------+
++------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                      ;
++---------------------------------------------+--------------------+
+; Resource                                    ; Usage              ;
++---------------------------------------------+--------------------+
+; Estimate of Logic utilization (ALMs needed) ; 10                 ;
+;                                             ;                    ;
+; Combinational ALUT usage for logic          ; 19                 ;
+;     -- 7 input functions                    ; 0                  ;
+;     -- 6 input functions                    ; 1                  ;
+;     -- 5 input functions                    ; 2                  ;
+;     -- 4 input functions                    ; 8                  ;
+;     -- <=3 input functions                  ; 8                  ;
+;                                             ;                    ;
+; Dedicated logic registers                   ; 1                  ;
+;                                             ;                    ;
+; I/O pins                                    ; 11                 ;
+;                                             ;                    ;
+; Total DSP Blocks                            ; 0                  ;
+;                                             ;                    ;
+; Total PLLs                                  ; 1                  ;
+;     -- PLLs                                 ; 1                  ;
+;                                             ;                    ;
+; Maximum fan-out node                        ; power_switch~input ;
+; Maximum fan-out                             ; 10                 ;
+; Total fan-out                               ; 87                 ;
+; Average fan-out                             ; 2.02               ;
++---------------------------------------------+--------------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                           ;
-+---------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------+---------------+--------------+
-; Compilation Hierarchy Node            ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                           ; Entity Name   ; Library Name ;
-+---------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------+---------------+--------------+
-; |memory_game                          ; 78 (0)              ; 54 (0)                    ; 0                 ; 0          ; 11   ; 0            ; |memory_game                                  ; memory_game   ; work         ;
-;    |LFSR:lsfr_inst|                   ; 9 (9)               ; 8 (8)                     ; 0                 ; 0          ; 0    ; 0            ; |memory_game|LFSR:lsfr_inst                   ; LFSR          ; work         ;
-;    |clk_divider:clock_divider_inst|   ; 56 (56)             ; 41 (41)                   ; 0                 ; 0          ; 0    ; 0            ; |memory_game|clk_divider:clock_divider_inst   ; clk_divider   ; work         ;
-;    |edge_detect:edge_detect_inst1|    ; 2 (2)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |memory_game|edge_detect:edge_detect_inst1    ; edge_detect   ; work         ;
-;    |edge_detect:edge_detect_inst2|    ; 2 (2)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |memory_game|edge_detect:edge_detect_inst2    ; edge_detect   ; work         ;
-;    |edge_detect:edge_detect_inst3|    ; 2 (2)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |memory_game|edge_detect:edge_detect_inst3    ; edge_detect   ; work         ;
-;    |edge_detect:edge_detect_inst4|    ; 2 (2)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |memory_game|edge_detect:edge_detect_inst4    ; edge_detect   ; work         ;
-;    |input_handler:input_handler_inst| ; 5 (5)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |memory_game|input_handler:input_handler_inst ; input_handler ; work         ;
-+---------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------+---------------+--------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                        ;
++---------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------------------------+----------------+--------------+
+; Compilation Hierarchy Node            ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                       ; Entity Name    ; Library Name ;
++---------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------------------------+----------------+--------------+
+; |memory_game                          ; 19 (0)              ; 1 (0)                     ; 0                 ; 0          ; 11   ; 0            ; |memory_game                                                                              ; memory_game    ; work         ;
+;    |LFSR:lsfr_inst|                   ; 15 (15)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |memory_game|LFSR:lsfr_inst                                                               ; LFSR           ; work         ;
+;    |input_handler:input_handler_inst| ; 4 (4)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |memory_game|input_handler:input_handler_inst                                             ; input_handler  ; work         ;
+;    |my_altpll:alt_pll_inst|           ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |memory_game|my_altpll:alt_pll_inst                                                       ; my_altpll      ; my_altpll    ;
+;       |my_altpll_0002:my_altpll_inst| ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |memory_game|my_altpll:alt_pll_inst|my_altpll_0002:my_altpll_inst                         ; my_altpll_0002 ; my_altpll    ;
+;          |altera_pll:altera_pll_i|    ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |memory_game|my_altpll:alt_pll_inst|my_altpll_0002:my_altpll_inst|altera_pll:altera_pll_i ; altera_pll     ; work         ;
++---------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------------------------+----------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++-----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis IP Cores Summary                                                                                 ;
++--------+--------------+---------+--------------+--------------+-------------------------------------+-----------------+
+; Vendor ; IP Core Name ; Version ; Release Date ; License Type ; Entity Instance                     ; IP Include File ;
++--------+--------------+---------+--------------+--------------+-------------------------------------+-----------------+
+; Altera ; altera_pll   ; 16.1    ; N/A          ; N/A          ; |memory_game|my_altpll:alt_pll_inst ; my_altpll.vhd   ;
++--------+--------------+---------+--------------+--------------+-------------------------------------+-----------------+
 
 
 +------------------------------------------------------------------------------------------------------------------------------+
@@ -232,8 +244,16 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------------+------------------------------------------------+------------------------+
 ; Latch Name                                         ; Latch Enable Signal                            ; Free of Timing Hazards ;
 +----------------------------------------------------+------------------------------------------------+------------------------+
+; LFSR:lsfr_inst|q[3]                                ; input_handler:input_handler_inst|done          ; yes                    ;
+; LFSR:lsfr_inst|q[4]                                ; input_handler:input_handler_inst|done          ; yes                    ;
 ; input_handler:input_handler_inst|internal_success  ; input_handler:input_handler_inst|state_current ; yes                    ;
-; Number of user-specified and inferred latches = 1  ;                                                ;                        ;
+; LFSR:lsfr_inst|q[2]                                ; input_handler:input_handler_inst|done          ; yes                    ;
+; LFSR:lsfr_inst|q[7]                                ; input_handler:input_handler_inst|done          ; yes                    ;
+; LFSR:lsfr_inst|q[1]                                ; input_handler:input_handler_inst|done          ; yes                    ;
+; LFSR:lsfr_inst|q[6]                                ; input_handler:input_handler_inst|done          ; yes                    ;
+; LFSR:lsfr_inst|q[0]                                ; input_handler:input_handler_inst|done          ; yes                    ;
+; LFSR:lsfr_inst|q[5]                                ; input_handler:input_handler_inst|done          ; yes                    ;
+; Number of user-specified and inferred latches = 9  ;                                                ;                        ;
 +----------------------------------------------------+------------------------------------------------+------------------------+
 Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
 
@@ -243,35 +263,270 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 54    ;
-; Number of registers using Synchronous Clear  ; 40    ;
+; Total registers                              ; 1     ;
+; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 13    ;
+; Number of registers using Asynchronous Clear ; 1     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 38    ;
+; Number of registers using Clock Enable       ; 0     ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+--------------------------------------------------+
-; Inverted Register Statistics                     ;
-+----------------------------------------+---------+
-; Inverted Register                      ; Fan out ;
-+----------------------------------------+---------+
-; LFSR:lsfr_inst|q[0]                    ; 1       ;
-; Total number of inverted registers = 1 ;         ;
-+----------------------------------------+---------+
++---------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: my_altpll:alt_pll_inst|my_altpll_0002:my_altpll_inst|altera_pll:altera_pll_i ;
++--------------------------------------+------------------------+-----------------------------------------------------------+
+; Parameter Name                       ; Value                  ; Type                                                      ;
++--------------------------------------+------------------------+-----------------------------------------------------------+
+; reference_clock_frequency            ; 100.0 MHz              ; String                                                    ;
+; fractional_vco_multiplier            ; false                  ; String                                                    ;
+; pll_type                             ; General                ; String                                                    ;
+; pll_subtype                          ; General                ; String                                                    ;
+; number_of_clocks                     ; 1                      ; Signed Integer                                            ;
+; operation_mode                       ; direct                 ; String                                                    ;
+; deserialization_factor               ; 4                      ; Signed Integer                                            ;
+; data_rate                            ; 0                      ; Signed Integer                                            ;
+; sim_additional_refclk_cycles_to_lock ; 0                      ; Signed Integer                                            ;
+; output_clock_frequency0              ; 2.000000 MHz           ; String                                                    ;
+; phase_shift0                         ; 0 ps                   ; String                                                    ;
+; duty_cycle0                          ; 50                     ; Signed Integer                                            ;
+; output_clock_frequency1              ; 0 MHz                  ; String                                                    ;
+; phase_shift1                         ; 0 ps                   ; String                                                    ;
+; duty_cycle1                          ; 50                     ; Signed Integer                                            ;
+; output_clock_frequency2              ; 0 MHz                  ; String                                                    ;
+; phase_shift2                         ; 0 ps                   ; String                                                    ;
+; duty_cycle2                          ; 50                     ; Signed Integer                                            ;
+; output_clock_frequency3              ; 0 MHz                  ; String                                                    ;
+; phase_shift3                         ; 0 ps                   ; String                                                    ;
+; duty_cycle3                          ; 50                     ; Signed Integer                                            ;
+; output_clock_frequency4              ; 0 MHz                  ; String                                                    ;
+; phase_shift4                         ; 0 ps                   ; String                                                    ;
+; duty_cycle4                          ; 50                     ; Signed Integer                                            ;
+; output_clock_frequency5              ; 0 MHz                  ; String                                                    ;
+; phase_shift5                         ; 0 ps                   ; String                                                    ;
+; duty_cycle5                          ; 50                     ; Signed Integer                                            ;
+; output_clock_frequency6              ; 0 MHz                  ; String                                                    ;
+; phase_shift6                         ; 0 ps                   ; String                                                    ;
+; duty_cycle6                          ; 50                     ; Signed Integer                                            ;
+; output_clock_frequency7              ; 0 MHz                  ; String                                                    ;
+; phase_shift7                         ; 0 ps                   ; String                                                    ;
+; duty_cycle7                          ; 50                     ; Signed Integer                                            ;
+; output_clock_frequency8              ; 0 MHz                  ; String                                                    ;
+; phase_shift8                         ; 0 ps                   ; String                                                    ;
+; duty_cycle8                          ; 50                     ; Signed Integer                                            ;
+; output_clock_frequency9              ; 0 MHz                  ; String                                                    ;
+; phase_shift9                         ; 0 ps                   ; String                                                    ;
+; duty_cycle9                          ; 50                     ; Signed Integer                                            ;
+; output_clock_frequency10             ; 0 MHz                  ; String                                                    ;
+; phase_shift10                        ; 0 ps                   ; String                                                    ;
+; duty_cycle10                         ; 50                     ; Signed Integer                                            ;
+; output_clock_frequency11             ; 0 MHz                  ; String                                                    ;
+; phase_shift11                        ; 0 ps                   ; String                                                    ;
+; duty_cycle11                         ; 50                     ; Signed Integer                                            ;
+; output_clock_frequency12             ; 0 MHz                  ; String                                                    ;
+; phase_shift12                        ; 0 ps                   ; String                                                    ;
+; duty_cycle12                         ; 50                     ; Signed Integer                                            ;
+; output_clock_frequency13             ; 0 MHz                  ; String                                                    ;
+; phase_shift13                        ; 0 ps                   ; String                                                    ;
+; duty_cycle13                         ; 50                     ; Signed Integer                                            ;
+; output_clock_frequency14             ; 0 MHz                  ; String                                                    ;
+; phase_shift14                        ; 0 ps                   ; String                                                    ;
+; duty_cycle14                         ; 50                     ; Signed Integer                                            ;
+; output_clock_frequency15             ; 0 MHz                  ; String                                                    ;
+; phase_shift15                        ; 0 ps                   ; String                                                    ;
+; duty_cycle15                         ; 50                     ; Signed Integer                                            ;
+; output_clock_frequency16             ; 0 MHz                  ; String                                                    ;
+; phase_shift16                        ; 0 ps                   ; String                                                    ;
+; duty_cycle16                         ; 50                     ; Signed Integer                                            ;
+; output_clock_frequency17             ; 0 MHz                  ; String                                                    ;
+; phase_shift17                        ; 0 ps                   ; String                                                    ;
+; duty_cycle17                         ; 50                     ; Signed Integer                                            ;
+; clock_name_0                         ;                        ; String                                                    ;
+; clock_name_1                         ;                        ; String                                                    ;
+; clock_name_2                         ;                        ; String                                                    ;
+; clock_name_3                         ;                        ; String                                                    ;
+; clock_name_4                         ;                        ; String                                                    ;
+; clock_name_5                         ;                        ; String                                                    ;
+; clock_name_6                         ;                        ; String                                                    ;
+; clock_name_7                         ;                        ; String                                                    ;
+; clock_name_8                         ;                        ; String                                                    ;
+; clock_name_global_0                  ; false                  ; String                                                    ;
+; clock_name_global_1                  ; false                  ; String                                                    ;
+; clock_name_global_2                  ; false                  ; String                                                    ;
+; clock_name_global_3                  ; false                  ; String                                                    ;
+; clock_name_global_4                  ; false                  ; String                                                    ;
+; clock_name_global_5                  ; false                  ; String                                                    ;
+; clock_name_global_6                  ; false                  ; String                                                    ;
+; clock_name_global_7                  ; false                  ; String                                                    ;
+; clock_name_global_8                  ; false                  ; String                                                    ;
+; m_cnt_hi_div                         ; 1                      ; Signed Integer                                            ;
+; m_cnt_lo_div                         ; 1                      ; Signed Integer                                            ;
+; m_cnt_bypass_en                      ; false                  ; String                                                    ;
+; m_cnt_odd_div_duty_en                ; false                  ; String                                                    ;
+; n_cnt_hi_div                         ; 1                      ; Signed Integer                                            ;
+; n_cnt_lo_div                         ; 1                      ; Signed Integer                                            ;
+; n_cnt_bypass_en                      ; false                  ; String                                                    ;
+; n_cnt_odd_div_duty_en                ; false                  ; String                                                    ;
+; c_cnt_hi_div0                        ; 1                      ; Signed Integer                                            ;
+; c_cnt_lo_div0                        ; 1                      ; Signed Integer                                            ;
+; c_cnt_bypass_en0                     ; false                  ; String                                                    ;
+; c_cnt_in_src0                        ; ph_mux_clk             ; String                                                    ;
+; c_cnt_odd_div_duty_en0               ; false                  ; String                                                    ;
+; c_cnt_prst0                          ; 1                      ; Signed Integer                                            ;
+; c_cnt_ph_mux_prst0                   ; 0                      ; Signed Integer                                            ;
+; c_cnt_hi_div1                        ; 1                      ; Signed Integer                                            ;
+; c_cnt_lo_div1                        ; 1                      ; Signed Integer                                            ;
+; c_cnt_bypass_en1                     ; false                  ; String                                                    ;
+; c_cnt_in_src1                        ; ph_mux_clk             ; String                                                    ;
+; c_cnt_odd_div_duty_en1               ; false                  ; String                                                    ;
+; c_cnt_prst1                          ; 1                      ; Signed Integer                                            ;
+; c_cnt_ph_mux_prst1                   ; 0                      ; Signed Integer                                            ;
+; c_cnt_hi_div2                        ; 1                      ; Signed Integer                                            ;
+; c_cnt_lo_div2                        ; 1                      ; Signed Integer                                            ;
+; c_cnt_bypass_en2                     ; false                  ; String                                                    ;
+; c_cnt_in_src2                        ; ph_mux_clk             ; String                                                    ;
+; c_cnt_odd_div_duty_en2               ; false                  ; String                                                    ;
+; c_cnt_prst2                          ; 1                      ; Signed Integer                                            ;
+; c_cnt_ph_mux_prst2                   ; 0                      ; Signed Integer                                            ;
+; c_cnt_hi_div3                        ; 1                      ; Signed Integer                                            ;
+; c_cnt_lo_div3                        ; 1                      ; Signed Integer                                            ;
+; c_cnt_bypass_en3                     ; false                  ; String                                                    ;
+; c_cnt_in_src3                        ; ph_mux_clk             ; String                                                    ;
+; c_cnt_odd_div_duty_en3               ; false                  ; String                                                    ;
+; c_cnt_prst3                          ; 1                      ; Signed Integer                                            ;
+; c_cnt_ph_mux_prst3                   ; 0                      ; Signed Integer                                            ;
+; c_cnt_hi_div4                        ; 1                      ; Signed Integer                                            ;
+; c_cnt_lo_div4                        ; 1                      ; Signed Integer                                            ;
+; c_cnt_bypass_en4                     ; false                  ; String                                                    ;
+; c_cnt_in_src4                        ; ph_mux_clk             ; String                                                    ;
+; c_cnt_odd_div_duty_en4               ; false                  ; String                                                    ;
+; c_cnt_prst4                          ; 1                      ; Signed Integer                                            ;
+; c_cnt_ph_mux_prst4                   ; 0                      ; Signed Integer                                            ;
+; c_cnt_hi_div5                        ; 1                      ; Signed Integer                                            ;
+; c_cnt_lo_div5                        ; 1                      ; Signed Integer                                            ;
+; c_cnt_bypass_en5                     ; false                  ; String                                                    ;
+; c_cnt_in_src5                        ; ph_mux_clk             ; String                                                    ;
+; c_cnt_odd_div_duty_en5               ; false                  ; String                                                    ;
+; c_cnt_prst5                          ; 1                      ; Signed Integer                                            ;
+; c_cnt_ph_mux_prst5                   ; 0                      ; Signed Integer                                            ;
+; c_cnt_hi_div6                        ; 1                      ; Signed Integer                                            ;
+; c_cnt_lo_div6                        ; 1                      ; Signed Integer                                            ;
+; c_cnt_bypass_en6                     ; false                  ; String                                                    ;
+; c_cnt_in_src6                        ; ph_mux_clk             ; String                                                    ;
+; c_cnt_odd_div_duty_en6               ; false                  ; String                                                    ;
+; c_cnt_prst6                          ; 1                      ; Signed Integer                                            ;
+; c_cnt_ph_mux_prst6                   ; 0                      ; Signed Integer                                            ;
+; c_cnt_hi_div7                        ; 1                      ; Signed Integer                                            ;
+; c_cnt_lo_div7                        ; 1                      ; Signed Integer                                            ;
+; c_cnt_bypass_en7                     ; false                  ; String                                                    ;
+; c_cnt_in_src7                        ; ph_mux_clk             ; String                                                    ;
+; c_cnt_odd_div_duty_en7               ; false                  ; String                                                    ;
+; c_cnt_prst7                          ; 1                      ; Signed Integer                                            ;
+; c_cnt_ph_mux_prst7                   ; 0                      ; Signed Integer                                            ;
+; c_cnt_hi_div8                        ; 1                      ; Signed Integer                                            ;
+; c_cnt_lo_div8                        ; 1                      ; Signed Integer                                            ;
+; c_cnt_bypass_en8                     ; false                  ; String                                                    ;
+; c_cnt_in_src8                        ; ph_mux_clk             ; String                                                    ;
+; c_cnt_odd_div_duty_en8               ; false                  ; String                                                    ;
+; c_cnt_prst8                          ; 1                      ; Signed Integer                                            ;
+; c_cnt_ph_mux_prst8                   ; 0                      ; Signed Integer                                            ;
+; c_cnt_hi_div9                        ; 1                      ; Signed Integer                                            ;
+; c_cnt_lo_div9                        ; 1                      ; Signed Integer                                            ;
+; c_cnt_bypass_en9                     ; false                  ; String                                                    ;
+; c_cnt_in_src9                        ; ph_mux_clk             ; String                                                    ;
+; c_cnt_odd_div_duty_en9               ; false                  ; String                                                    ;
+; c_cnt_prst9                          ; 1                      ; Signed Integer                                            ;
+; c_cnt_ph_mux_prst9                   ; 0                      ; Signed Integer                                            ;
+; c_cnt_hi_div10                       ; 1                      ; Signed Integer                                            ;
+; c_cnt_lo_div10                       ; 1                      ; Signed Integer                                            ;
+; c_cnt_bypass_en10                    ; false                  ; String                                                    ;
+; c_cnt_in_src10                       ; ph_mux_clk             ; String                                                    ;
+; c_cnt_odd_div_duty_en10              ; false                  ; String                                                    ;
+; c_cnt_prst10                         ; 1                      ; Signed Integer                                            ;
+; c_cnt_ph_mux_prst10                  ; 0                      ; Signed Integer                                            ;
+; c_cnt_hi_div11                       ; 1                      ; Signed Integer                                            ;
+; c_cnt_lo_div11                       ; 1                      ; Signed Integer                                            ;
+; c_cnt_bypass_en11                    ; false                  ; String                                                    ;
+; c_cnt_in_src11                       ; ph_mux_clk             ; String                                                    ;
+; c_cnt_odd_div_duty_en11              ; false                  ; String                                                    ;
+; c_cnt_prst11                         ; 1                      ; Signed Integer                                            ;
+; c_cnt_ph_mux_prst11                  ; 0                      ; Signed Integer                                            ;
+; c_cnt_hi_div12                       ; 1                      ; Signed Integer                                            ;
+; c_cnt_lo_div12                       ; 1                      ; Signed Integer                                            ;
+; c_cnt_bypass_en12                    ; false                  ; String                                                    ;
+; c_cnt_in_src12                       ; ph_mux_clk             ; String                                                    ;
+; c_cnt_odd_div_duty_en12              ; false                  ; String                                                    ;
+; c_cnt_prst12                         ; 1                      ; Signed Integer                                            ;
+; c_cnt_ph_mux_prst12                  ; 0                      ; Signed Integer                                            ;
+; c_cnt_hi_div13                       ; 1                      ; Signed Integer                                            ;
+; c_cnt_lo_div13                       ; 1                      ; Signed Integer                                            ;
+; c_cnt_bypass_en13                    ; false                  ; String                                                    ;
+; c_cnt_in_src13                       ; ph_mux_clk             ; String                                                    ;
+; c_cnt_odd_div_duty_en13              ; false                  ; String                                                    ;
+; c_cnt_prst13                         ; 1                      ; Signed Integer                                            ;
+; c_cnt_ph_mux_prst13                  ; 0                      ; Signed Integer                                            ;
+; c_cnt_hi_div14                       ; 1                      ; Signed Integer                                            ;
+; c_cnt_lo_div14                       ; 1                      ; Signed Integer                                            ;
+; c_cnt_bypass_en14                    ; false                  ; String                                                    ;
+; c_cnt_in_src14                       ; ph_mux_clk             ; String                                                    ;
+; c_cnt_odd_div_duty_en14              ; false                  ; String                                                    ;
+; c_cnt_prst14                         ; 1                      ; Signed Integer                                            ;
+; c_cnt_ph_mux_prst14                  ; 0                      ; Signed Integer                                            ;
+; c_cnt_hi_div15                       ; 1                      ; Signed Integer                                            ;
+; c_cnt_lo_div15                       ; 1                      ; Signed Integer                                            ;
+; c_cnt_bypass_en15                    ; false                  ; String                                                    ;
+; c_cnt_in_src15                       ; ph_mux_clk             ; String                                                    ;
+; c_cnt_odd_div_duty_en15              ; false                  ; String                                                    ;
+; c_cnt_prst15                         ; 1                      ; Signed Integer                                            ;
+; c_cnt_ph_mux_prst15                  ; 0                      ; Signed Integer                                            ;
+; c_cnt_hi_div16                       ; 1                      ; Signed Integer                                            ;
+; c_cnt_lo_div16                       ; 1                      ; Signed Integer                                            ;
+; c_cnt_bypass_en16                    ; false                  ; String                                                    ;
+; c_cnt_in_src16                       ; ph_mux_clk             ; String                                                    ;
+; c_cnt_odd_div_duty_en16              ; false                  ; String                                                    ;
+; c_cnt_prst16                         ; 1                      ; Signed Integer                                            ;
+; c_cnt_ph_mux_prst16                  ; 0                      ; Signed Integer                                            ;
+; c_cnt_hi_div17                       ; 1                      ; Signed Integer                                            ;
+; c_cnt_lo_div17                       ; 1                      ; Signed Integer                                            ;
+; c_cnt_bypass_en17                    ; false                  ; String                                                    ;
+; c_cnt_in_src17                       ; ph_mux_clk             ; String                                                    ;
+; c_cnt_odd_div_duty_en17              ; false                  ; String                                                    ;
+; c_cnt_prst17                         ; 1                      ; Signed Integer                                            ;
+; c_cnt_ph_mux_prst17                  ; 0                      ; Signed Integer                                            ;
+; pll_vco_div                          ; 1                      ; Signed Integer                                            ;
+; pll_slf_rst                          ; false                  ; String                                                    ;
+; pll_bw_sel                           ; low                    ; String                                                    ;
+; pll_output_clk_frequency             ; 0 MHz                  ; String                                                    ;
+; pll_cp_current                       ; 0                      ; Signed Integer                                            ;
+; pll_bwctrl                           ; 0                      ; Signed Integer                                            ;
+; pll_fractional_division              ; 1                      ; Signed Integer                                            ;
+; pll_fractional_cout                  ; 24                     ; Signed Integer                                            ;
+; pll_dsm_out_sel                      ; 1st_order              ; String                                                    ;
+; mimic_fbclk_type                     ; gclk                   ; String                                                    ;
+; pll_fbclk_mux_1                      ; glb                    ; String                                                    ;
+; pll_fbclk_mux_2                      ; fb_1                   ; String                                                    ;
+; pll_m_cnt_in_src                     ; ph_mux_clk             ; String                                                    ;
+; pll_vcoph_div                        ; 1                      ; Signed Integer                                            ;
+; refclk1_frequency                    ; 0 MHz                  ; String                                                    ;
+; pll_clkin_0_src                      ; clk_0                  ; String                                                    ;
+; pll_clkin_1_src                      ; clk_0                  ; String                                                    ;
+; pll_clk_loss_sw_en                   ; false                  ; String                                                    ;
+; pll_auto_clk_sw_en                   ; false                  ; String                                                    ;
+; pll_manu_clk_sw_en                   ; false                  ; String                                                    ;
+; pll_clk_sw_dly                       ; 0                      ; Signed Integer                                            ;
+; pll_extclk_0_cnt_src                 ; pll_extclk_cnt_src_vss ; String                                                    ;
+; pll_extclk_1_cnt_src                 ; pll_extclk_cnt_src_vss ; String                                                    ;
++--------------------------------------+------------------------+-----------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                      ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                            ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------+
-; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |memory_game|clk_divider:clock_divider_inst|count1[4] ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |memory_game|clk_divider:clock_divider_inst|count2[0] ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |memory_game|clk_divider:clock_divider_inst|count3[0] ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------+
++---------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "my_altpll:alt_pll_inst"                                                                                    ;
++--------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                                                  ;
++--------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; locked ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+----------------------------------------------------------------------------------------------------------+
 
 
 +-----------------------------------------------------+
@@ -279,25 +534,21 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 54                          ;
-;     CLR               ; 5                           ;
-;     ENA CLR           ; 8                           ;
-;     ENA SCLR          ; 30                          ;
-;     SCLR              ; 10                          ;
-;     plain             ; 1                           ;
-; arriav_lcell_comb     ; 79                          ;
-;     arith             ; 40                          ;
-;         1 data inputs ; 40                          ;
-;     normal            ; 39                          ;
-;         1 data inputs ; 7                           ;
-;         2 data inputs ; 14                          ;
-;         3 data inputs ; 2                           ;
-;         4 data inputs ; 11                          ;
-;         6 data inputs ; 5                           ;
+; arriav_ff             ; 1                           ;
+;     CLR               ; 1                           ;
+; arriav_lcell_comb     ; 20                          ;
+;     normal            ; 20                          ;
+;         1 data inputs ; 1                           ;
+;         2 data inputs ; 7                           ;
+;         3 data inputs ; 1                           ;
+;         4 data inputs ; 8                           ;
+;         5 data inputs ; 2                           ;
+;         6 data inputs ; 1                           ;
 ; boundary_port         ; 11                          ;
+; generic_pll           ; 1                           ;
 ;                       ;                             ;
-; Max LUT depth         ; 3.00                        ;
-; Average LUT depth     ; 2.07                        ;
+; Max LUT depth         ; 2.00                        ;
+; Average LUT depth     ; 1.61                        ;
 +-----------------------+-----------------------------+
 
 
@@ -316,10 +567,13 @@ Note: All latches listed above may not be present at the end of synthesis due to
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
-    Info: Processing started: Thu Apr 22 11:09:03 2021
+    Info: Processing started: Thu Apr 22 11:57:25 2021
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off memory_game -c memory_game
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file vga_driver.vhd
+    Info (12022): Found design unit 1: vga_driver-Behavioral File: C:/FPGA/FPGA_Memory_game/vga_driver.vhd Line: 22
+    Info (12023): Found entity 1: vga_driver File: C:/FPGA/FPGA_Memory_game/vga_driver.vhd Line: 14
 Info (12021): Found 2 design units, including 1 entities, in source file input_handler.vhd
     Info (12022): Found design unit 1: input_handler-MEALY_ARCHITECTURE File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 17
     Info (12023): Found entity 1: input_handler File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 4
@@ -338,33 +592,119 @@ Info (12021): Found 2 design units, including 1 entities, in source file 3_fifo.
 Info (12021): Found 2 design units, including 1 entities, in source file 2_lfsr.vhd
     Info (12022): Found design unit 1: LFSR-arc_1_to_many File: C:/FPGA/FPGA_Memory_game/2_lfsr.vhd Line: 13
     Info (12023): Found entity 1: LFSR File: C:/FPGA/FPGA_Memory_game/2_lfsr.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file my_altpll.vhd
+    Info (12022): Found design unit 1: my_altpll-rtl File: C:/FPGA/FPGA_Memory_game/my_altpll.vhd Line: 20
+    Info (12023): Found entity 1: my_altpll File: C:/FPGA/FPGA_Memory_game/my_altpll.vhd Line: 11
+Info (12021): Found 1 design units, including 1 entities, in source file my_altpll/my_altpll_0002.v
+    Info (12023): Found entity 1: my_altpll_0002 File: C:/FPGA/FPGA_Memory_game/my_altpll/my_altpll_0002.v Line: 2
 Info (12127): Elaborating entity "memory_game" for the top level hierarchy
-Info (12128): Elaborating entity "clk_divider" for hierarchy "clk_divider:clock_divider_inst" File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 69
-Info (12128): Elaborating entity "edge_detect" for hierarchy "edge_detect:edge_detect_inst1" File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 70
-Info (12128): Elaborating entity "LFSR" for hierarchy "LFSR:lsfr_inst" File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 74
-Warning (10492): VHDL Process Statement warning at 2_lfsr.vhd(38): signal "q" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/2_lfsr.vhd Line: 38
-Info (12128): Elaborating entity "input_handler" for hierarchy "input_handler:input_handler_inst" File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 82
+Info (12128): Elaborating entity "my_altpll" for hierarchy "my_altpll:alt_pll_inst" File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 70
+Info (12128): Elaborating entity "my_altpll_0002" for hierarchy "my_altpll:alt_pll_inst|my_altpll_0002:my_altpll_inst" File: C:/FPGA/FPGA_Memory_game/my_altpll.vhd Line: 32
+Info (12128): Elaborating entity "altera_pll" for hierarchy "my_altpll:alt_pll_inst|my_altpll_0002:my_altpll_inst|altera_pll:altera_pll_i" File: C:/FPGA/FPGA_Memory_game/my_altpll/my_altpll_0002.v Line: 85
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "wire_to_nowhere_64" into its bus
+Info (12130): Elaborated megafunction instantiation "my_altpll:alt_pll_inst|my_altpll_0002:my_altpll_inst|altera_pll:altera_pll_i" File: C:/FPGA/FPGA_Memory_game/my_altpll/my_altpll_0002.v Line: 85
+Info (12133): Instantiated megafunction "my_altpll:alt_pll_inst|my_altpll_0002:my_altpll_inst|altera_pll:altera_pll_i" with the following parameter: File: C:/FPGA/FPGA_Memory_game/my_altpll/my_altpll_0002.v Line: 85
+    Info (12134): Parameter "fractional_vco_multiplier" = "false"
+    Info (12134): Parameter "reference_clock_frequency" = "100.0 MHz"
+    Info (12134): Parameter "operation_mode" = "direct"
+    Info (12134): Parameter "number_of_clocks" = "1"
+    Info (12134): Parameter "output_clock_frequency0" = "2.000000 MHz"
+    Info (12134): Parameter "phase_shift0" = "0 ps"
+    Info (12134): Parameter "duty_cycle0" = "50"
+    Info (12134): Parameter "output_clock_frequency1" = "0 MHz"
+    Info (12134): Parameter "phase_shift1" = "0 ps"
+    Info (12134): Parameter "duty_cycle1" = "50"
+    Info (12134): Parameter "output_clock_frequency2" = "0 MHz"
+    Info (12134): Parameter "phase_shift2" = "0 ps"
+    Info (12134): Parameter "duty_cycle2" = "50"
+    Info (12134): Parameter "output_clock_frequency3" = "0 MHz"
+    Info (12134): Parameter "phase_shift3" = "0 ps"
+    Info (12134): Parameter "duty_cycle3" = "50"
+    Info (12134): Parameter "output_clock_frequency4" = "0 MHz"
+    Info (12134): Parameter "phase_shift4" = "0 ps"
+    Info (12134): Parameter "duty_cycle4" = "50"
+    Info (12134): Parameter "output_clock_frequency5" = "0 MHz"
+    Info (12134): Parameter "phase_shift5" = "0 ps"
+    Info (12134): Parameter "duty_cycle5" = "50"
+    Info (12134): Parameter "output_clock_frequency6" = "0 MHz"
+    Info (12134): Parameter "phase_shift6" = "0 ps"
+    Info (12134): Parameter "duty_cycle6" = "50"
+    Info (12134): Parameter "output_clock_frequency7" = "0 MHz"
+    Info (12134): Parameter "phase_shift7" = "0 ps"
+    Info (12134): Parameter "duty_cycle7" = "50"
+    Info (12134): Parameter "output_clock_frequency8" = "0 MHz"
+    Info (12134): Parameter "phase_shift8" = "0 ps"
+    Info (12134): Parameter "duty_cycle8" = "50"
+    Info (12134): Parameter "output_clock_frequency9" = "0 MHz"
+    Info (12134): Parameter "phase_shift9" = "0 ps"
+    Info (12134): Parameter "duty_cycle9" = "50"
+    Info (12134): Parameter "output_clock_frequency10" = "0 MHz"
+    Info (12134): Parameter "phase_shift10" = "0 ps"
+    Info (12134): Parameter "duty_cycle10" = "50"
+    Info (12134): Parameter "output_clock_frequency11" = "0 MHz"
+    Info (12134): Parameter "phase_shift11" = "0 ps"
+    Info (12134): Parameter "duty_cycle11" = "50"
+    Info (12134): Parameter "output_clock_frequency12" = "0 MHz"
+    Info (12134): Parameter "phase_shift12" = "0 ps"
+    Info (12134): Parameter "duty_cycle12" = "50"
+    Info (12134): Parameter "output_clock_frequency13" = "0 MHz"
+    Info (12134): Parameter "phase_shift13" = "0 ps"
+    Info (12134): Parameter "duty_cycle13" = "50"
+    Info (12134): Parameter "output_clock_frequency14" = "0 MHz"
+    Info (12134): Parameter "phase_shift14" = "0 ps"
+    Info (12134): Parameter "duty_cycle14" = "50"
+    Info (12134): Parameter "output_clock_frequency15" = "0 MHz"
+    Info (12134): Parameter "phase_shift15" = "0 ps"
+    Info (12134): Parameter "duty_cycle15" = "50"
+    Info (12134): Parameter "output_clock_frequency16" = "0 MHz"
+    Info (12134): Parameter "phase_shift16" = "0 ps"
+    Info (12134): Parameter "duty_cycle16" = "50"
+    Info (12134): Parameter "output_clock_frequency17" = "0 MHz"
+    Info (12134): Parameter "phase_shift17" = "0 ps"
+    Info (12134): Parameter "duty_cycle17" = "50"
+    Info (12134): Parameter "pll_type" = "General"
+    Info (12134): Parameter "pll_subtype" = "General"
+Info (12128): Elaborating entity "LFSR" for hierarchy "LFSR:lsfr_inst" File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 75
+Warning (10492): VHDL Process Statement warning at 2_lfsr.vhd(29): signal "q" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/2_lfsr.vhd Line: 29
+Warning (10492): VHDL Process Statement warning at 2_lfsr.vhd(30): signal "q" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/2_lfsr.vhd Line: 30
+Warning (10492): VHDL Process Statement warning at 2_lfsr.vhd(31): signal "q" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/2_lfsr.vhd Line: 31
+Warning (10492): VHDL Process Statement warning at 2_lfsr.vhd(32): signal "q" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/2_lfsr.vhd Line: 32
+Warning (10492): VHDL Process Statement warning at 2_lfsr.vhd(33): signal "q" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/2_lfsr.vhd Line: 33
+Warning (10492): VHDL Process Statement warning at 2_lfsr.vhd(34): signal "q" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/2_lfsr.vhd Line: 34
+Warning (10492): VHDL Process Statement warning at 2_lfsr.vhd(36): signal "q" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/2_lfsr.vhd Line: 36
+Warning (10631): VHDL Process Statement warning at 2_lfsr.vhd(23): inferring latch(es) for signal or variable "q", which holds its previous value in one or more paths through the process File: C:/FPGA/FPGA_Memory_game/2_lfsr.vhd Line: 23
+Info (10041): Inferred latch for "q[0]" at 2_lfsr.vhd(23) File: C:/FPGA/FPGA_Memory_game/2_lfsr.vhd Line: 23
+Info (10041): Inferred latch for "q[1]" at 2_lfsr.vhd(23) File: C:/FPGA/FPGA_Memory_game/2_lfsr.vhd Line: 23
+Info (10041): Inferred latch for "q[2]" at 2_lfsr.vhd(23) File: C:/FPGA/FPGA_Memory_game/2_lfsr.vhd Line: 23
+Info (10041): Inferred latch for "q[3]" at 2_lfsr.vhd(23) File: C:/FPGA/FPGA_Memory_game/2_lfsr.vhd Line: 23
+Info (10041): Inferred latch for "q[4]" at 2_lfsr.vhd(23) File: C:/FPGA/FPGA_Memory_game/2_lfsr.vhd Line: 23
+Info (10041): Inferred latch for "q[5]" at 2_lfsr.vhd(23) File: C:/FPGA/FPGA_Memory_game/2_lfsr.vhd Line: 23
+Info (10041): Inferred latch for "q[6]" at 2_lfsr.vhd(23) File: C:/FPGA/FPGA_Memory_game/2_lfsr.vhd Line: 23
+Info (10041): Inferred latch for "q[7]" at 2_lfsr.vhd(23) File: C:/FPGA/FPGA_Memory_game/2_lfsr.vhd Line: 23
+Info (12128): Elaborating entity "input_handler" for hierarchy "input_handler:input_handler_inst" File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 83
 Warning (10492): VHDL Process Statement warning at input_handler.vhd(31): signal "tick1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 31
 Warning (10492): VHDL Process Statement warning at input_handler.vhd(32): signal "tick2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 32
 Warning (10492): VHDL Process Statement warning at input_handler.vhd(33): signal "tick3" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 33
 Warning (10492): VHDL Process Statement warning at input_handler.vhd(34): signal "tick4" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 34
-Warning (10492): VHDL Process Statement warning at input_handler.vhd(50): signal "received_input" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 50
+Warning (10492): VHDL Process Statement warning at input_handler.vhd(48): signal "received_input" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 48
 Warning (10492): VHDL Process Statement warning at input_handler.vhd(55): signal "received_input" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 55
 Warning (10492): VHDL Process Statement warning at input_handler.vhd(65): signal "internal_done" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 65
 Warning (10492): VHDL Process Statement warning at input_handler.vhd(66): signal "internal_success" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 66
 Warning (10631): VHDL Process Statement warning at input_handler.vhd(43): inferring latch(es) for signal or variable "internal_success", which holds its previous value in one or more paths through the process File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
 Info (10041): Inferred latch for "internal_success" at input_handler.vhd(43) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
+Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
-    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 92 device resources after synthesis - the final resource count might be different
+    Info (16011): Adding 5 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 31 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 6 input pins
     Info (21059): Implemented 5 output pins
-    Info (21061): Implemented 81 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 11 warnings
-    Info: Peak virtual memory: 4847 megabytes
-    Info: Processing ended: Thu Apr 22 11:09:26 2021
-    Info: Elapsed time: 00:00:23
+    Info (21061): Implemented 19 logic cells
+    Info (21065): Implemented 1 PLLs
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 19 warnings
+    Info: Peak virtual memory: 4854 megabytes
+    Info: Processing ended: Thu Apr 22 11:57:39 2021
+    Info: Elapsed time: 00:00:14
     Info: Total CPU time (on all processors): 00:00:30
 
 

@@ -40,14 +40,14 @@ architecture MEALY_ARCHITECTURE of input_handler is
 	  end process;
     
 		-- next state and output logic; process #2
-		process (state_current, expected_input, clk)
+		process (state_current, expected_input)
 		begin
 			state_next <= state_current;
 			case state_current is 
 				when waiting_input =>
-				   internal_done <= '0';
-					internal_success <= '0';
 					if (received_input = "0000") then
+						internal_done <= '0';
+						internal_success <= '0';
 						state_next <= waiting_input;
 					else 
 						state_next <= validating_input;

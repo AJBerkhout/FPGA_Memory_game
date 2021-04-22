@@ -1,10 +1,10 @@
-Analysis & Synthesis Status : Successful - Thu Apr 22 11:09:26 2021
+Analysis & Synthesis Status : Successful - Thu Apr 22 11:57:39 2021
 Quartus Prime Version : 16.1.0 Build 196 10/24/2016 SJ Lite Edition
 Revision Name : memory_game
 Top-level Entity Name : memory_game
 Family : Cyclone V
 Logic utilization (in ALMs) : N/A
-Total registers : 54
+Total registers : 1
 Total pins : 11
 Total virtual pins : 0
 Total block memory bits : 0
@@ -13,5 +13,5 @@ Total HSSI RX PCSs : 0
 Total HSSI PMA RX Deserializers : 0
 Total HSSI TX PCSs : 0
 Total HSSI PMA TX Serializers : 0
-Total PLLs : 0
+Total PLLs : 1
 Total DLLs : 0

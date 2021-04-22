@@ -14,7 +14,7 @@ end clk_divider;
 
 architecture Behavioral of clk_divider is
 
-constant TIMECONST : integer := 71;
+constant TIMECONST : integer := 7;
 signal count0, count1, count2, count3 : integer range 0 to 1000;
 signal D : std_logic := '0';
 begin
