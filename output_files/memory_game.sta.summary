@@ -1,5 +1,149 @@
 ------------------------------------------------------------
-Timing Analyzer Summary
+TimeQuest Timing Analyzer Summary
 ------------------------------------------------------------
+
+Type  : Slow 1100mV 85C Model Setup 'input_handler:input_handler_inst|state_current'
+Slack : -1.374
+TNS   : -1.374
+
+Type  : Slow 1100mV 85C Model Setup 'input_handler:input_handler_inst|internal_done'
+Slack : -1.370
+TNS   : -9.912
+
+Type  : Slow 1100mV 85C Model Hold 'input_handler:input_handler_inst|internal_done'
+Slack : 0.743
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'input_handler:input_handler_inst|state_current'
+Slack : 0.756
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'input_handler:input_handler_inst|state_current'
+Slack : 0.394
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'input_handler:input_handler_inst|internal_done'
+Slack : 0.396
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'alt_pll_inst|my_altpll_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0]'
+Slack : 1.666
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'clk_50'
+Slack : 4.900
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'alt_pll_inst|my_altpll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk'
+Slack : 249.308
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Setup 'input_handler:input_handler_inst|internal_done'
+Slack : -1.366
+TNS   : -9.829
+
+Type  : Slow 1100mV 0C Model Setup 'input_handler:input_handler_inst|state_current'
+Slack : -1.273
+TNS   : -1.273
+
+Type  : Slow 1100mV 0C Model Hold 'input_handler:input_handler_inst|state_current'
+Slack : 0.644
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Hold 'input_handler:input_handler_inst|internal_done'
+Slack : 0.695
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'input_handler:input_handler_inst|state_current'
+Slack : 0.372
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'input_handler:input_handler_inst|internal_done'
+Slack : 0.418
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'alt_pll_inst|my_altpll_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0]'
+Slack : 1.666
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'clk_50'
+Slack : 4.926
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'alt_pll_inst|my_altpll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk'
+Slack : 249.265
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Setup 'input_handler:input_handler_inst|state_current'
+Slack : -0.499
+TNS   : -0.499
+
+Type  : Fast 1100mV 85C Model Setup 'input_handler:input_handler_inst|internal_done'
+Slack : -0.424
+TNS   : -2.168
+
+Type  : Fast 1100mV 85C Model Hold 'input_handler:input_handler_inst|internal_done'
+Slack : 0.475
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'input_handler:input_handler_inst|state_current'
+Slack : 0.692
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'input_handler:input_handler_inst|internal_done'
+Slack : 0.446
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'input_handler:input_handler_inst|state_current'
+Slack : 0.467
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'alt_pll_inst|my_altpll_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0]'
+Slack : 1.666
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'clk_50'
+Slack : 4.643
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'alt_pll_inst|my_altpll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk'
+Slack : 249.558
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Setup 'input_handler:input_handler_inst|state_current'
+Slack : -0.395
+TNS   : -0.395
+
+Type  : Fast 1100mV 0C Model Setup 'input_handler:input_handler_inst|internal_done'
+Slack : -0.275
+TNS   : -1.357
+
+Type  : Fast 1100mV 0C Model Hold 'input_handler:input_handler_inst|internal_done'
+Slack : 0.417
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Hold 'input_handler:input_handler_inst|state_current'
+Slack : 0.645
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'input_handler:input_handler_inst|state_current'
+Slack : 0.460
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'input_handler:input_handler_inst|internal_done'
+Slack : 0.466
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'alt_pll_inst|my_altpll_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0]'
+Slack : 1.666
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'clk_50'
+Slack : 4.632
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'alt_pll_inst|my_altpll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk'
+Slack : 249.548
+TNS   : 0.000
 
 ------------------------------------------------------------
