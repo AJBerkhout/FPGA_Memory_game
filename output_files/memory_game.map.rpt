@@ -1,5 +1,5 @@
 Analysis & Synthesis report for memory_game
-Thu Apr 29 20:24:51 2021
+Sat May 01 20:12:33 2021
 Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
 
 
@@ -20,9 +20,10 @@ Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
  12. Parameter Settings for User Entity Instance: my_altpll:alt_pll_inst|my_altpll_0002:my_altpll_inst|altera_pll:altera_pll_i
  13. Port Connectivity Checks: "input_handler:input_handler_inst"
  14. Port Connectivity Checks: "my_altpll:alt_pll_inst"
- 15. Post-Synthesis Netlist Statistics for Top Partition
- 16. Elapsed Time Per Partition
- 17. Analysis & Synthesis Messages
+ 15. Port Connectivity Checks: "clk_divider:clk_div_inst"
+ 16. Post-Synthesis Netlist Statistics for Top Partition
+ 17. Elapsed Time Per Partition
+ 18. Analysis & Synthesis Messages
 
 
 
@@ -49,14 +50,14 @@ agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Thu Apr 29 20:24:51 2021       ;
+; Analysis & Synthesis Status     ; Successful - Sat May 01 20:12:33 2021       ;
 ; Quartus Prime Version           ; 16.1.0 Build 196 10/24/2016 SJ Lite Edition ;
 ; Revision Name                   ; memory_game                                 ;
 ; Top-level Entity Name           ; memory_game                                 ;
 ; Family                          ; Cyclone V                                   ;
 ; Logic utilization (in ALMs)     ; N/A                                         ;
 ; Total registers                 ; 74                                          ;
-; Total pins                      ; 11                                          ;
+; Total pins                      ; 13                                          ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 0                                           ;
 ; Total DSP Blocks                ; 0                                           ;
@@ -193,18 +194,18 @@ agreement for further details.
 +---------------------------------------------+--------------+
 ; Resource                                    ; Usage        ;
 +---------------------------------------------+--------------+
-; Estimate of Logic utilization (ALMs needed) ; 63           ;
+; Estimate of Logic utilization (ALMs needed) ; 65           ;
 ;                                             ;              ;
 ; Combinational ALUT usage for logic          ; 115          ;
 ;     -- 7 input functions                    ; 0            ;
-;     -- 6 input functions                    ; 11           ;
+;     -- 6 input functions                    ; 15           ;
 ;     -- 5 input functions                    ; 1            ;
-;     -- 4 input functions                    ; 17           ;
+;     -- 4 input functions                    ; 13           ;
 ;     -- <=3 input functions                  ; 86           ;
 ;                                             ;              ;
 ; Dedicated logic registers                   ; 74           ;
 ;                                             ;              ;
-; I/O pins                                    ; 11           ;
+; I/O pins                                    ; 13           ;
 ;                                             ;              ;
 ; Total DSP Blocks                            ; 0            ;
 ;                                             ;              ;
@@ -213,7 +214,7 @@ agreement for further details.
 ;                                             ;              ;
 ; Maximum fan-out node                        ; clk_50~input ;
 ; Maximum fan-out                             ; 42           ;
-; Total fan-out                               ; 579          ;
+; Total fan-out                               ; 589          ;
 ; Average fan-out                             ; 2.73         ;
 +---------------------------------------------+--------------+
 
@@ -223,7 +224,7 @@ agreement for further details.
 +---------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------------------------+----------------+--------------+
 ; Compilation Hierarchy Node            ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                       ; Entity Name    ; Library Name ;
 +---------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------------------------+----------------+--------------+
-; |memory_game                          ; 115 (0)             ; 74 (0)                    ; 0                 ; 0          ; 11   ; 0            ; |memory_game                                                                              ; memory_game    ; work         ;
+; |memory_game                          ; 115 (0)             ; 74 (0)                    ; 0                 ; 0          ; 13   ; 0            ; |memory_game                                                                              ; memory_game    ; work         ;
 ;    |LFSR:lsfr_inst|                   ; 15 (15)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |memory_game|LFSR:lsfr_inst                                                               ; LFSR           ; work         ;
 ;    |clk_divider:clk_div_inst|         ; 56 (56)             ; 41 (41)                   ; 0                 ; 0          ; 0    ; 0            ; |memory_game|clk_divider:clk_div_inst                                                     ; clk_divider    ; work         ;
 ;    |input_handler:input_handler_inst| ; 44 (44)             ; 33 (33)                   ; 0                 ; 0          ; 0    ; 0            ; |memory_game|input_handler:input_handler_inst                                             ; input_handler  ; work         ;
@@ -283,9 +284,9 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                      ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------+
-; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |memory_game|clk_divider:clk_div_inst|count1[9] ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |memory_game|clk_divider:clk_div_inst|count2[0] ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |memory_game|clk_divider:clk_div_inst|count3[0] ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |memory_game|clk_divider:clk_div_inst|count1[0] ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |memory_game|clk_divider:clk_div_inst|count2[9] ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |memory_game|clk_divider:clk_div_inst|count3[9] ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------+
 
 
@@ -559,6 +560,16 @@ Note: In order to hide this table in the UI and the text report file, please set
 +--------+--------+----------+----------------------------------------------------------------------------------------------------------+
 
 
++------------------------------------------------------+
+; Port Connectivity Checks: "clk_divider:clk_div_inst" ;
++------------------+-------+----------+----------------+
+; Port             ; Type  ; Severity ; Details        ;
++------------------+-------+----------+----------------+
+; timeconst[31..5] ; Input ; Info     ; Stuck at GND   ;
+; timeconst[4]     ; Input ; Info     ; Stuck at VCC   ;
++------------------+-------+----------+----------------+
+
+
 +-----------------------------------------------------+
 ; Post-Synthesis Netlist Statistics for Top Partition ;
 +-----------------------+-----------------------------+
@@ -577,10 +588,10 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;         1 data inputs ; 2                           ;
 ;         2 data inputs ; 11                          ;
 ;         3 data inputs ; 3                           ;
-;         4 data inputs ; 17                          ;
+;         4 data inputs ; 13                          ;
 ;         5 data inputs ; 1                           ;
-;         6 data inputs ; 11                          ;
-; boundary_port         ; 11                          ;
+;         6 data inputs ; 15                          ;
+; boundary_port         ; 13                          ;
 ; generic_pll           ; 1                           ;
 ;                       ;                             ;
 ; Max LUT depth         ; 4.00                        ;
@@ -603,21 +614,21 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
-    Info: Processing started: Thu Apr 29 20:24:37 2021
+    Info: Processing started: Sat May 01 20:12:19 2021
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off memory_game -c memory_game
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (12021): Found 2 design units, including 1 entities, in source file clk_divider.vhd
-    Info (12022): Found design unit 1: clk_divider-Behavioral File: C:/FPGA/FPGA_Memory_game/clk_divider.vhd Line: 15
+    Info (12022): Found design unit 1: clk_divider-Behavioral File: C:/FPGA/FPGA_Memory_game/clk_divider.vhd Line: 16
     Info (12023): Found entity 1: clk_divider File: C:/FPGA/FPGA_Memory_game/clk_divider.vhd Line: 8
 Info (12021): Found 2 design units, including 1 entities, in source file vga_driver.vhd
     Info (12022): Found design unit 1: vga_driver-Behavioral File: C:/FPGA/FPGA_Memory_game/vga_driver.vhd Line: 22
     Info (12023): Found entity 1: vga_driver File: C:/FPGA/FPGA_Memory_game/vga_driver.vhd Line: 14
 Info (12021): Found 2 design units, including 1 entities, in source file input_handler.vhd
-    Info (12022): Found design unit 1: input_handler-MEALY_ARCHITECTURE File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 18
+    Info (12022): Found design unit 1: input_handler-MEALY_ARCHITECTURE File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 19
     Info (12023): Found entity 1: input_handler File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file memory_game.vhd
-    Info (12022): Found design unit 1: memory_game-my_structural File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 14
+    Info (12022): Found design unit 1: memory_game-my_structural File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 15
     Info (12023): Found entity 1: memory_game File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file 3_fifo.vhd
     Info (12022): Found design unit 1: fifo-arch File: C:/FPGA/FPGA_Memory_game/3_fifo.vhd Line: 22
@@ -631,11 +642,11 @@ Info (12021): Found 2 design units, including 1 entities, in source file my_altp
 Info (12021): Found 1 design units, including 1 entities, in source file my_altpll/my_altpll_0002.v
     Info (12023): Found entity 1: my_altpll_0002 File: C:/FPGA/FPGA_Memory_game/my_altpll/my_altpll_0002.v Line: 2
 Info (12127): Elaborating entity "memory_game" for the top level hierarchy
-Warning (10540): VHDL Signal Declaration warning at memory_game.vhd(70): used explicit default value for signal "time_out" because signal was never assigned a value File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 70
-Warning (10492): VHDL Process Statement warning at memory_game.vhd(91): signal "input_success" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 91
-Warning (10492): VHDL Process Statement warning at memory_game.vhd(92): signal "score" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 92
-Info (12128): Elaborating entity "clk_divider" for hierarchy "clk_divider:clk_div_inst" File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 81
-Info (12128): Elaborating entity "my_altpll" for hierarchy "my_altpll:alt_pll_inst" File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 82
+Warning (10540): VHDL Signal Declaration warning at memory_game.vhd(72): used explicit default value for signal "time_out" because signal was never assigned a value File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 72
+Warning (10492): VHDL Process Statement warning at memory_game.vhd(94): signal "input_success" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 94
+Warning (10492): VHDL Process Statement warning at memory_game.vhd(95): signal "score" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 95
+Info (12128): Elaborating entity "clk_divider" for hierarchy "clk_divider:clk_div_inst" File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 84
+Info (12128): Elaborating entity "my_altpll" for hierarchy "my_altpll:alt_pll_inst" File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 85
 Info (12128): Elaborating entity "my_altpll_0002" for hierarchy "my_altpll:alt_pll_inst|my_altpll_0002:my_altpll_inst" File: C:/FPGA/FPGA_Memory_game/my_altpll.vhd Line: 32
 Info (12128): Elaborating entity "altera_pll" for hierarchy "my_altpll:alt_pll_inst|my_altpll_0002:my_altpll_inst|altera_pll:altera_pll_i" File: C:/FPGA/FPGA_Memory_game/my_altpll/my_altpll_0002.v Line: 85
 Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "wire_to_nowhere_64" into its bus
@@ -701,7 +712,7 @@ Info (12133): Instantiated megafunction "my_altpll:alt_pll_inst|my_altpll_0002:m
     Info (12134): Parameter "duty_cycle17" = "50"
     Info (12134): Parameter "pll_type" = "General"
     Info (12134): Parameter "pll_subtype" = "General"
-Info (12128): Elaborating entity "LFSR" for hierarchy "LFSR:lsfr_inst" File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 83
+Info (12128): Elaborating entity "LFSR" for hierarchy "LFSR:lsfr_inst" File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 86
 Warning (10492): VHDL Process Statement warning at 2_lfsr.vhd(29): signal "q" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/2_lfsr.vhd Line: 29
 Warning (10492): VHDL Process Statement warning at 2_lfsr.vhd(30): signal "q" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/2_lfsr.vhd Line: 30
 Warning (10492): VHDL Process Statement warning at 2_lfsr.vhd(31): signal "q" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/2_lfsr.vhd Line: 31
@@ -718,103 +729,103 @@ Info (10041): Inferred latch for "q[4]" at 2_lfsr.vhd(23) File: C:/FPGA/FPGA_Mem
 Info (10041): Inferred latch for "q[5]" at 2_lfsr.vhd(23) File: C:/FPGA/FPGA_Memory_game/2_lfsr.vhd Line: 23
 Info (10041): Inferred latch for "q[6]" at 2_lfsr.vhd(23) File: C:/FPGA/FPGA_Memory_game/2_lfsr.vhd Line: 23
 Info (10041): Inferred latch for "q[7]" at 2_lfsr.vhd(23) File: C:/FPGA/FPGA_Memory_game/2_lfsr.vhd Line: 23
-Info (12128): Elaborating entity "input_handler" for hierarchy "input_handler:input_handler_inst" File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 87
-Warning (10492): VHDL Process Statement warning at input_handler.vhd(32): signal "tick1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 32
-Warning (10492): VHDL Process Statement warning at input_handler.vhd(33): signal "tick2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 33
-Warning (10492): VHDL Process Statement warning at input_handler.vhd(34): signal "tick3" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 34
-Warning (10492): VHDL Process Statement warning at input_handler.vhd(35): signal "tick4" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 35
-Warning (10492): VHDL Process Statement warning at input_handler.vhd(55): signal "time_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 55
-Warning (10492): VHDL Process Statement warning at input_handler.vhd(55): signal "counter" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 55
-Warning (10492): VHDL Process Statement warning at input_handler.vhd(60): signal "received_input" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 60
-Warning (10492): VHDL Process Statement warning at input_handler.vhd(64): signal "received_input" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 64
-Warning (10492): VHDL Process Statement warning at input_handler.vhd(66): signal "combo" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 66
+Info (12128): Elaborating entity "input_handler" for hierarchy "input_handler:input_handler_inst" File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 90
+Warning (10492): VHDL Process Statement warning at input_handler.vhd(33): signal "tick1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 33
+Warning (10492): VHDL Process Statement warning at input_handler.vhd(34): signal "tick2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 34
+Warning (10492): VHDL Process Statement warning at input_handler.vhd(35): signal "tick3" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 35
+Warning (10492): VHDL Process Statement warning at input_handler.vhd(36): signal "tick4" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 36
+Warning (10492): VHDL Process Statement warning at input_handler.vhd(56): signal "time_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 56
+Warning (10492): VHDL Process Statement warning at input_handler.vhd(56): signal "counter" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 56
+Warning (10492): VHDL Process Statement warning at input_handler.vhd(61): signal "received_input" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 61
+Warning (10492): VHDL Process Statement warning at input_handler.vhd(65): signal "received_input" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 65
 Warning (10492): VHDL Process Statement warning at input_handler.vhd(67): signal "combo" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 67
-Warning (10492): VHDL Process Statement warning at input_handler.vhd(76): signal "received_input" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 76
-Warning (10492): VHDL Process Statement warning at input_handler.vhd(83): signal "internal_done" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 83
-Warning (10492): VHDL Process Statement warning at input_handler.vhd(84): signal "internal_success" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 84
-Warning (10631): VHDL Process Statement warning at input_handler.vhd(44): inferring latch(es) for signal or variable "internal_done", which holds its previous value in one or more paths through the process File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 44
-Warning (10631): VHDL Process Statement warning at input_handler.vhd(44): inferring latch(es) for signal or variable "internal_success", which holds its previous value in one or more paths through the process File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 44
-Warning (10631): VHDL Process Statement warning at input_handler.vhd(44): inferring latch(es) for signal or variable "score_update", which holds its previous value in one or more paths through the process File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 44
-Warning (10631): VHDL Process Statement warning at input_handler.vhd(44): inferring latch(es) for signal or variable "combo", which holds its previous value in one or more paths through the process File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 44
-Info (10041): Inferred latch for "combo[0]" at input_handler.vhd(44) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 44
-Info (10041): Inferred latch for "combo[1]" at input_handler.vhd(44) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 44
-Info (10041): Inferred latch for "combo[2]" at input_handler.vhd(44) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 44
-Info (10041): Inferred latch for "combo[3]" at input_handler.vhd(44) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 44
-Info (10041): Inferred latch for "combo[4]" at input_handler.vhd(44) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 44
-Info (10041): Inferred latch for "combo[5]" at input_handler.vhd(44) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 44
-Info (10041): Inferred latch for "combo[6]" at input_handler.vhd(44) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 44
-Info (10041): Inferred latch for "combo[7]" at input_handler.vhd(44) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 44
-Info (10041): Inferred latch for "combo[8]" at input_handler.vhd(44) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 44
-Info (10041): Inferred latch for "combo[9]" at input_handler.vhd(44) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 44
-Info (10041): Inferred latch for "combo[10]" at input_handler.vhd(44) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 44
-Info (10041): Inferred latch for "combo[11]" at input_handler.vhd(44) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 44
-Info (10041): Inferred latch for "combo[12]" at input_handler.vhd(44) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 44
-Info (10041): Inferred latch for "combo[13]" at input_handler.vhd(44) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 44
-Info (10041): Inferred latch for "combo[14]" at input_handler.vhd(44) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 44
-Info (10041): Inferred latch for "combo[15]" at input_handler.vhd(44) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 44
-Info (10041): Inferred latch for "combo[16]" at input_handler.vhd(44) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 44
-Info (10041): Inferred latch for "combo[17]" at input_handler.vhd(44) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 44
-Info (10041): Inferred latch for "combo[18]" at input_handler.vhd(44) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 44
-Info (10041): Inferred latch for "combo[19]" at input_handler.vhd(44) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 44
-Info (10041): Inferred latch for "combo[20]" at input_handler.vhd(44) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 44
-Info (10041): Inferred latch for "combo[21]" at input_handler.vhd(44) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 44
-Info (10041): Inferred latch for "combo[22]" at input_handler.vhd(44) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 44
-Info (10041): Inferred latch for "combo[23]" at input_handler.vhd(44) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 44
-Info (10041): Inferred latch for "combo[24]" at input_handler.vhd(44) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 44
-Info (10041): Inferred latch for "combo[25]" at input_handler.vhd(44) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 44
-Info (10041): Inferred latch for "combo[26]" at input_handler.vhd(44) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 44
-Info (10041): Inferred latch for "combo[27]" at input_handler.vhd(44) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 44
-Info (10041): Inferred latch for "combo[28]" at input_handler.vhd(44) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 44
-Info (10041): Inferred latch for "combo[29]" at input_handler.vhd(44) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 44
-Info (10041): Inferred latch for "combo[30]" at input_handler.vhd(44) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 44
-Info (10041): Inferred latch for "combo[31]" at input_handler.vhd(44) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 44
-Info (10041): Inferred latch for "score_update[0]" at input_handler.vhd(44) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 44
-Info (10041): Inferred latch for "score_update[1]" at input_handler.vhd(44) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 44
-Info (10041): Inferred latch for "score_update[2]" at input_handler.vhd(44) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 44
-Info (10041): Inferred latch for "score_update[3]" at input_handler.vhd(44) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 44
-Info (10041): Inferred latch for "score_update[4]" at input_handler.vhd(44) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 44
-Info (10041): Inferred latch for "score_update[5]" at input_handler.vhd(44) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 44
-Info (10041): Inferred latch for "score_update[6]" at input_handler.vhd(44) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 44
-Info (10041): Inferred latch for "score_update[7]" at input_handler.vhd(44) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 44
-Info (10041): Inferred latch for "score_update[8]" at input_handler.vhd(44) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 44
-Info (10041): Inferred latch for "score_update[9]" at input_handler.vhd(44) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 44
-Info (10041): Inferred latch for "score_update[10]" at input_handler.vhd(44) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 44
-Info (10041): Inferred latch for "score_update[11]" at input_handler.vhd(44) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 44
-Info (10041): Inferred latch for "score_update[12]" at input_handler.vhd(44) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 44
-Info (10041): Inferred latch for "score_update[13]" at input_handler.vhd(44) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 44
-Info (10041): Inferred latch for "score_update[14]" at input_handler.vhd(44) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 44
-Info (10041): Inferred latch for "score_update[15]" at input_handler.vhd(44) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 44
-Info (10041): Inferred latch for "score_update[16]" at input_handler.vhd(44) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 44
-Info (10041): Inferred latch for "score_update[17]" at input_handler.vhd(44) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 44
-Info (10041): Inferred latch for "score_update[18]" at input_handler.vhd(44) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 44
-Info (10041): Inferred latch for "score_update[19]" at input_handler.vhd(44) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 44
-Info (10041): Inferred latch for "score_update[20]" at input_handler.vhd(44) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 44
-Info (10041): Inferred latch for "score_update[21]" at input_handler.vhd(44) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 44
-Info (10041): Inferred latch for "score_update[22]" at input_handler.vhd(44) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 44
-Info (10041): Inferred latch for "score_update[23]" at input_handler.vhd(44) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 44
-Info (10041): Inferred latch for "score_update[24]" at input_handler.vhd(44) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 44
-Info (10041): Inferred latch for "score_update[25]" at input_handler.vhd(44) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 44
-Info (10041): Inferred latch for "score_update[26]" at input_handler.vhd(44) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 44
-Info (10041): Inferred latch for "score_update[27]" at input_handler.vhd(44) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 44
-Info (10041): Inferred latch for "score_update[28]" at input_handler.vhd(44) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 44
-Info (10041): Inferred latch for "score_update[29]" at input_handler.vhd(44) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 44
-Info (10041): Inferred latch for "score_update[30]" at input_handler.vhd(44) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 44
-Info (10041): Inferred latch for "score_update[31]" at input_handler.vhd(44) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 44
-Info (10041): Inferred latch for "internal_success" at input_handler.vhd(44) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 44
-Info (10041): Inferred latch for "internal_done" at input_handler.vhd(44) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 44
+Warning (10492): VHDL Process Statement warning at input_handler.vhd(68): signal "combo" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 68
+Warning (10492): VHDL Process Statement warning at input_handler.vhd(77): signal "received_input" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 77
+Warning (10492): VHDL Process Statement warning at input_handler.vhd(84): signal "internal_done" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 84
+Warning (10492): VHDL Process Statement warning at input_handler.vhd(85): signal "internal_success" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 85
+Warning (10631): VHDL Process Statement warning at input_handler.vhd(45): inferring latch(es) for signal or variable "internal_done", which holds its previous value in one or more paths through the process File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 45
+Warning (10631): VHDL Process Statement warning at input_handler.vhd(45): inferring latch(es) for signal or variable "internal_success", which holds its previous value in one or more paths through the process File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 45
+Warning (10631): VHDL Process Statement warning at input_handler.vhd(45): inferring latch(es) for signal or variable "score_update", which holds its previous value in one or more paths through the process File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 45
+Warning (10631): VHDL Process Statement warning at input_handler.vhd(45): inferring latch(es) for signal or variable "combo", which holds its previous value in one or more paths through the process File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 45
+Info (10041): Inferred latch for "combo[0]" at input_handler.vhd(45) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 45
+Info (10041): Inferred latch for "combo[1]" at input_handler.vhd(45) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 45
+Info (10041): Inferred latch for "combo[2]" at input_handler.vhd(45) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 45
+Info (10041): Inferred latch for "combo[3]" at input_handler.vhd(45) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 45
+Info (10041): Inferred latch for "combo[4]" at input_handler.vhd(45) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 45
+Info (10041): Inferred latch for "combo[5]" at input_handler.vhd(45) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 45
+Info (10041): Inferred latch for "combo[6]" at input_handler.vhd(45) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 45
+Info (10041): Inferred latch for "combo[7]" at input_handler.vhd(45) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 45
+Info (10041): Inferred latch for "combo[8]" at input_handler.vhd(45) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 45
+Info (10041): Inferred latch for "combo[9]" at input_handler.vhd(45) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 45
+Info (10041): Inferred latch for "combo[10]" at input_handler.vhd(45) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 45
+Info (10041): Inferred latch for "combo[11]" at input_handler.vhd(45) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 45
+Info (10041): Inferred latch for "combo[12]" at input_handler.vhd(45) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 45
+Info (10041): Inferred latch for "combo[13]" at input_handler.vhd(45) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 45
+Info (10041): Inferred latch for "combo[14]" at input_handler.vhd(45) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 45
+Info (10041): Inferred latch for "combo[15]" at input_handler.vhd(45) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 45
+Info (10041): Inferred latch for "combo[16]" at input_handler.vhd(45) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 45
+Info (10041): Inferred latch for "combo[17]" at input_handler.vhd(45) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 45
+Info (10041): Inferred latch for "combo[18]" at input_handler.vhd(45) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 45
+Info (10041): Inferred latch for "combo[19]" at input_handler.vhd(45) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 45
+Info (10041): Inferred latch for "combo[20]" at input_handler.vhd(45) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 45
+Info (10041): Inferred latch for "combo[21]" at input_handler.vhd(45) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 45
+Info (10041): Inferred latch for "combo[22]" at input_handler.vhd(45) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 45
+Info (10041): Inferred latch for "combo[23]" at input_handler.vhd(45) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 45
+Info (10041): Inferred latch for "combo[24]" at input_handler.vhd(45) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 45
+Info (10041): Inferred latch for "combo[25]" at input_handler.vhd(45) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 45
+Info (10041): Inferred latch for "combo[26]" at input_handler.vhd(45) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 45
+Info (10041): Inferred latch for "combo[27]" at input_handler.vhd(45) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 45
+Info (10041): Inferred latch for "combo[28]" at input_handler.vhd(45) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 45
+Info (10041): Inferred latch for "combo[29]" at input_handler.vhd(45) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 45
+Info (10041): Inferred latch for "combo[30]" at input_handler.vhd(45) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 45
+Info (10041): Inferred latch for "combo[31]" at input_handler.vhd(45) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 45
+Info (10041): Inferred latch for "score_update[0]" at input_handler.vhd(45) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 45
+Info (10041): Inferred latch for "score_update[1]" at input_handler.vhd(45) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 45
+Info (10041): Inferred latch for "score_update[2]" at input_handler.vhd(45) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 45
+Info (10041): Inferred latch for "score_update[3]" at input_handler.vhd(45) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 45
+Info (10041): Inferred latch for "score_update[4]" at input_handler.vhd(45) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 45
+Info (10041): Inferred latch for "score_update[5]" at input_handler.vhd(45) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 45
+Info (10041): Inferred latch for "score_update[6]" at input_handler.vhd(45) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 45
+Info (10041): Inferred latch for "score_update[7]" at input_handler.vhd(45) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 45
+Info (10041): Inferred latch for "score_update[8]" at input_handler.vhd(45) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 45
+Info (10041): Inferred latch for "score_update[9]" at input_handler.vhd(45) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 45
+Info (10041): Inferred latch for "score_update[10]" at input_handler.vhd(45) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 45
+Info (10041): Inferred latch for "score_update[11]" at input_handler.vhd(45) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 45
+Info (10041): Inferred latch for "score_update[12]" at input_handler.vhd(45) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 45
+Info (10041): Inferred latch for "score_update[13]" at input_handler.vhd(45) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 45
+Info (10041): Inferred latch for "score_update[14]" at input_handler.vhd(45) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 45
+Info (10041): Inferred latch for "score_update[15]" at input_handler.vhd(45) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 45
+Info (10041): Inferred latch for "score_update[16]" at input_handler.vhd(45) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 45
+Info (10041): Inferred latch for "score_update[17]" at input_handler.vhd(45) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 45
+Info (10041): Inferred latch for "score_update[18]" at input_handler.vhd(45) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 45
+Info (10041): Inferred latch for "score_update[19]" at input_handler.vhd(45) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 45
+Info (10041): Inferred latch for "score_update[20]" at input_handler.vhd(45) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 45
+Info (10041): Inferred latch for "score_update[21]" at input_handler.vhd(45) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 45
+Info (10041): Inferred latch for "score_update[22]" at input_handler.vhd(45) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 45
+Info (10041): Inferred latch for "score_update[23]" at input_handler.vhd(45) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 45
+Info (10041): Inferred latch for "score_update[24]" at input_handler.vhd(45) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 45
+Info (10041): Inferred latch for "score_update[25]" at input_handler.vhd(45) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 45
+Info (10041): Inferred latch for "score_update[26]" at input_handler.vhd(45) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 45
+Info (10041): Inferred latch for "score_update[27]" at input_handler.vhd(45) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 45
+Info (10041): Inferred latch for "score_update[28]" at input_handler.vhd(45) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 45
+Info (10041): Inferred latch for "score_update[29]" at input_handler.vhd(45) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 45
+Info (10041): Inferred latch for "score_update[30]" at input_handler.vhd(45) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 45
+Info (10041): Inferred latch for "score_update[31]" at input_handler.vhd(45) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 45
+Info (10041): Inferred latch for "internal_success" at input_handler.vhd(45) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 45
+Info (10041): Inferred latch for "internal_done" at input_handler.vhd(45) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 45
 Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 5 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 127 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 6 input pins
+Info (21057): Implemented 129 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 8 input pins
     Info (21059): Implemented 5 output pins
     Info (21061): Implemented 115 logic cells
     Info (21065): Implemented 1 PLLs
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 30 warnings
-    Info: Peak virtual memory: 4853 megabytes
-    Info: Processing ended: Thu Apr 29 20:24:51 2021
+    Info: Peak virtual memory: 4854 megabytes
+    Info: Processing ended: Sat May 01 20:12:33 2021
     Info: Elapsed time: 00:00:14
-    Info: Total CPU time (on all processors): 00:00:30
+    Info: Total CPU time (on all processors): 00:00:31
 
 

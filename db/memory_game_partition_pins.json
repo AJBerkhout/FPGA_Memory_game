@@ -44,6 +44,14 @@
 					"strict" : false
 				},
 				{
+					"name" : "diff_sw[1]",
+					"strict" : false
+				},
+				{
+					"name" : "diff_sw[0]",
+					"strict" : false
+				},
+				{
 					"name" : "clk_50",
 					"strict" : false
 				}

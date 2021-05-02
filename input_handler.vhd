@@ -12,6 +12,7 @@ entity input_handler is
 	 done: out std_logic;
 	 success: out std_logic;
     score_update: out integer
+	 
   );
 end input_handler;
 

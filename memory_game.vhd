@@ -6,6 +6,7 @@ entity memory_game is
     clk_50 : in std_logic; -- connected to 50 MHz clock PIN_AF14;
     btn_one, btn_two, btn_three, btn_four : in std_logic; -- connected to KEY[0..4]
 	 power_switch: in std_logic; --connected to the first switch to indicate game starts
+	 diff_sw : in std_logic_vector(1 downto 0);
 	 leds: out std_logic_vector(3 downto 0); -- LEDR[3 downto 0]
 	 input_val: out std_logic -- LEDR[9]
   );
@@ -55,7 +56,8 @@ end component;
 component clk_divider
   Port ( 
     CLK_IN : in STD_LOGIC;
-    CLK_OUT : out STD_LOGIC
+    CLK_OUT : out STD_LOGIC;
+	 TIMECONST: IN integer
   );
 END COMPONENT;
 
@@ -69,6 +71,7 @@ signal input_success : std_logic := '0';
 signal score_inst : integer;
 signal time_out : integer := 100;
 signal score : integer;
+signal difficulty_const : integer := 22;
 begin
 
 btn1 <= not btn_one; --when the button is pressed
@@ -78,7 +81,7 @@ btn4 <= not btn_four; --when the button is pressed
 
 reset <= not power_switch; --add ability to turn game off
 
-clk_div_inst : clk_divider port map (clk_50, slowClk);
+clk_div_inst : clk_divider port map (clk_50, slowClk, difficulty_const);
 alt_pll_inst : my_altpll port map (clk_50, reset, clk); --instance of clk_divider component
 lsfr_inst : LFSR port map (clk, input_done, reset, random_led_output); --instance of lsfr to generate new sequences
 
@@ -91,5 +94,20 @@ begin
 	input_val <= input_success;
 	score <= score + score_inst;
 end process;
+
+process (diff_sw)
+begin
+	case diff_sw is
+		when "00" =>
+			difficulty_const <= 27;
+		when "01" =>
+			difficulty_const <= 22;
+		when "10" =>
+			difficulty_const <= 19;
+		when "11" =>
+			difficulty_const <= 17;
+	end case;
+end process;
+			
 
 end my_structural;
