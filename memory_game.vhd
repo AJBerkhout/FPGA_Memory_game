@@ -36,8 +36,8 @@ component input_handler is
 	port (
 	  tick1, tick2, tick3, tick4: in std_logic;
 	  reset: in std_logic;
-	  clk, timer_clk: in std_logic;
-	  time_out: in integer;
+	  clk: in std_logic;
+	  expire: in std_logic;
 	  expected_input: in std_logic_vector(3 downto 0);
 	  done: out std_logic;
 	  success: out std_logic;
@@ -65,13 +65,15 @@ signal clk, slowClk : std_logic; -- internal signal set by clock divider output
 signal btn1, btn2, btn3, btn4 : std_logic; -- internal signal for the buttons
 signal tick1, tick2, tick3, tick4 : std_logic; -- internal signal for the buttons
 signal reset : std_logic;
-signal random_led_output : std_logic_Vector(3 downto 0);
-signal input_done: std_logic := '1';
+signal curr_input : std_logic_Vector(3 downto 0) := "0000";
+signal input_done: std_logic := '0';
 signal input_success : std_logic := '0';
 signal score_inst : integer;
 signal time_out : integer := 100;
 signal score : integer;
 signal difficulty_const : integer := 22;
+signal expire : std_logic := '0';
+signal counter : integer := 0;
 begin
 
 btn1 <= not btn_one; --when the button is pressed
@@ -83,11 +85,11 @@ reset <= not power_switch; --add ability to turn game off
 
 clk_div_inst : clk_divider port map (clk_50, slowClk, difficulty_const);
 alt_pll_inst : my_altpll port map (clk_50, reset, clk); --instance of clk_divider component
-lsfr_inst : LFSR port map (clk, input_done, reset, random_led_output); --instance of lsfr to generate new sequences
+lsfr_inst : LFSR port map (slowClk, expire, reset, curr_input); --instance of lsfr to generate new sequences
 
-leds <= random_led_output; --output the expected sequence to the leds
+leds <= curr_input; --output the expected sequence to the leds
 --input handler component instance
-input_handler_inst : input_handler port map (btn1, btn2, btn3, btn4, reset, clk, slowClk, time_out, random_led_output, input_done, input_success, score_inst);
+input_handler_inst : input_handler port map (btn1, btn2, btn3, btn4, reset, clk_50, expire, curr_input, input_done, input_success, score_inst);
 
 process (score_inst)
 begin
@@ -101,13 +103,25 @@ begin
 		when "00" =>
 			difficulty_const <= 27;
 		when "01" =>
-			difficulty_const <= 22;
+			difficulty_const <= 24;
 		when "10" =>
-			difficulty_const <= 19;
+			difficulty_const <= 22;
 		when "11" =>
-			difficulty_const <= 17;
+			difficulty_const <= 20;
 	end case;
 end process;
 			
+process (slowClk)
+begin
+	if (slowClk'event and slowClk = '1') then
+		expire <= '0';
+		if (counter < time_out) then
+			counter <= counter + 1;
+		else
+			expire <= '1';
+			counter <= 0;
+		end if;
+	end if;
+end process;
 
 end my_structural;

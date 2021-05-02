@@ -6,8 +6,7 @@ entity input_handler is
     tick1, tick2, tick3, tick4: in std_logic;
 	 reset: in std_logic;
     clk: in std_logic;
-	 timer_clk : in std_logic;
-	 time_out: in integer;
+	 expire : in std_logic;
 	 expected_input: in std_logic_vector(3 downto 0);
 	 done: out std_logic;
 	 success: out std_logic;
@@ -23,9 +22,8 @@ architecture MEALY_ARCHITECTURE of input_handler is
 	signal received_input: std_logic_vector (3 downto 0); --for what input was received
 	signal internal_done : std_logic := '0';  --internal signal indicating whether an input was received
 	signal internal_success: std_logic := '0'; --internal signal for whether to input was correct
+	signal prev_input : std_logic_vector (3 downto 0) := "0000";
 	signal combo : integer := 0;
-	
-	signal counter : integer := 0;
 	begin
 		-- state register; process #1
 		process (clk, reset)
@@ -42,7 +40,7 @@ architecture MEALY_ARCHITECTURE of input_handler is
 	   end process;
     	
 		-- next state and output logic; process #2
-		process (state_current, expected_input, timer_clk)
+		process (state_current, expected_input, expire)
 		begin
 			state_next <= state_current;
 			case state_current is 
@@ -50,18 +48,16 @@ architecture MEALY_ARCHITECTURE of input_handler is
 				
 					internal_done <= '0'; --reset success and done while waiting
 					internal_success <= '0';
-					if (timer_clk' event and timer_clk = '1') then
-						counter <= counter + 1;
-					end if;
-					if (time_out <= counter) then
+					if (expire = '1') then
 						internal_success <= '0';
 						score_update <= 0;
 						combo <= 0;
-						state_next <= validating_input;
+						state_next <= waiting_input;
 					elsif (received_input = "0000") then --no input received
 						state_next <= waiting_input; --continue waiting
 					else
 						state_next <= validating_input; --otherwise move to validating
+						internal_done <= '1'; --process is currently done
 						if (received_input = expected_input) then --check whether input was correct
 							internal_success <= '1';
 							combo <= combo + 1;
@@ -73,14 +69,12 @@ architecture MEALY_ARCHITECTURE of input_handler is
 						end if;
 					end if;
 				when validating_input =>
-					counter <= 0;
-					if (received_input = "0000") then --button has been deselected
-						internal_done <= '1'; --process is currently done
-						state_next <= waiting_input;	 --move to waiting for next input
+					if (expire = '1') then
+						state_next <= waiting_input; --otherwise, keep validating
 					else
-						state_next <= validating_input; --otherwise, keep validating
+						state_next <= validating_input;
 					end if;
-			end case;
+				end case;
 		done <= internal_done; --return the done and success status
 		success <= internal_success;
 		end process;
