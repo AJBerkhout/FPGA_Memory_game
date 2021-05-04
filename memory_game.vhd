@@ -93,7 +93,7 @@ signal clk, slowClk : std_logic; -- internal signal set by clock divider output
 signal btn1, btn2, btn3, btn4 : std_logic; -- internal signal for the buttons
 signal tick1, tick2, tick3, tick4 : std_logic; -- internal signal for the buttons
 signal reset : std_logic;
-signal curr_input : std_logic_Vector(3 downto 0) := "0000";
+signal curr_input, input_1, input_2, input_3 : std_logic_Vector(3 downto 0) := "0000";
 signal input_done: std_logic := '0';
 signal input_success : std_logic := '0';
 signal score_inst : integer;
@@ -109,7 +109,7 @@ signal rgb : std_logic_vector(2 downto 0);
 begin
 
 
-color_map_inst : color_map port map ("0000", rgb, vga_r, vga_g, vga_b);
+color_map_inst : color_map port map ("0001", rgb, vga_r, vga_g, vga_b);
 btn1 <= not btn_one; --when the button is pressed
 btn2 <= not btn_two; --when the button is pressed
 btn3 <= not btn_three; --when the button is pressed
@@ -119,7 +119,7 @@ reset <= not power_switch; --add ability to turn game off
 
 clk_div_inst : clk_divider port map (clk_50, slowClk, difficulty_const);
 alt_pll_inst : my_altpll port map (clk_50, reset, clk); --instance of clk_divider component
-lsfr_inst : LFSR port map (slowClk, expire, reset, curr_input); --instance of lsfr to generate new sequences
+lsfr_inst : LFSR port map (slowClk, expire, reset, input_3); --instance of lsfr to generate new sequences
 
 -- instantiate color mapper
 --color_map_unit: entity work.color_map port map(sw, rgb_reg, vga_r, vga_g, vga_b);
@@ -170,6 +170,9 @@ begin
 		else
 			expire <= '1';
 			counter <= 0;
+			curr_input <= input_1;
+			input_1 <= input_2;
+			input_2 <= input_3;
 		end if;
 	end if;
 end process;
@@ -184,6 +187,9 @@ end process;
 		videoOn=>video_on,
 		vPos=>pixel_y,
 		expected_input=>curr_input,
+		input_1 => input_1,
+		input_2 => input_2,
+		input_3 => input_3,
       rgb => rgb
 		);
 

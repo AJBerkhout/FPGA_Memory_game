@@ -1,6 +1,6 @@
 Analysis & Synthesis report for memory_game
-Mon May 03 21:35:43 2021
-Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
+Tue May 04 11:30:34 2021
+Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
 ---------------------
@@ -33,33 +33,33 @@ Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
 ----------------
 ; Legal Notice ;
 ----------------
-Copyright (C) 2016  Intel Corporation. All rights reserved.
+Copyright (C) 2020  Intel Corporation. All rights reserved.
 Your use of Intel Corporation's design tools, logic functions 
-and other software and tools, and its AMPP partner logic 
+and other software and tools, and any partner logic 
 functions, and any output files from any of the foregoing 
 (including device programming or simulation files), and any 
 associated documentation or information are expressly subject 
 to the terms and conditions of the Intel Program License 
 Subscription Agreement, the Intel Quartus Prime License Agreement,
-the Intel MegaCore Function License Agreement, or other 
-applicable license agreement, including, without limitation, 
-that your use is for the sole purpose of programming logic 
-devices manufactured by Intel and sold by Intel or its 
-authorized distributors.  Please refer to the applicable 
-agreement for further details.
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
 
 
 
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Mon May 03 21:35:43 2021       ;
-; Quartus Prime Version           ; 16.1.0 Build 196 10/24/2016 SJ Lite Edition ;
+; Analysis & Synthesis Status     ; Successful - Tue May 04 11:30:34 2021       ;
+; Quartus Prime Version           ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                   ; memory_game                                 ;
 ; Top-level Entity Name           ; memory_game                                 ;
 ; Family                          ; Cyclone V                                   ;
 ; Logic utilization (in ALMs)     ; N/A                                         ;
-; Total registers                 ; 109                                         ;
+; Total registers                 ; 121                                         ;
 ; Total pins                      ; 43                                          ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 0                                           ;
@@ -82,13 +82,13 @@ agreement for further details.
 ; Top-level entity name                                                           ; memory_game        ; memory_game        ;
 ; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
 ; Use smart compilation                                                           ; Off                ; Off                ;
-; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation      ; On                 ; On                 ;
+; Enable parallel Assembler and Timing Analyzer during compilation                ; On                 ; On                 ;
 ; Enable compact report table                                                     ; Off                ; Off                ;
 ; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
 ; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
 ; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
 ; Preserve fewer node names                                                       ; On                 ; On                 ;
-; OpenCore Plus hardware evaluation                                               ; Enable             ; Enable             ;
+; Intel FPGA IP Evaluation Mode                                                   ; Enable             ; Enable             ;
 ; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
 ; VHDL Version                                                                    ; VHDL_1993          ; VHDL_1993          ;
 ; State Machine Processing                                                        ; Auto               ; Auto               ;
@@ -139,7 +139,7 @@ agreement for further details.
 ; Report Connectivity Checks                                                      ; On                 ; On                 ;
 ; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
 ; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
-; PowerPlay Power Optimization During Synthesis                                   ; Normal compilation ; Normal compilation ;
+; Power Optimization During Synthesis                                             ; Normal compilation ; Normal compilation ;
 ; HDL message level                                                               ; Level2             ; Level2             ;
 ; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
 ; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
@@ -173,8 +173,7 @@ agreement for further details.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.0%      ;
-;     Processors 3-4         ;   0.0%      ;
+;     Processors 2-4         ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -192,7 +191,7 @@ agreement for further details.
 ; 2_lfsr.vhd                       ; yes             ; User VHDL File              ; C:/FPGA/FPGA_Memory_game/2_lfsr.vhd                                 ;           ;
 ; my_altpll.vhd                    ; yes             ; User Wizard-Generated File  ; C:/FPGA/FPGA_Memory_game/my_altpll.vhd                              ; my_altpll ;
 ; my_altpll/my_altpll_0002.v       ; yes             ; User Verilog HDL File       ; C:/FPGA/FPGA_Memory_game/my_altpll/my_altpll_0002.v                 ; my_altpll ;
-; altera_pll.v                     ; yes             ; Megafunction                ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/altera_pll.v ;           ;
+; altera_pll.v                     ; yes             ; Megafunction                ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altera_pll.v ;           ;
 +----------------------------------+-----------------+-----------------------------+---------------------------------------------------------------------+-----------+
 
 
@@ -201,16 +200,16 @@ agreement for further details.
 +---------------------------------------------+--------------+
 ; Resource                                    ; Usage        ;
 +---------------------------------------------+--------------+
-; Estimate of Logic utilization (ALMs needed) ; 95           ;
+; Estimate of Logic utilization (ALMs needed) ; 113          ;
 ;                                             ;              ;
-; Combinational ALUT usage for logic          ; 162          ;
-;     -- 7 input functions                    ; 2            ;
-;     -- 6 input functions                    ; 25           ;
-;     -- 5 input functions                    ; 12           ;
-;     -- 4 input functions                    ; 9            ;
-;     -- <=3 input functions                  ; 114          ;
+; Combinational ALUT usage for logic          ; 187          ;
+;     -- 7 input functions                    ; 1            ;
+;     -- 6 input functions                    ; 36           ;
+;     -- 5 input functions                    ; 9            ;
+;     -- 4 input functions                    ; 20           ;
+;     -- <=3 input functions                  ; 121          ;
 ;                                             ;              ;
-; Dedicated logic registers                   ; 109          ;
+; Dedicated logic registers                   ; 121          ;
 ;                                             ;              ;
 ; I/O pins                                    ; 43           ;
 ;                                             ;              ;
@@ -218,8 +217,8 @@ agreement for further details.
 ;                                             ;              ;
 ; Maximum fan-out node                        ; clk_50~input ;
 ; Maximum fan-out                             ; 66           ;
-; Total fan-out                               ; 957          ;
-; Average fan-out                             ; 2.68         ;
+; Total fan-out                               ; 1101         ;
+; Average fan-out                             ; 2.79         ;
 +---------------------------------------------+--------------+
 
 
@@ -228,12 +227,12 @@ agreement for further details.
 +---------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------+---------------+--------------+
 ; Compilation Hierarchy Node            ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                           ; Entity Name   ; Library Name ;
 +---------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------+---------------+--------------+
-; |memory_game                          ; 162 (38)            ; 109 (33)                  ; 0                 ; 0          ; 43   ; 0            ; |memory_game                                  ; memory_game   ; work         ;
+; |memory_game                          ; 187 (38)            ; 121 (45)                  ; 0                 ; 0          ; 43   ; 0            ; |memory_game                                  ; memory_game   ; work         ;
 ;    |LFSR:lsfr_inst|                   ; 9 (9)               ; 8 (8)                     ; 0                 ; 0          ; 0    ; 0            ; |memory_game|LFSR:lsfr_inst                   ; LFSR          ; work         ;
 ;    |clk_divider:clk_div_inst|         ; 56 (56)             ; 41 (41)                   ; 0                 ; 0          ; 0    ; 0            ; |memory_game|clk_divider:clk_div_inst         ; clk_divider   ; work         ;
-;    |color_map:color_map_inst|         ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |memory_game|color_map:color_map_inst         ; color_map     ; work         ;
-;    |draw:U1|                          ; 20 (20)             ; 3 (3)                     ; 0                 ; 0          ; 0    ; 0            ; |memory_game|draw:U1                          ; draw          ; work         ;
-;    |input_handler:input_handler_inst| ; 4 (4)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |memory_game|input_handler:input_handler_inst ; input_handler ; work         ;
+;    |color_map:color_map_inst|         ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |memory_game|color_map:color_map_inst         ; color_map     ; work         ;
+;    |draw:U1|                          ; 43 (43)             ; 3 (3)                     ; 0                 ; 0          ; 0    ; 0            ; |memory_game|draw:U1                          ; draw          ; work         ;
+;    |input_handler:input_handler_inst| ; 5 (5)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |memory_game|input_handler:input_handler_inst ; input_handler ; work         ;
 ;    |vga_sync:vga_sync_unit|           ; 34 (34)             ; 23 (23)                   ; 0                 ; 0          ; 0    ; 0            ; |memory_game|vga_sync:vga_sync_unit           ; vga_sync      ; work         ;
 +---------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------+---------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
@@ -264,7 +263,7 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +---------------------------------------+----------------------------+
 ; Register name                         ; Reason for Removal         ;
 +---------------------------------------+----------------------------+
-; draw:U1|rgb[2]                        ; Merged with draw:U1|rgb[1] ;
+; draw:U1|rgb[2]                        ; Merged with draw:U1|rgb[0] ;
 ; Total Number of Removed Registers = 1 ;                            ;
 +---------------------------------------+----------------------------+
 
@@ -274,12 +273,12 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 109   ;
+; Total registers                              ; 121   ;
 ; Number of registers using Synchronous Clear  ; 92    ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 34    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 58    ;
+; Number of registers using Clock Enable       ; 70    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -300,8 +299,8 @@ Note: All latches listed above may not be present at the end of synthesis due to
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                      ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------+
 ; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |memory_game|clk_divider:clk_div_inst|count1[0] ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |memory_game|clk_divider:clk_div_inst|count2[4] ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |memory_game|clk_divider:clk_div_inst|count3[1] ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |memory_game|clk_divider:clk_div_inst|count2[0] ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |memory_game|clk_divider:clk_div_inst|count3[9] ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------+
 
 
@@ -584,11 +583,12 @@ Note: In order to hide this table in the UI and the text report file, please set
 
 +------------------------------------------------------+
 ; Port Connectivity Checks: "color_map:color_map_inst" ;
-+------+-------+----------+----------------------------+
-; Port ; Type  ; Severity ; Details                    ;
-+------+-------+----------+----------------------------+
-; sw   ; Input ; Info     ; Stuck at GND               ;
-+------+-------+----------+----------------------------+
++----------+-------+----------+------------------------+
+; Port     ; Type  ; Severity ; Details                ;
++----------+-------+----------+------------------------+
+; sw[3..1] ; Input ; Info     ; Stuck at GND           ;
+; sw[0]    ; Input ; Info     ; Stuck at VCC           ;
++----------+-------+----------+------------------------+
 
 
 +-----------------------------------------------------+
@@ -596,30 +596,31 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 109                         ;
+; arriav_ff             ; 121                         ;
 ;     CLR               ; 6                           ;
+;     ENA               ; 12                          ;
 ;     ENA CLR           ; 8                           ;
 ;     ENA CLR SCLR      ; 20                          ;
 ;     ENA SCLR          ; 30                          ;
 ;     SCLR              ; 42                          ;
 ;     plain             ; 3                           ;
-; arriav_lcell_comb     ; 165                         ;
+; arriav_lcell_comb     ; 189                         ;
 ;     arith             ; 92                          ;
 ;         1 data inputs ; 92                          ;
-;     extend            ; 2                           ;
-;         7 data inputs ; 2                           ;
-;     normal            ; 71                          ;
+;     extend            ; 1                           ;
+;         7 data inputs ; 1                           ;
+;     normal            ; 96                          ;
 ;         0 data inputs ; 2                           ;
-;         1 data inputs ; 5                           ;
-;         2 data inputs ; 16                          ;
-;         3 data inputs ; 2                           ;
-;         4 data inputs ; 9                           ;
-;         5 data inputs ; 12                          ;
-;         6 data inputs ; 25                          ;
+;         1 data inputs ; 4                           ;
+;         2 data inputs ; 17                          ;
+;         3 data inputs ; 8                           ;
+;         4 data inputs ; 20                          ;
+;         5 data inputs ; 9                           ;
+;         6 data inputs ; 36                          ;
 ; boundary_port         ; 43                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 4.10                        ;
-; Average LUT depth     ; 2.41                        ;
+; Max LUT depth         ; 5.00                        ;
+; Average LUT depth     ; 2.64                        ;
 +-----------------------+-----------------------------+
 
 
@@ -637,8 +638,8 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------------------------+
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
-    Info: Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
-    Info: Processing started: Mon May 03 21:35:29 2021
+    Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+    Info: Processing started: Tue May 04 11:30:22 2021
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off memory_game -c memory_game
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -839,10 +840,10 @@ Info (10041): Inferred latch for "score_update[30]" at input_handler.vhd(43) Fil
 Info (10041): Inferred latch for "score_update[31]" at input_handler.vhd(43) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
 Info (10041): Inferred latch for "internal_success" at input_handler.vhd(43) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
 Info (10041): Inferred latch for "internal_done" at input_handler.vhd(43) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Info (12128): Elaborating entity "draw" for hierarchy "draw:U1" File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 179
+Info (12128): Elaborating entity "draw" for hierarchy "draw:U1" File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 182
 Warning (14284): Synthesized away the following node(s):
     Warning (14285): Synthesized away the following PLL node(s):
-        Warning (14320): Synthesized away node "my_altpll:alt_pll_inst|my_altpll_0002:my_altpll_inst|altera_pll:altera_pll_i|outclk_wire[0]" File: c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/altera_pll.v Line: 749
+        Warning (14320): Synthesized away node "my_altpll:alt_pll_inst|my_altpll_0002:my_altpll_inst|altera_pll:altera_pll_i|outclk_wire[0]" File: c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altera_pll.v Line: 749
 Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "vga_sync" is stuck at VCC File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 16
@@ -850,14 +851,14 @@ Warning (13024): Output pins are stuck at VCC or GND
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 209 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 242 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 8 input pins
     Info (21059): Implemented 35 output pins
-    Info (21061): Implemented 166 logic cells
+    Info (21061): Implemented 199 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 29 warnings
-    Info: Peak virtual memory: 4855 megabytes
-    Info: Processing ended: Mon May 03 21:35:43 2021
-    Info: Elapsed time: 00:00:14
-    Info: Total CPU time (on all processors): 00:00:30
+    Info: Peak virtual memory: 4853 megabytes
+    Info: Processing ended: Tue May 04 11:30:34 2021
+    Info: Elapsed time: 00:00:12
+    Info: Total CPU time (on all processors): 00:00:28
 
 

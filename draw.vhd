@@ -11,7 +11,7 @@ entity draw is
 		vPos:in std_logic_vector (9 downto 0);
       --R,G,B: out std_logic_vector(3 downto 0);
 		rgb: out std_logic_vector(2 downto 0);
-		expected_input: in std_logic_vector(3 downto 0);
+		expected_input, input_1, input_2, input_3: in std_logic_vector(3 downto 0);
 		--timer_60Hz: in std_logic;
 		videoOn: in std_logic
    );
@@ -30,6 +30,47 @@ signal pixel_y_note_next: unsigned(9 downto 0);
 --new added 5/3/2021
 
 ----------------------------------------------------------------
+function horiz_rgb (localH : std_logic_vector(9 downto 0); input: std_logic_vector(3 downto 0); color_blanks: std_logic) return std_logic_vector is
+		variable rgb_local : std_logic_vector(2 downto 0);
+	begin
+		if(localH >= std_logic_vector(to_unsigned(75, localH'length)) and localH <= std_logic_vector(to_unsigned(174, localH'length))) then
+			if (input = "1000") then
+				rgb_local := "010";
+			elsif (color_blanks = '1') then
+				rgb_local := "111";
+			else 
+				rgb_local := "000";
+			end if;
+		elsif (localH >= std_logic_vector(to_unsigned(205, localH'length)) and localH <= std_logic_vector(to_unsigned(304, localH'length))) then
+			if (input = "0100") then
+				rgb_local := "010";
+			elsif (color_blanks = '1') then
+				rgb_local := "111";
+			else 
+				rgb_local := "000";
+			end if;
+		elsif (localH >= std_logic_vector(to_unsigned(335, localH'length)) and localH <= std_logic_vector(to_unsigned(434, localH'length))) then
+			if (input = "0010") then
+				rgb_local := "010";
+			elsif (color_blanks = '1') then
+				rgb_local := "111";
+			else 
+				rgb_local := "000";
+			end if;
+		elsif (localH >= std_logic_vector(to_unsigned(465, localH'length)) and localH <= std_logic_vector(to_unsigned(564, localH'length))) then
+			if (input = "0001") then
+				rgb_local := "010";
+			elsif (color_blanks = '1') then
+				rgb_local := "111";
+			else 
+				rgb_local := "000";
+			end if;
+		else 
+			rgb_local := "000";
+		end if;
+		return rgb_local;
+	end function;
+
 
 begin
 
@@ -42,7 +83,6 @@ begin
 --------------------------------------------------------------------------------------------------------------------------
 --639 horizontal
 ----479 vertical
-
 	
 	--upper left box
 	drawUL:process(clk25, reset, hPos, vPos, videoOn)
@@ -51,40 +91,17 @@ begin
 					rgb <= "000";
 		elsif(clk25'event and clk25 = '1')then
 			if(videoOn = '1')then
-				--if(((hPos >= "75" and hPos <= "174") OR (hPos >= "465" and hPos <= "564")) AND ((vPos >="400"  and vPos <= "750")))then
-				if (vPos >="0101100010"  and vPos <= "0110010100") then
-					if(hPos >= "0001001011" and hPos <= "0010101110") then
-						if (expected_input = "1000") then
-							rgb <= "110";
-						else
-							rgb <= "111";
-						end if;
-					elsif (hPos >= "0011001101" and hPos <= "0100110000") then
-						if (expected_input = "0100") then
-							rgb <= "110";
-						else
-							rgb <= "111";
-						end if;
-					elsif (hPos >= "0101001111" and hPos <= "0110110010")then
-						if (expected_input = "0010") then
-							rgb <= "110";
-						else
-							rgb <= "111";
-						end if;
-					elsif (hPos >= "0111010001" and hPos <= "1000110100") then
-						if (expected_input = "0001") then
-							rgb <= "110";
-						else
-							rgb <= "111";
-						end if;
-					else
-						rgb <= "000";
-					end if;			
+				if (vPos >= std_logic_vector(to_unsigned(360, vPos'length))  and vPos <= std_logic_vector(to_unsigned(410, vPos'length))) then
+					rgb <= horiz_rgb(hPos, expected_input, '1');			
+				elsif (vPos >= std_logic_vector(to_unsigned(260, vPos'length))  and vPos <= std_logic_vector(to_unsigned(310, vPos'length))) then
+					rgb <= horiz_rgb(hPos, input_1, '0');			
+				elsif (vPos >= std_logic_vector(to_unsigned(160, vPos'length))  and vPos <= std_logic_vector(to_unsigned(210, vPos'length))) then
+					rgb <= horiz_rgb(hPos, input_2, '0');			
+				elsif (vPos >= std_logic_vector(to_unsigned(60, vPos'length))  and vPos <= std_logic_vector(to_unsigned(110, vPos'length))) then
+					rgb <= horiz_rgb(hPos, input_3, '0');			
 				else
 					rgb <= "000";
 				end if;--ends bottom blocks
-	
-				
 			else
 					rgb <= "000";
 			end if;

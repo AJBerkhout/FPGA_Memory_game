@@ -1,10 +1,10 @@
-Analysis & Synthesis Status : Successful - Mon May 03 21:35:43 2021
-Quartus Prime Version : 16.1.0 Build 196 10/24/2016 SJ Lite Edition
+Analysis & Synthesis Status : Successful - Tue May 04 11:30:34 2021
+Quartus Prime Version : 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 Revision Name : memory_game
 Top-level Entity Name : memory_game
 Family : Cyclone V
 Logic utilization (in ALMs) : N/A
-Total registers : 109
+Total registers : 121
 Total pins : 43
 Total virtual pins : 0
 Total block memory bits : 0

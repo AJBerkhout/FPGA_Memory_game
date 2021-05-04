@@ -1,5 +1,197 @@
 ------------------------------------------------------------
-TimeQuest Timing Analyzer Summary
+Timing Analyzer Summary
 ------------------------------------------------------------
+
+Type  : Slow 1100mV 85C Model Setup 'draw:U1|clk25'
+Slack : -5.627
+TNS   : -10.628
+
+Type  : Slow 1100mV 85C Model Setup 'clk_50'
+Slack : -3.773
+TNS   : -139.431
+
+Type  : Slow 1100mV 85C Model Setup 'clk_divider:clk_div_inst|D'
+Slack : -2.984
+TNS   : -178.555
+
+Type  : Slow 1100mV 85C Model Setup 'input_handler:input_handler_inst|state_current'
+Slack : -2.722
+TNS   : -2.722
+
+Type  : Slow 1100mV 85C Model Hold 'clk_divider:clk_div_inst|D'
+Slack : 0.297
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'clk_50'
+Slack : 0.402
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'draw:U1|clk25'
+Slack : 0.639
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'input_handler:input_handler_inst|state_current'
+Slack : 1.218
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'clk_50'
+Slack : -0.463
+TNS   : -40.544
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'clk_divider:clk_div_inst|D'
+Slack : -0.394
+TNS   : -36.054
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'draw:U1|clk25'
+Slack : -0.394
+TNS   : -1.035
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'input_handler:input_handler_inst|state_current'
+Slack : 0.400
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Setup 'draw:U1|clk25'
+Slack : -5.809
+TNS   : -10.967
+
+Type  : Slow 1100mV 0C Model Setup 'clk_50'
+Slack : -3.980
+TNS   : -134.893
+
+Type  : Slow 1100mV 0C Model Setup 'clk_divider:clk_div_inst|D'
+Slack : -2.956
+TNS   : -174.941
+
+Type  : Slow 1100mV 0C Model Setup 'input_handler:input_handler_inst|state_current'
+Slack : -2.550
+TNS   : -2.550
+
+Type  : Slow 1100mV 0C Model Hold 'clk_divider:clk_div_inst|D'
+Slack : 0.294
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Hold 'clk_50'
+Slack : 0.382
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Hold 'draw:U1|clk25'
+Slack : 0.554
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Hold 'input_handler:input_handler_inst|state_current'
+Slack : 1.076
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'clk_50'
+Slack : -0.448
+TNS   : -43.152
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'clk_divider:clk_div_inst|D'
+Slack : -0.394
+TNS   : -35.944
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'draw:U1|clk25'
+Slack : -0.394
+TNS   : -1.028
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'input_handler:input_handler_inst|state_current'
+Slack : 0.370
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Setup 'clk_50'
+Slack : -2.903
+TNS   : -50.807
+
+Type  : Fast 1100mV 85C Model Setup 'draw:U1|clk25'
+Slack : -2.789
+TNS   : -5.356
+
+Type  : Fast 1100mV 85C Model Setup 'clk_divider:clk_div_inst|D'
+Slack : -1.419
+TNS   : -83.379
+
+Type  : Fast 1100mV 85C Model Setup 'input_handler:input_handler_inst|state_current'
+Slack : -1.172
+TNS   : -1.172
+
+Type  : Fast 1100mV 85C Model Hold 'clk_divider:clk_div_inst|D'
+Slack : 0.101
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'draw:U1|clk25'
+Slack : 0.166
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'clk_50'
+Slack : 0.213
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'input_handler:input_handler_inst|state_current'
+Slack : 0.580
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'clk_50'
+Slack : -0.443
+TNS   : -7.665
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'clk_divider:clk_div_inst|D'
+Slack : 0.065
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'draw:U1|clk25'
+Slack : 0.122
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'input_handler:input_handler_inst|state_current'
+Slack : 0.449
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Setup 'draw:U1|clk25'
+Slack : -2.682
+TNS   : -5.135
+
+Type  : Fast 1100mV 0C Model Setup 'clk_50'
+Slack : -2.404
+TNS   : -41.747
+
+Type  : Fast 1100mV 0C Model Setup 'clk_divider:clk_div_inst|D'
+Slack : -1.255
+TNS   : -73.167
+
+Type  : Fast 1100mV 0C Model Setup 'input_handler:input_handler_inst|state_current'
+Slack : -0.968
+TNS   : -0.968
+
+Type  : Fast 1100mV 0C Model Hold 'clk_divider:clk_div_inst|D'
+Slack : 0.086
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Hold 'draw:U1|clk25'
+Slack : 0.088
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Hold 'clk_50'
+Slack : 0.201
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Hold 'input_handler:input_handler_inst|state_current'
+Slack : 0.481
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'clk_50'
+Slack : -0.421
+TNS   : -7.526
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'clk_divider:clk_div_inst|D'
+Slack : 0.089
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'draw:U1|clk25'
+Slack : 0.135
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'input_handler:input_handler_inst|state_current'
+Slack : 0.452
+TNS   : 0.000
 
 ------------------------------------------------------------

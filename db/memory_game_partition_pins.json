@@ -136,11 +136,7 @@
 					"strict" : false
 				},
 				{
-					"name" : "power_switch",
-					"strict" : false
-				},
-				{
-					"name" : "btn_three",
+					"name" : "btn_four",
 					"strict" : false
 				},
 				{
@@ -152,11 +148,15 @@
 					"strict" : false
 				},
 				{
-					"name" : "btn_four",
+					"name" : "btn_three",
 					"strict" : false
 				},
 				{
 					"name" : "clk_50",
+					"strict" : false
+				},
+				{
+					"name" : "power_switch",
 					"strict" : false
 				},
 				{
