@@ -53,6 +53,20 @@ set_location_assignment PIN_AB12 -to POWER_SWITCH
 set_location_assignment PIN_AE12 -to diff_sw[1]
 set_location_assignment PIN_AD10 -to diff_sw[0]
 
+## VGA 
+set_location_assignment PIN_A11 -to vga_clk
+set_location_assignment PIN_B11 -to hsync
+set_location_assignment PIN_D11 -to vsync
+set_location_assignment PIN_F10 -to vga_blank
+set_location_assignment PIN_C10 -to vga_sync
+
+set_location_assignment PIN_F13 -to vga_r[0]
+set_location_assignment PIN_C13 -to vga_r[1]
+set_location_assignment PIN_E11 -to vga_g[0]
+set_location_assignment PIN_J10 -to vga_g[1]
+set_location_assignment PIN_J14 -to vga_b[0]
+set_location_assignment PIN_G13 -to vga_b[1]
+
 
 set_global_assignment -name FAMILY "Cyclone V"
 set_global_assignment -name DEVICE 5CSEMA5F31C6
@@ -70,8 +84,13 @@ set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_global_assignment -name BOARD "DE1-SoC Board"
+set_global_assignment -name VHDL_FILE color_map.vhd
+set_global_assignment -name VHDL_FILE vga_sync.vhd
+set_global_assignment -name VHDL_FILE pong_timer.vhd
+set_global_assignment -name VHDL_FILE pong_counter.vhd
+set_global_assignment -name VHDL_FILE draw.vhd
+set_global_assignment -name VHDL_FILE clk_divider_draw.vhd
 set_global_assignment -name VHDL_FILE clk_divider.vhd
-set_global_assignment -name VHDL_FILE vga_driver.vhd
 set_global_assignment -name VHDL_FILE input_handler.vhd
 set_global_assignment -name VHDL_FILE memory_game.vhd
 set_global_assignment -name VHDL_FILE 3_fifo.vhd

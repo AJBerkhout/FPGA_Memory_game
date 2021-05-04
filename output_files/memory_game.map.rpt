@@ -1,5 +1,5 @@
 Analysis & Synthesis report for memory_game
-Sat May 01 22:14:41 2021
+Mon May 03 21:35:43 2021
 Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
 
 
@@ -15,16 +15,18 @@ Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
   7. Analysis & Synthesis Resource Utilization by Entity
   8. Analysis & Synthesis IP Cores Summary
   9. User-Specified and Inferred Latches
- 10. General Register Statistics
- 11. Inverted Register Statistics
- 12. Multiplexer Restructuring Statistics (Restructuring Performed)
- 13. Parameter Settings for User Entity Instance: my_altpll:alt_pll_inst|my_altpll_0002:my_altpll_inst|altera_pll:altera_pll_i
- 14. Port Connectivity Checks: "input_handler:input_handler_inst"
- 15. Port Connectivity Checks: "my_altpll:alt_pll_inst"
- 16. Port Connectivity Checks: "clk_divider:clk_div_inst"
- 17. Post-Synthesis Netlist Statistics for Top Partition
- 18. Elapsed Time Per Partition
- 19. Analysis & Synthesis Messages
+ 10. Registers Removed During Synthesis
+ 11. General Register Statistics
+ 12. Inverted Register Statistics
+ 13. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 14. Parameter Settings for User Entity Instance: my_altpll:alt_pll_inst|my_altpll_0002:my_altpll_inst|altera_pll:altera_pll_i
+ 15. Port Connectivity Checks: "input_handler:input_handler_inst"
+ 16. Port Connectivity Checks: "my_altpll:alt_pll_inst"
+ 17. Port Connectivity Checks: "clk_divider:clk_div_inst"
+ 18. Port Connectivity Checks: "color_map:color_map_inst"
+ 19. Post-Synthesis Netlist Statistics for Top Partition
+ 20. Elapsed Time Per Partition
+ 21. Analysis & Synthesis Messages
 
 
 
@@ -51,14 +53,14 @@ agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Sat May 01 22:14:41 2021       ;
+; Analysis & Synthesis Status     ; Successful - Mon May 03 21:35:43 2021       ;
 ; Quartus Prime Version           ; 16.1.0 Build 196 10/24/2016 SJ Lite Edition ;
 ; Revision Name                   ; memory_game                                 ;
 ; Top-level Entity Name           ; memory_game                                 ;
 ; Family                          ; Cyclone V                                   ;
 ; Logic utilization (in ALMs)     ; N/A                                         ;
-; Total registers                 ; 83                                          ;
-; Total pins                      ; 13                                          ;
+; Total registers                 ; 109                                         ;
+; Total pins                      ; 43                                          ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 0                                           ;
 ; Total DSP Blocks                ; 0                                           ;
@@ -181,6 +183,9 @@ agreement for further details.
 +----------------------------------+-----------------+-----------------------------+---------------------------------------------------------------------+-----------+
 ; File Name with User-Entered Path ; Used in Netlist ; File Type                   ; File Name with Absolute Path                                        ; Library   ;
 +----------------------------------+-----------------+-----------------------------+---------------------------------------------------------------------+-----------+
+; color_map.vhd                    ; yes             ; User VHDL File              ; C:/FPGA/FPGA_Memory_game/color_map.vhd                              ;           ;
+; vga_sync.vhd                     ; yes             ; User VHDL File              ; C:/FPGA/FPGA_Memory_game/vga_sync.vhd                               ;           ;
+; draw.vhd                         ; yes             ; User VHDL File              ; C:/FPGA/FPGA_Memory_game/draw.vhd                                   ;           ;
 ; clk_divider.vhd                  ; yes             ; User VHDL File              ; C:/FPGA/FPGA_Memory_game/clk_divider.vhd                            ;           ;
 ; input_handler.vhd                ; yes             ; User VHDL File              ; C:/FPGA/FPGA_Memory_game/input_handler.vhd                          ;           ;
 ; memory_game.vhd                  ; yes             ; User VHDL File              ; C:/FPGA/FPGA_Memory_game/memory_game.vhd                            ;           ;
@@ -191,31 +196,31 @@ agreement for further details.
 +----------------------------------+-----------------+-----------------------------+---------------------------------------------------------------------+-----------+
 
 
-+--------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                              ;
-+---------------------------------------------+----------------------------+
-; Resource                                    ; Usage                      ;
-+---------------------------------------------+----------------------------+
-; Estimate of Logic utilization (ALMs needed) ; 61                         ;
-;                                             ;                            ;
-; Combinational ALUT usage for logic          ; 107                        ;
-;     -- 7 input functions                    ; 0                          ;
-;     -- 6 input functions                    ; 14                         ;
-;     -- 5 input functions                    ; 4                          ;
-;     -- 4 input functions                    ; 2                          ;
-;     -- <=3 input functions                  ; 87                         ;
-;                                             ;                            ;
-; Dedicated logic registers                   ; 83                         ;
-;                                             ;                            ;
-; I/O pins                                    ; 13                         ;
-;                                             ;                            ;
-; Total DSP Blocks                            ; 0                          ;
-;                                             ;                            ;
-; Maximum fan-out node                        ; clk_divider:clk_div_inst|D ;
-; Maximum fan-out                             ; 42                         ;
-; Total fan-out                               ; 584                        ;
-; Average fan-out                             ; 2.70                       ;
-+---------------------------------------------+----------------------------+
++------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                ;
++---------------------------------------------+--------------+
+; Resource                                    ; Usage        ;
++---------------------------------------------+--------------+
+; Estimate of Logic utilization (ALMs needed) ; 95           ;
+;                                             ;              ;
+; Combinational ALUT usage for logic          ; 162          ;
+;     -- 7 input functions                    ; 2            ;
+;     -- 6 input functions                    ; 25           ;
+;     -- 5 input functions                    ; 12           ;
+;     -- 4 input functions                    ; 9            ;
+;     -- <=3 input functions                  ; 114          ;
+;                                             ;              ;
+; Dedicated logic registers                   ; 109          ;
+;                                             ;              ;
+; I/O pins                                    ; 43           ;
+;                                             ;              ;
+; Total DSP Blocks                            ; 0            ;
+;                                             ;              ;
+; Maximum fan-out node                        ; clk_50~input ;
+; Maximum fan-out                             ; 66           ;
+; Total fan-out                               ; 957          ;
+; Average fan-out                             ; 2.68         ;
++---------------------------------------------+--------------+
 
 
 +-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -223,10 +228,13 @@ agreement for further details.
 +---------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------+---------------+--------------+
 ; Compilation Hierarchy Node            ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                           ; Entity Name   ; Library Name ;
 +---------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------+---------------+--------------+
-; |memory_game                          ; 107 (38)            ; 83 (33)                   ; 0                 ; 0          ; 13   ; 0            ; |memory_game                                  ; memory_game   ; work         ;
+; |memory_game                          ; 162 (38)            ; 109 (33)                  ; 0                 ; 0          ; 43   ; 0            ; |memory_game                                  ; memory_game   ; work         ;
 ;    |LFSR:lsfr_inst|                   ; 9 (9)               ; 8 (8)                     ; 0                 ; 0          ; 0    ; 0            ; |memory_game|LFSR:lsfr_inst                   ; LFSR          ; work         ;
 ;    |clk_divider:clk_div_inst|         ; 56 (56)             ; 41 (41)                   ; 0                 ; 0          ; 0    ; 0            ; |memory_game|clk_divider:clk_div_inst         ; clk_divider   ; work         ;
+;    |color_map:color_map_inst|         ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |memory_game|color_map:color_map_inst         ; color_map     ; work         ;
+;    |draw:U1|                          ; 20 (20)             ; 3 (3)                     ; 0                 ; 0          ; 0    ; 0            ; |memory_game|draw:U1                          ; draw          ; work         ;
 ;    |input_handler:input_handler_inst| ; 4 (4)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |memory_game|input_handler:input_handler_inst ; input_handler ; work         ;
+;    |vga_sync:vga_sync_unit|           ; 34 (34)             ; 23 (23)                   ; 0                 ; 0          ; 0    ; 0            ; |memory_game|vga_sync:vga_sync_unit           ; vga_sync      ; work         ;
 +---------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------+---------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -251,17 +259,27 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
 
 
++--------------------------------------------------------------------+
+; Registers Removed During Synthesis                                 ;
++---------------------------------------+----------------------------+
+; Register name                         ; Reason for Removal         ;
++---------------------------------------+----------------------------+
+; draw:U1|rgb[2]                        ; Merged with draw:U1|rgb[1] ;
+; Total Number of Removed Registers = 1 ;                            ;
++---------------------------------------+----------------------------+
+
+
 +------------------------------------------------------+
 ; General Register Statistics                          ;
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 83    ;
-; Number of registers using Synchronous Clear  ; 72    ;
+; Total registers                              ; 109   ;
+; Number of registers using Synchronous Clear  ; 92    ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 9     ;
+; Number of registers using Asynchronous Clear ; 34    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 38    ;
+; Number of registers using Clock Enable       ; 58    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -281,9 +299,9 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                      ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------+
-; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |memory_game|clk_divider:clk_div_inst|count1[4] ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |memory_game|clk_divider:clk_div_inst|count2[6] ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |memory_game|clk_divider:clk_div_inst|count3[3] ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |memory_game|clk_divider:clk_div_inst|count1[0] ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |memory_game|clk_divider:clk_div_inst|count2[4] ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |memory_game|clk_divider:clk_div_inst|count3[1] ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------+
 
 
@@ -564,31 +582,44 @@ Note: In order to hide this table in the UI and the text report file, please set
 +------------------+-------+----------+----------------+
 
 
++------------------------------------------------------+
+; Port Connectivity Checks: "color_map:color_map_inst" ;
++------+-------+----------+----------------------------+
+; Port ; Type  ; Severity ; Details                    ;
++------+-------+----------+----------------------------+
+; sw   ; Input ; Info     ; Stuck at GND               ;
++------+-------+----------+----------------------------+
+
+
 +-----------------------------------------------------+
 ; Post-Synthesis Netlist Statistics for Top Partition ;
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 83                          ;
-;     CLR               ; 1                           ;
+; arriav_ff             ; 109                         ;
+;     CLR               ; 6                           ;
 ;     ENA CLR           ; 8                           ;
+;     ENA CLR SCLR      ; 20                          ;
 ;     ENA SCLR          ; 30                          ;
 ;     SCLR              ; 42                          ;
-;     plain             ; 2                           ;
-; arriav_lcell_comb     ; 108                         ;
-;     arith             ; 72                          ;
-;         1 data inputs ; 72                          ;
-;     normal            ; 36                          ;
-;         1 data inputs ; 3                           ;
-;         2 data inputs ; 11                          ;
+;     plain             ; 3                           ;
+; arriav_lcell_comb     ; 165                         ;
+;     arith             ; 92                          ;
+;         1 data inputs ; 92                          ;
+;     extend            ; 2                           ;
+;         7 data inputs ; 2                           ;
+;     normal            ; 71                          ;
+;         0 data inputs ; 2                           ;
+;         1 data inputs ; 5                           ;
+;         2 data inputs ; 16                          ;
 ;         3 data inputs ; 2                           ;
-;         4 data inputs ; 2                           ;
-;         5 data inputs ; 4                           ;
-;         6 data inputs ; 14                          ;
-; boundary_port         ; 13                          ;
+;         4 data inputs ; 9                           ;
+;         5 data inputs ; 12                          ;
+;         6 data inputs ; 25                          ;
+; boundary_port         ; 43                          ;
 ;                       ;                             ;
 ; Max LUT depth         ; 4.10                        ;
-; Average LUT depth     ; 2.44                        ;
+; Average LUT depth     ; 2.41                        ;
 +-----------------------+-----------------------------+
 
 
@@ -607,22 +638,37 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
-    Info: Processing started: Sat May 01 22:14:27 2021
+    Info: Processing started: Mon May 03 21:35:29 2021
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off memory_game -c memory_game
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file color_map.vhd
+    Info (12022): Found design unit 1: color_map-arch File: C:/FPGA/FPGA_Memory_game/color_map.vhd Line: 17
+    Info (12023): Found entity 1: color_map File: C:/FPGA/FPGA_Memory_game/color_map.vhd Line: 7
+Info (12021): Found 2 design units, including 1 entities, in source file vga_sync.vhd
+    Info (12022): Found design unit 1: vga_sync-arch File: C:/FPGA/FPGA_Memory_game/vga_sync.vhd Line: 16
+    Info (12023): Found entity 1: vga_sync File: C:/FPGA/FPGA_Memory_game/vga_sync.vhd Line: 7
+Info (12021): Found 2 design units, including 1 entities, in source file pong_timer.vhd
+    Info (12022): Found design unit 1: timer-arch File: C:/FPGA/FPGA_Memory_game/pong_timer.vhd Line: 15
+    Info (12023): Found entity 1: timer File: C:/FPGA/FPGA_Memory_game/pong_timer.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file pong_counter.vhd
+    Info (12022): Found design unit 1: m100_counter-arch File: C:/FPGA/FPGA_Memory_game/pong_counter.vhd Line: 15
+    Info (12023): Found entity 1: m100_counter File: C:/FPGA/FPGA_Memory_game/pong_counter.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file draw.vhd
+    Info (12022): Found design unit 1: draw-arch File: C:/FPGA/FPGA_Memory_game/draw.vhd Line: 20
+    Info (12023): Found entity 1: draw File: C:/FPGA/FPGA_Memory_game/draw.vhd Line: 7
+Info (12021): Found 2 design units, including 1 entities, in source file clk_divider_draw.vhd
+    Info (12022): Found design unit 1: clk_divider_draw-Behavioral File: C:/FPGA/FPGA_Memory_game/clk_divider_draw.vhd Line: 15
+    Info (12023): Found entity 1: clk_divider_draw File: C:/FPGA/FPGA_Memory_game/clk_divider_draw.vhd Line: 8
 Info (12021): Found 2 design units, including 1 entities, in source file clk_divider.vhd
     Info (12022): Found design unit 1: clk_divider-Behavioral File: C:/FPGA/FPGA_Memory_game/clk_divider.vhd Line: 16
     Info (12023): Found entity 1: clk_divider File: C:/FPGA/FPGA_Memory_game/clk_divider.vhd Line: 8
-Info (12021): Found 2 design units, including 1 entities, in source file vga_driver.vhd
-    Info (12022): Found design unit 1: vga_driver-Behavioral File: C:/FPGA/FPGA_Memory_game/vga_driver.vhd Line: 22
-    Info (12023): Found entity 1: vga_driver File: C:/FPGA/FPGA_Memory_game/vga_driver.vhd Line: 14
 Info (12021): Found 2 design units, including 1 entities, in source file input_handler.vhd
     Info (12022): Found design unit 1: input_handler-MEALY_ARCHITECTURE File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 18
     Info (12023): Found entity 1: input_handler File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file memory_game.vhd
-    Info (12022): Found design unit 1: memory_game-my_structural File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 15
-    Info (12023): Found entity 1: memory_game File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 4
+    Info (12022): Found design unit 1: memory_game-my_structural File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 22
+    Info (12023): Found entity 1: memory_game File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file 3_fifo.vhd
     Info (12022): Found design unit 1: fifo-arch File: C:/FPGA/FPGA_Memory_game/3_fifo.vhd Line: 22
     Info (12023): Found entity 1: fifo File: C:/FPGA/FPGA_Memory_game/3_fifo.vhd Line: 8
@@ -635,13 +681,15 @@ Info (12021): Found 2 design units, including 1 entities, in source file my_altp
 Info (12021): Found 1 design units, including 1 entities, in source file my_altpll/my_altpll_0002.v
     Info (12023): Found entity 1: my_altpll_0002 File: C:/FPGA/FPGA_Memory_game/my_altpll/my_altpll_0002.v Line: 2
 Info (12127): Elaborating entity "memory_game" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at memory_game.vhd(64): object "clk" assigned a value but never read File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 64
-Warning (10036): Verilog HDL or VHDL warning at memory_game.vhd(69): object "input_done" assigned a value but never read File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 69
-Warning (10540): VHDL Signal Declaration warning at memory_game.vhd(72): used explicit default value for signal "time_out" because signal was never assigned a value File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 72
-Warning (10492): VHDL Process Statement warning at memory_game.vhd(96): signal "input_success" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 96
-Warning (10492): VHDL Process Statement warning at memory_game.vhd(97): signal "score" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 97
-Info (12128): Elaborating entity "clk_divider" for hierarchy "clk_divider:clk_div_inst" File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 86
-Info (12128): Elaborating entity "my_altpll" for hierarchy "my_altpll:alt_pll_inst" File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 87
+Warning (10541): VHDL Signal Declaration warning at memory_game.vhd(18): used implicit default value for signal "led_red" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 18
+Warning (10036): Verilog HDL or VHDL warning at memory_game.vhd(92): object "clk" assigned a value but never read File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 92
+Warning (10036): Verilog HDL or VHDL warning at memory_game.vhd(97): object "input_done" assigned a value but never read File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 97
+Warning (10540): VHDL Signal Declaration warning at memory_game.vhd(100): used explicit default value for signal "time_out" because signal was never assigned a value File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 100
+Warning (10492): VHDL Process Statement warning at memory_game.vhd(146): signal "input_success" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 146
+Warning (10492): VHDL Process Statement warning at memory_game.vhd(147): signal "score" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 147
+Info (12128): Elaborating entity "color_map" for hierarchy "color_map:color_map_inst" File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 112
+Info (12128): Elaborating entity "clk_divider" for hierarchy "clk_divider:clk_div_inst" File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 120
+Info (12128): Elaborating entity "my_altpll" for hierarchy "my_altpll:alt_pll_inst" File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 121
 Info (12128): Elaborating entity "my_altpll_0002" for hierarchy "my_altpll:alt_pll_inst|my_altpll_0002:my_altpll_inst" File: C:/FPGA/FPGA_Memory_game/my_altpll.vhd Line: 32
 Info (12128): Elaborating entity "altera_pll" for hierarchy "my_altpll:alt_pll_inst|my_altpll_0002:my_altpll_inst|altera_pll:altera_pll_i" File: C:/FPGA/FPGA_Memory_game/my_altpll/my_altpll_0002.v Line: 85
 Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "wire_to_nowhere_64" into its bus
@@ -707,9 +755,10 @@ Info (12133): Instantiated megafunction "my_altpll:alt_pll_inst|my_altpll_0002:m
     Info (12134): Parameter "duty_cycle17" = "50"
     Info (12134): Parameter "pll_type" = "General"
     Info (12134): Parameter "pll_subtype" = "General"
-Info (12128): Elaborating entity "LFSR" for hierarchy "LFSR:lsfr_inst" File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 88
+Info (12128): Elaborating entity "LFSR" for hierarchy "LFSR:lsfr_inst" File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 122
 Warning (10492): VHDL Process Statement warning at 2_lfsr.vhd(38): signal "q" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/2_lfsr.vhd Line: 38
-Info (12128): Elaborating entity "input_handler" for hierarchy "input_handler:input_handler_inst" File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 92
+Info (12128): Elaborating entity "vga_sync" for hierarchy "vga_sync:vga_sync_unit" File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 133
+Info (12128): Elaborating entity "input_handler" for hierarchy "input_handler:input_handler_inst" File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 142
 Warning (10492): VHDL Process Statement warning at input_handler.vhd(31): signal "tick1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 31
 Warning (10492): VHDL Process Statement warning at input_handler.vhd(32): signal "tick2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 32
 Warning (10492): VHDL Process Statement warning at input_handler.vhd(33): signal "tick3" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 33
@@ -790,20 +839,24 @@ Info (10041): Inferred latch for "score_update[30]" at input_handler.vhd(43) Fil
 Info (10041): Inferred latch for "score_update[31]" at input_handler.vhd(43) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
 Info (10041): Inferred latch for "internal_success" at input_handler.vhd(43) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
 Info (10041): Inferred latch for "internal_done" at input_handler.vhd(43) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
+Info (12128): Elaborating entity "draw" for hierarchy "draw:U1" File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 179
 Warning (14284): Synthesized away the following node(s):
     Warning (14285): Synthesized away the following PLL node(s):
         Warning (14320): Synthesized away node "my_altpll:alt_pll_inst|my_altpll_0002:my_altpll_inst|altera_pll:altera_pll_i|outclk_wire[0]" File: c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/altera_pll.v Line: 749
 Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "vga_sync" is stuck at VCC File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 16
+    Warning (13410): Pin "led_red" is stuck at GND File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 18
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 124 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 209 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 8 input pins
-    Info (21059): Implemented 5 output pins
-    Info (21061): Implemented 111 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 25 warnings
-    Info: Peak virtual memory: 4852 megabytes
-    Info: Processing ended: Sat May 01 22:14:41 2021
+    Info (21059): Implemented 35 output pins
+    Info (21061): Implemented 166 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 29 warnings
+    Info: Peak virtual memory: 4855 megabytes
+    Info: Processing ended: Mon May 03 21:35:43 2021
     Info: Elapsed time: 00:00:14
     Info: Total CPU time (on all processors): 00:00:30
 

@@ -1,5 +1,6 @@
 LIBRARY IEEE;
 USE IEEE.STD_LOGIC_1164.ALL;
+use ieee.numeric_std.all;
 
 entity memory_game is
 	port(
@@ -8,7 +9,13 @@ entity memory_game is
 	 power_switch: in std_logic; --connected to the first switch to indicate game starts
 	 diff_sw : in std_logic_vector(1 downto 0);
 	 leds: out std_logic_vector(3 downto 0); -- LEDR[3 downto 0]
-	 input_val: out std_logic -- LEDR[9]
+	 input_val: out std_logic; -- LEDR[9]
+	 hsync, vsync: out std_logic;
+    vga_r, vga_g, vga_b: out std_logic_vector(7 downto 0);
+    vga_clk: out std_logic;
+    vga_sync: out std_logic;
+    vga_blank: out std_logic;
+    led_red: out std_logic -- drive LEDR(9) with 1Hz clock from clock divider;
   );
 end memory_game;
 
@@ -61,6 +68,27 @@ component clk_divider
   );
 END COMPONENT;
 
+  
+component vga_driver
+ port(
+	CLK, reset: in std_logic;
+   hPos:in std_logic_vector (9 downto 0);
+	vPos:in std_logic_vector (9 downto 0);
+	videoOn: in std_logic;
+   RGB: out std_logic_vector(2 downto 0)
+ );
+end component;
+
+component color_map
+    port (
+		sw : in std_logic_vector(3 downto 0);
+		rgb: in std_logic_vector(2 downto 0);
+		vga_r: out std_logic_vector(7 downto 0);
+		vga_g: out std_logic_vector(7 downto 0);
+		vga_b: out std_logic_vector(7 downto 0)
+    );
+end component;
+
 signal clk, slowClk : std_logic; -- internal signal set by clock divider output
 signal btn1, btn2, btn3, btn4 : std_logic; -- internal signal for the buttons
 signal tick1, tick2, tick3, tick4 : std_logic; -- internal signal for the buttons
@@ -74,8 +102,14 @@ signal score : integer;
 signal difficulty_const : integer := 22;
 signal expire : std_logic := '0';
 signal counter : integer := 0;
+
+signal video_on, pixel_tick: std_logic;
+signal pixel_x, pixel_y: std_logic_vector (9 downto 0);
+signal rgb : std_logic_vector(2 downto 0);
 begin
 
+
+color_map_inst : color_map port map ("0000", rgb, vga_r, vga_g, vga_b);
 btn1 <= not btn_one; --when the button is pressed
 btn2 <= not btn_two; --when the button is pressed
 btn3 <= not btn_three; --when the button is pressed
@@ -86,6 +120,22 @@ reset <= not power_switch; --add ability to turn game off
 clk_div_inst : clk_divider port map (clk_50, slowClk, difficulty_const);
 alt_pll_inst : my_altpll port map (clk_50, reset, clk); --instance of clk_divider component
 lsfr_inst : LFSR port map (slowClk, expire, reset, curr_input); --instance of lsfr to generate new sequences
+
+-- instantiate color mapper
+--color_map_unit: entity work.color_map port map(sw, rgb_reg, vga_r, vga_g, vga_b);
+
+----------------------------------------------------------------------------------------
+vga_sync <= '1';
+vga_blank <= video_on;
+vga_clk <= pixel_tick;
+
+-- instantiate video synchonization unit
+vga_sync_unit: entity work.vga_sync
+  port map(clk=>clk_50, reset=>reset,
+           video_on=>video_on, p_tick=>pixel_tick,
+           hsync=>hsync, vsync=>vsync,
+           pixel_x=>pixel_x, pixel_y=>pixel_y
+			);
 
 leds <= curr_input; --output the expected sequence to the leds
 --input handler component instance
@@ -123,5 +173,19 @@ begin
 		end if;
 	end if;
 end process;
+
+---------------------------------------------------------------------------------
+
+	U1: entity work.draw
+	 port map(
+		CLK=>clk_50,
+		reset=>reset,
+      hPos=>pixel_x,
+		videoOn=>video_on,
+		vPos=>pixel_y,
+		expected_input=>curr_input,
+      rgb => rgb
+		);
+
 
 end my_structural;
