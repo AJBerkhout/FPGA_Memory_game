@@ -1,20 +1,20 @@
 -- clk_divider.vhd
 -- This is a clock divider. It takes as input a signal
 -- of 50 MHz and generates an output as signal with a frequency
--- of about 1 Hz.
+-- of about 100 Hz.
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
 entity clk_divider is
   Port ( 
     CLK_IN : in STD_LOGIC;
-    CLK_OUT : out STD_LOGIC
+    CLK_OUT : out STD_LOGIC;
+	 TIMECONST: in integer
   );
 end clk_divider;
 
 architecture Behavioral of clk_divider is
 
-constant TIMECONST : integer := 71;
 signal count0, count1, count2, count3 : integer range 0 to 1000;
 signal D : std_logic := '0';
 begin

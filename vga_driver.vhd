@@ -115,7 +115,6 @@ begin
 	end if;
 end process;
 
-
 draw:process(clk25, RST, hPos, vPos, videoOn)
 begin
 	if(RST = '1')then
@@ -132,7 +131,6 @@ begin
 		end if;
 	end if;
 end process;
-
 
 end Behavioral;
 
