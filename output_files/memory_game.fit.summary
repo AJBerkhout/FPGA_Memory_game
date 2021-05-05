@@ -1,12 +1,12 @@
-Fitter Status : Successful - Tue May 04 11:31:25 2021
+Fitter Status : Successful - Wed May 05 14:18:01 2021
 Quartus Prime Version : 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 Revision Name : memory_game
 Top-level Entity Name : memory_game
 Family : Cyclone V
 Device : 5CSEMA5F31C6
 Timing Models : Final
-Logic utilization (in ALMs) : 112 / 32,070 ( < 1 % )
-Total registers : 160
+Logic utilization (in ALMs) : 251 / 32,070 ( < 1 % )
+Total registers : 237
 Total pins : 43 / 457 ( 9 % )
 Total virtual pins : 0
 Total block memory bits : 0 / 4,065,280 ( 0 % )

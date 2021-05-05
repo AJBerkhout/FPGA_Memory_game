@@ -86,8 +86,6 @@ set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_global_assignment -name BOARD "DE1-SoC Board"
 set_global_assignment -name VHDL_FILE color_map.vhd
 set_global_assignment -name VHDL_FILE vga_sync.vhd
-set_global_assignment -name VHDL_FILE pong_timer.vhd
-set_global_assignment -name VHDL_FILE pong_counter.vhd
 set_global_assignment -name VHDL_FILE draw.vhd
 set_global_assignment -name VHDL_FILE clk_divider_draw.vhd
 set_global_assignment -name VHDL_FILE clk_divider.vhd
