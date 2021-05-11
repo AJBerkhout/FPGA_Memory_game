@@ -48,6 +48,7 @@ architecture MEALY_ARCHITECTURE of input_handler is
 				
 					internal_done <= '0'; --reset success and done while waiting
 					internal_success <= '0';
+					score_update <= 0;
 					if (expire = '1') then
 						internal_success <= '0';
 						score_update <= 0;
@@ -58,14 +59,17 @@ architecture MEALY_ARCHITECTURE of input_handler is
 					else
 						state_next <= validating_input; --otherwise move to validating
 						internal_done <= '1'; --process is currently done
-						if (received_input = expected_input) then --check whether input was correct
+						if (received_input = expected_input and received_input /= "0000") then --check whether input was correct
 							internal_success <= '1';
-							combo <= combo + 1;
+							if (combo < 10) then
+								combo <= combo + 1;
+							end if;
 							score_update <= combo;
 						else
 							internal_success <= '0';
 							score_update <= 0;
 							combo <= 0;
+							state_next <= validating_input;
 						end if;
 					end if;
 				when validating_input =>

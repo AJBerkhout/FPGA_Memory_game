@@ -26,7 +26,7 @@ signal vpos1Init : integer := -65;
 signal vpos2Init	: integer := 35;
 signal vpos3Init : integer := 135;
 signal vpos4Init : integer := 235;
-signal vposExpectedInit : integer := 330;
+signal vposExpectedInit : integer := 335;
 signal vposOutInit : integer := 435;
 
 

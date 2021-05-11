@@ -20,10 +20,6 @@
 					"strict" : false
 				},
 				{
-					"name" : "input_val",
-					"strict" : false
-				},
-				{
 					"name" : "hsync",
 					"strict" : false
 				},
@@ -136,22 +132,6 @@
 					"strict" : false
 				},
 				{
-					"name" : "btn_four",
-					"strict" : false
-				},
-				{
-					"name" : "btn_one",
-					"strict" : false
-				},
-				{
-					"name" : "btn_two",
-					"strict" : false
-				},
-				{
-					"name" : "btn_three",
-					"strict" : false
-				},
-				{
 					"name" : "clk_50",
 					"strict" : false
 				},
@@ -165,6 +145,22 @@
 				},
 				{
 					"name" : "diff_sw[1]",
+					"strict" : false
+				},
+				{
+					"name" : "btn_four",
+					"strict" : false
+				},
+				{
+					"name" : "btn_one",
+					"strict" : false
+				},
+				{
+					"name" : "btn_two",
+					"strict" : false
+				},
+				{
+					"name" : "btn_three",
 					"strict" : false
 				}
 			]

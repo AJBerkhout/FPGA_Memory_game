@@ -96,7 +96,7 @@ signal reset : std_logic;
 signal curr_input, input_1, input_2, input_3, input_4, input_out : std_logic_Vector(3 downto 0) := "0000";
 signal input_done: std_logic := '0';
 signal input_success : std_logic := '0';
-signal score_inst : integer;
+signal score_inst, local_counter, prev_score : integer := 0;
 signal time_out : integer := 100;
 signal score : integer;
 signal difficulty_const : integer := 22;
@@ -106,6 +106,11 @@ signal counter : integer := 0;
 signal video_on, pixel_tick: std_logic;
 signal pixel_x, pixel_y: std_logic_vector (9 downto 0);
 signal rgb : std_logic_vector(2 downto 0);
+signal dig3, dig2, dig1, dig0 : std_logic_vector(3 downto 0);
+signal incr_score : std_logic := '0';
+signal text_rgb : std_logic_vector(2 downto 0);
+signal text_on : std_logic;
+signal background_rgb: std_logic_vector(2 downto 0);
 begin
 
 
@@ -116,7 +121,6 @@ btn3 <= not btn_three; --when the button is pressed
 btn4 <= not btn_four; --when the button is pressed
 
 reset <= not power_switch; --add ability to turn game off
-
 clk_div_inst : clk_divider port map (clk_50, slowClk, difficulty_const);
 alt_pll_inst : my_altpll port map (clk_50, reset, clk); --instance of clk_divider component
 lsfr_inst : LFSR port map (slowClk, expire, reset, input_4); --instance of lsfr to generate new sequences
@@ -141,11 +145,30 @@ leds <= curr_input; --output the expected sequence to the leds
 --input handler component instance
 input_handler_inst : input_handler port map (btn1, btn2, btn3, btn4, reset, clk_50, expire, curr_input, input_done, input_success, score_inst);
 
+ 
+counter_unit : entity work.m100_counter
+	port map(clk=> slowClk, reset=>reset,
+				d_inc=>incr_score, d_clr=>reset,
+				dig0=>dig0, dig1=>dig1, dig2=>dig2, dig3=>dig3
+				);
+
 process (score_inst)
 begin
-	input_val <= input_success;
-	score <= score + score_inst;
+	if (score_inst > 0 and prev_score /= score_inst) then
+		if (local_counter = 0) then
+			local_counter <= score_inst; 
+		end if;
+		prev_score <= score_inst;
+		incr_score <= '0';
+	elsif (local_counter > 0) then
+			incr_score <= '1';
+			local_counter <= local_counter - 1;
+	else
+		incr_score <= '0';
+		local_counter <= local_counter;
+	end if;
 end process;
+			
 
 process (diff_sw)
 begin
@@ -196,8 +219,32 @@ end process;
 		input_out => input_out,
 		clk_animate => slowClk,
 		expire => expire,
-      rgb => rgb
+      rgb => background_rgb
 		);
+		
+	U2 : entity work.score_text 
+		port map(
+			clk=>clk_50,
+			reset=>reset,
+			pixel_x=>pixel_x,
+			pixel_y=>pixel_y,
+			dig3=>dig3,
+			dig2=>dig2,
+			dig1=>dig1,
+			dig0=>dig0,
+			text_on=>text_on,
+			text_rgb=>text_rgb		
+		);
+		
+process(text_on,text_rgb, background_rgb)
+  begin
+       -- display score, rule or game over
+       if (text_on='1') then
+          rgb <= text_rgb;
+       else
+         rgb <= background_rgb;
+       end if;
+  end process; 
 
 
 end my_structural;
