@@ -1,4 +1,6 @@
--- Listing 13.6
+-- component used for displaying the scores for the game
+-- based on the four BCD digits being inputted
+
 library ieee;
 use ieee.std_logic_1164.ALL;
 use ieee.numeric_std.ALL;
@@ -6,10 +8,11 @@ use ieee.numeric_std.ALL;
 entity score_text is
    port(
       clk, reset: in std_logic;
-      pixel_x, pixel_y: in std_logic_vector(9 downto 0);
-      dig3, dig2, dig1, dig0: in std_logic_vector(3 downto 0);
-      text_on: out std_logic;
-      text_rgb: out std_logic_vector(2 downto 0)
+      pixel_x, pixel_y: in std_logic_vector(9 downto 0);       --current x and y position
+      dig3, dig2, dig1, dig0: in std_logic_vector(3 downto 0); --BCD digits for the score
+		combo : in std_logic_vector(3 downto 0);                 --the current combo multiplier
+      text_on: out std_logic;                                  --is the current pixel in the score box
+      text_rgb: out std_logic_vector(2 downto 0)               --3 bit rgb representation for the text
    );
 end score_text;
 
@@ -37,9 +40,9 @@ begin
 
    ---------------------------------------------
    -- score region
-   --  - display two-digit score, ball on top left
+   --  - display four-digit score and multiplier
    --  - scale to 16-by-32 font
-   --  - line 1, 16 chars: "Score:DD Ball:D"
+   --  - line 1, 16 chars: "Score:DDDD mul:D"
    ---------------------------------------------
    score_on <=
       '1' when pix_y(9 downto 5)=0 and
@@ -59,6 +62,12 @@ begin
         "011" & dig2 when "0111", -- digit 100
         "011" & dig1 when "1000", -- digit 10
         "011" & dig0 when "1001", -- digit 1
+		  "0000000" when "1010", --space
+		  "1101101" when "1011", --m
+		  "1110101" when "1100", --u
+		  "1101100" when "1101", --l
+		  "0111010" when "1110", --:
+		  "011" & combo when "1111", --digit 1 
         "0000000" when others;
    ---------------------------------------------
    -- mux for font ROM addresses and rgb

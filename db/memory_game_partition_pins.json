@@ -140,6 +140,14 @@
 					"strict" : false
 				},
 				{
+					"name" : "diff_sw[0]",
+					"strict" : false
+				},
+				{
+					"name" : "diff_sw[1]",
+					"strict" : false
+				},
+				{
 					"name" : "btn_four",
 					"strict" : false
 				},
@@ -153,14 +161,6 @@
 				},
 				{
 					"name" : "btn_three",
-					"strict" : false
-				},
-				{
-					"name" : "diff_sw[0]",
-					"strict" : false
-				},
-				{
-					"name" : "diff_sw[1]",
 					"strict" : false
 				}
 			]
