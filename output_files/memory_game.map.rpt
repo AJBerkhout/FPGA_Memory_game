@@ -1,5 +1,5 @@
 Analysis & Synthesis report for memory_game
-Tue May 11 18:44:59 2021
+Tue May 11 23:06:26 2021
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -20,13 +20,21 @@ Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
  12. Inverted Register Statistics
  13. Multiplexer Restructuring Statistics (Restructuring Performed)
  14. Parameter Settings for User Entity Instance: my_altpll:alt_pll_inst|my_altpll_0002:my_altpll_inst|altera_pll:altera_pll_i
- 15. Port Connectivity Checks: "input_handler:input_handler_inst"
- 16. Port Connectivity Checks: "my_altpll:alt_pll_inst"
- 17. Port Connectivity Checks: "clk_divider:clk_div_inst"
- 18. Port Connectivity Checks: "color_map:color_map_inst"
- 19. Post-Synthesis Netlist Statistics for Top Partition
- 20. Elapsed Time Per Partition
- 21. Analysis & Synthesis Messages
+ 15. Parameter Settings for Inferred Entity Instance: m100_counter:counter_unit|lpm_divide:Div1
+ 16. Parameter Settings for Inferred Entity Instance: m100_counter:counter_unit|lpm_divide:Mod1
+ 17. Parameter Settings for Inferred Entity Instance: m100_counter:counter_unit|lpm_divide:Div2
+ 18. Parameter Settings for Inferred Entity Instance: m100_counter:counter_unit|lpm_divide:Mod2
+ 19. Parameter Settings for Inferred Entity Instance: m100_counter:counter_unit|lpm_divide:Mod3
+ 20. Parameter Settings for Inferred Entity Instance: m100_counter:counter_unit|lpm_divide:Div0
+ 21. Parameter Settings for Inferred Entity Instance: m100_counter:counter_unit|lpm_divide:Mod0
+ 22. Port Connectivity Checks: "m100_counter:counter_unit"
+ 23. Port Connectivity Checks: "input_handler:input_handler_inst"
+ 24. Port Connectivity Checks: "my_altpll:alt_pll_inst"
+ 25. Port Connectivity Checks: "clk_divider:clk_div_inst"
+ 26. Port Connectivity Checks: "color_map:color_map_inst"
+ 27. Post-Synthesis Netlist Statistics for Top Partition
+ 28. Elapsed Time Per Partition
+ 29. Analysis & Synthesis Messages
 
 
 
@@ -53,13 +61,13 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Tue May 11 18:44:59 2021       ;
+; Analysis & Synthesis Status     ; Successful - Tue May 11 23:06:26 2021       ;
 ; Quartus Prime Version           ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                   ; memory_game                                 ;
 ; Top-level Entity Name           ; memory_game                                 ;
 ; Family                          ; Cyclone V                                   ;
 ; Logic utilization (in ALMs)     ; N/A                                         ;
-; Total registers                 ; 211                                         ;
+; Total registers                 ; 309                                         ;
 ; Total pins                      ; 43                                          ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 0                                           ;
@@ -173,76 +181,131 @@ https://fpgasoftware.intel.com/eula.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.0%      ;
-;     Processor 3            ;   0.0%      ;
-;     Processor 4            ;   0.0%      ;
+;     Processor 2            ;   0.1%      ;
+;     Processor 3            ;   0.1%      ;
+;     Processor 4            ;   0.1%      ;
 +----------------------------+-------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                             ;
-+----------------------------------+-----------------+-----------------------------+---------------------------------------------------------------------+-----------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                   ; File Name with Absolute Path                                        ; Library   ;
-+----------------------------------+-----------------+-----------------------------+---------------------------------------------------------------------+-----------+
-; font_rom.vhd                     ; yes             ; User VHDL File              ; C:/FPGA/FPGA_Memory_game/font_rom.vhd                               ;           ;
-; score_counter.vhd                ; yes             ; User VHDL File              ; C:/FPGA/FPGA_Memory_game/score_counter.vhd                          ;           ;
-; score_text.vhd                   ; yes             ; User VHDL File              ; C:/FPGA/FPGA_Memory_game/score_text.vhd                             ;           ;
-; color_map.vhd                    ; yes             ; User VHDL File              ; C:/FPGA/FPGA_Memory_game/color_map.vhd                              ;           ;
-; vga_sync.vhd                     ; yes             ; User VHDL File              ; C:/FPGA/FPGA_Memory_game/vga_sync.vhd                               ;           ;
-; draw.vhd                         ; yes             ; User VHDL File              ; C:/FPGA/FPGA_Memory_game/draw.vhd                                   ;           ;
-; clk_divider.vhd                  ; yes             ; User VHDL File              ; C:/FPGA/FPGA_Memory_game/clk_divider.vhd                            ;           ;
-; input_handler.vhd                ; yes             ; User VHDL File              ; C:/FPGA/FPGA_Memory_game/input_handler.vhd                          ;           ;
-; memory_game.vhd                  ; yes             ; User VHDL File              ; C:/FPGA/FPGA_Memory_game/memory_game.vhd                            ;           ;
-; 2_lfsr.vhd                       ; yes             ; User VHDL File              ; C:/FPGA/FPGA_Memory_game/2_lfsr.vhd                                 ;           ;
-; my_altpll.vhd                    ; yes             ; User Wizard-Generated File  ; C:/FPGA/FPGA_Memory_game/my_altpll.vhd                              ; my_altpll ;
-; my_altpll/my_altpll_0002.v       ; yes             ; User Verilog HDL File       ; C:/FPGA/FPGA_Memory_game/my_altpll/my_altpll_0002.v                 ; my_altpll ;
-; altera_pll.v                     ; yes             ; Megafunction                ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altera_pll.v ;           ;
-+----------------------------------+-----------------+-----------------------------+---------------------------------------------------------------------+-----------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                     ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------------+-----------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                               ; Library   ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------------+-----------+
+; font_rom.vhd                     ; yes             ; User VHDL File               ; C:/FPGA/FPGA_Memory_game/font_rom.vhd                                      ;           ;
+; score_counter.vhd                ; yes             ; User VHDL File               ; C:/FPGA/FPGA_Memory_game/score_counter.vhd                                 ;           ;
+; score_text.vhd                   ; yes             ; User VHDL File               ; C:/FPGA/FPGA_Memory_game/score_text.vhd                                    ;           ;
+; color_map.vhd                    ; yes             ; User VHDL File               ; C:/FPGA/FPGA_Memory_game/color_map.vhd                                     ;           ;
+; vga_sync.vhd                     ; yes             ; User VHDL File               ; C:/FPGA/FPGA_Memory_game/vga_sync.vhd                                      ;           ;
+; draw.vhd                         ; yes             ; User VHDL File               ; C:/FPGA/FPGA_Memory_game/draw.vhd                                          ;           ;
+; clk_divider.vhd                  ; yes             ; User VHDL File               ; C:/FPGA/FPGA_Memory_game/clk_divider.vhd                                   ;           ;
+; input_handler.vhd                ; yes             ; User VHDL File               ; C:/FPGA/FPGA_Memory_game/input_handler.vhd                                 ;           ;
+; memory_game.vhd                  ; yes             ; User VHDL File               ; C:/FPGA/FPGA_Memory_game/memory_game.vhd                                   ;           ;
+; 2_lfsr.vhd                       ; yes             ; User VHDL File               ; C:/FPGA/FPGA_Memory_game/2_lfsr.vhd                                        ;           ;
+; my_altpll.vhd                    ; yes             ; User Wizard-Generated File   ; C:/FPGA/FPGA_Memory_game/my_altpll.vhd                                     ; my_altpll ;
+; my_altpll/my_altpll_0002.v       ; yes             ; User Verilog HDL File        ; C:/FPGA/FPGA_Memory_game/my_altpll/my_altpll_0002.v                        ; my_altpll ;
+; altera_pll.v                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altera_pll.v        ;           ;
+; lpm_divide.tdf                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/lpm_divide.tdf      ;           ;
+; abs_divider.inc                  ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/abs_divider.inc     ;           ;
+; sign_div_unsign.inc              ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/sign_div_unsign.inc ;           ;
+; aglobal201.inc                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/aglobal201.inc      ;           ;
+; db/lpm_divide_epo.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/FPGA/FPGA_Memory_game/db/lpm_divide_epo.tdf                             ;           ;
+; db/abs_divider_nbg.tdf           ; yes             ; Auto-Generated Megafunction  ; C:/FPGA/FPGA_Memory_game/db/abs_divider_nbg.tdf                            ;           ;
+; db/alt_u_div_uve.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/FPGA/FPGA_Memory_game/db/alt_u_div_uve.tdf                              ;           ;
+; db/lpm_abs_nn9.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/FPGA/FPGA_Memory_game/db/lpm_abs_nn9.tdf                                ;           ;
+; db/lpm_abs_4p9.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/FPGA/FPGA_Memory_game/db/lpm_abs_4p9.tdf                                ;           ;
+; db/lpm_divide_uio.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/FPGA/FPGA_Memory_game/db/lpm_divide_uio.tdf                             ;           ;
+; db/abs_divider_4dg.tdf           ; yes             ; Auto-Generated Megafunction  ; C:/FPGA/FPGA_Memory_game/db/abs_divider_4dg.tdf                            ;           ;
+; db/alt_u_div_o2f.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/FPGA/FPGA_Memory_game/db/alt_u_div_o2f.tdf                              ;           ;
+; db/lpm_divide_bpo.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/FPGA/FPGA_Memory_game/db/lpm_divide_bpo.tdf                             ;           ;
+; db/abs_divider_kbg.tdf           ; yes             ; Auto-Generated Megafunction  ; C:/FPGA/FPGA_Memory_game/db/abs_divider_kbg.tdf                            ;           ;
+; db/alt_u_div_ove.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/FPGA/FPGA_Memory_game/db/alt_u_div_ove.tdf                              ;           ;
+; db/lpm_abs_kn9.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/FPGA/FPGA_Memory_game/db/lpm_abs_kn9.tdf                                ;           ;
+; db/lpm_divide_oqo.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/FPGA/FPGA_Memory_game/db/lpm_divide_oqo.tdf                             ;           ;
+; db/abs_divider_1dg.tdf           ; yes             ; Auto-Generated Megafunction  ; C:/FPGA/FPGA_Memory_game/db/abs_divider_1dg.tdf                            ;           ;
+; db/alt_u_div_i2f.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/FPGA/FPGA_Memory_game/db/alt_u_div_i2f.tdf                              ;           ;
+; db/lpm_abs_1p9.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/FPGA/FPGA_Memory_game/db/lpm_abs_1p9.tdf                                ;           ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------------+-----------+
 
 
-+--------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                                                ;
-+---------------------------------------------+----------------------------------------------+
-; Resource                                    ; Usage                                        ;
-+---------------------------------------------+----------------------------------------------+
-; Estimate of Logic utilization (ALMs needed) ; 727                                          ;
-;                                             ;                                              ;
-; Combinational ALUT usage for logic          ; 1060                                         ;
-;     -- 7 input functions                    ; 58                                           ;
-;     -- 6 input functions                    ; 332                                          ;
-;     -- 5 input functions                    ; 117                                          ;
-;     -- 4 input functions                    ; 69                                           ;
-;     -- <=3 input functions                  ; 484                                          ;
-;                                             ;                                              ;
-; Dedicated logic registers                   ; 211                                          ;
-;                                             ;                                              ;
-; I/O pins                                    ; 43                                           ;
-;                                             ;                                              ;
-; Total DSP Blocks                            ; 0                                            ;
-;                                             ;                                              ;
-; Maximum fan-out node                        ; score_text:U2|font_rom:font_unit|addr_reg[5] ;
-; Maximum fan-out                             ; 196                                          ;
-; Total fan-out                               ; 5124                                         ;
-; Average fan-out                             ; 3.78                                         ;
-+---------------------------------------------+----------------------------------------------+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimate of Logic utilization (ALMs needed) ; 4338      ;
+;                                             ;           ;
+; Combinational ALUT usage for logic          ; 8285      ;
+;     -- 7 input functions                    ; 53        ;
+;     -- 6 input functions                    ; 334       ;
+;     -- 5 input functions                    ; 259       ;
+;     -- 4 input functions                    ; 2370      ;
+;     -- <=3 input functions                  ; 5269      ;
+;                                             ;           ;
+; Dedicated logic registers                   ; 309       ;
+;                                             ;           ;
+; I/O pins                                    ; 43        ;
+;                                             ;           ;
+; Total DSP Blocks                            ; 0         ;
+;                                             ;           ;
+; Maximum fan-out node                        ; score[31] ;
+; Maximum fan-out                             ; 326       ;
+; Total fan-out                               ; 28571     ;
+; Average fan-out                             ; 3.29      ;
++---------------------------------------------+-----------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                           ;
-+---------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------+---------------+--------------+
-; Compilation Hierarchy Node            ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                           ; Entity Name   ; Library Name ;
-+---------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------+---------------+--------------+
-; |memory_game                          ; 1060 (193)          ; 211 (53)                  ; 0                 ; 0          ; 43   ; 0            ; |memory_game                                  ; memory_game   ; work         ;
-;    |LFSR:lsfr_inst|                   ; 9 (9)               ; 8 (8)                     ; 0                 ; 0          ; 0    ; 0            ; |memory_game|LFSR:lsfr_inst                   ; LFSR          ; work         ;
-;    |clk_divider:clk_div_inst|         ; 56 (56)             ; 41 (41)                   ; 0                 ; 0          ; 0    ; 0            ; |memory_game|clk_divider:clk_div_inst         ; clk_divider   ; work         ;
-;    |color_map:color_map_inst|         ; 5 (5)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |memory_game|color_map:color_map_inst         ; color_map     ; work         ;
-;    |draw:U1|                          ; 257 (257)           ; 58 (58)                   ; 0                 ; 0          ; 0    ; 0            ; |memory_game|draw:U1                          ; draw          ; work         ;
-;    |input_handler:input_handler_inst| ; 171 (171)           ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |memory_game|input_handler:input_handler_inst ; input_handler ; work         ;
-;    |m100_counter:counter_unit|        ; 24 (24)             ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |memory_game|m100_counter:counter_unit        ; m100_counter  ; work         ;
-;    |score_text:U2|                    ; 312 (312)           ; 11 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |memory_game|score_text:U2                    ; score_text    ; work         ;
-;       |font_rom:font_unit|            ; 0 (0)               ; 11 (11)                   ; 0                 ; 0          ; 0    ; 0            ; |memory_game|score_text:U2|font_rom:font_unit ; font_rom      ; work         ;
-;    |vga_sync:vga_sync_unit|           ; 33 (33)             ; 23 (23)                   ; 0                 ; 0          ; 0    ; 0            ; |memory_game|vga_sync:vga_sync_unit           ; vga_sync      ; work         ;
-+---------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------+---------------+--------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                      ;
++------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------+-----------------+--------------+
+; Compilation Hierarchy Node               ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                 ; Entity Name     ; Library Name ;
++------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------+-----------------+--------------+
+; |memory_game                             ; 8285 (87)           ; 309 (117)                 ; 0                 ; 0          ; 43   ; 0            ; |memory_game                                                                                                                        ; memory_game     ; work         ;
+;    |LFSR:lsfr_inst|                      ; 9 (9)               ; 8 (8)                     ; 0                 ; 0          ; 0    ; 0            ; |memory_game|LFSR:lsfr_inst                                                                                                         ; LFSR            ; work         ;
+;    |clk_divider:clk_div_inst|            ; 59 (59)             ; 41 (41)                   ; 0                 ; 0          ; 0    ; 0            ; |memory_game|clk_divider:clk_div_inst                                                                                               ; clk_divider     ; work         ;
+;    |color_map:color_map_inst|            ; 5 (5)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |memory_game|color_map:color_map_inst                                                                                               ; color_map       ; work         ;
+;    |draw:U1|                             ; 253 (253)           ; 58 (58)                   ; 0                 ; 0          ; 0    ; 0            ; |memory_game|draw:U1                                                                                                                ; draw            ; work         ;
+;    |input_handler:input_handler_inst|    ; 115 (115)           ; 35 (35)                   ; 0                 ; 0          ; 0    ; 0            ; |memory_game|input_handler:input_handler_inst                                                                                       ; input_handler   ; work         ;
+;    |m100_counter:counter_unit|           ; 7412 (179)          ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |memory_game|m100_counter:counter_unit                                                                                              ; m100_counter    ; work         ;
+;       |lpm_divide:Div0|                  ; 744 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |memory_game|m100_counter:counter_unit|lpm_divide:Div0                                                                              ; lpm_divide      ; work         ;
+;          |lpm_divide_oqo:auto_generated| ; 744 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |memory_game|m100_counter:counter_unit|lpm_divide:Div0|lpm_divide_oqo:auto_generated                                                ; lpm_divide_oqo  ; work         ;
+;             |abs_divider_1dg:divider|    ; 744 (50)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |memory_game|m100_counter:counter_unit|lpm_divide:Div0|lpm_divide_oqo:auto_generated|abs_divider_1dg:divider                        ; abs_divider_1dg ; work         ;
+;                |alt_u_div_i2f:divider|   ; 662 (662)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |memory_game|m100_counter:counter_unit|lpm_divide:Div0|lpm_divide_oqo:auto_generated|abs_divider_1dg:divider|alt_u_div_i2f:divider  ; alt_u_div_i2f   ; work         ;
+;                |lpm_abs_4p9:my_abs_num|  ; 32 (32)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |memory_game|m100_counter:counter_unit|lpm_divide:Div0|lpm_divide_oqo:auto_generated|abs_divider_1dg:divider|lpm_abs_4p9:my_abs_num ; lpm_abs_4p9     ; work         ;
+;       |lpm_divide:Div1|                  ; 640 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |memory_game|m100_counter:counter_unit|lpm_divide:Div1                                                                              ; lpm_divide      ; work         ;
+;          |lpm_divide_epo:auto_generated| ; 640 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |memory_game|m100_counter:counter_unit|lpm_divide:Div1|lpm_divide_epo:auto_generated                                                ; lpm_divide_epo  ; work         ;
+;             |abs_divider_nbg:divider|    ; 640 (56)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |memory_game|m100_counter:counter_unit|lpm_divide:Div1|lpm_divide_epo:auto_generated|abs_divider_nbg:divider                        ; abs_divider_nbg ; work         ;
+;                |alt_u_div_uve:divider|   ; 552 (552)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |memory_game|m100_counter:counter_unit|lpm_divide:Div1|lpm_divide_epo:auto_generated|abs_divider_nbg:divider|alt_u_div_uve:divider  ; alt_u_div_uve   ; work         ;
+;                |lpm_abs_4p9:my_abs_num|  ; 32 (32)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |memory_game|m100_counter:counter_unit|lpm_divide:Div1|lpm_divide_epo:auto_generated|abs_divider_nbg:divider|lpm_abs_4p9:my_abs_num ; lpm_abs_4p9     ; work         ;
+;       |lpm_divide:Div2|                  ; 513 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |memory_game|m100_counter:counter_unit|lpm_divide:Div2                                                                              ; lpm_divide      ; work         ;
+;          |lpm_divide_bpo:auto_generated| ; 513 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |memory_game|m100_counter:counter_unit|lpm_divide:Div2|lpm_divide_bpo:auto_generated                                                ; lpm_divide_bpo  ; work         ;
+;             |abs_divider_kbg:divider|    ; 513 (62)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |memory_game|m100_counter:counter_unit|lpm_divide:Div2|lpm_divide_bpo:auto_generated|abs_divider_kbg:divider                        ; abs_divider_kbg ; work         ;
+;                |alt_u_div_ove:divider|   ; 419 (419)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |memory_game|m100_counter:counter_unit|lpm_divide:Div2|lpm_divide_bpo:auto_generated|abs_divider_kbg:divider|alt_u_div_ove:divider  ; alt_u_div_ove   ; work         ;
+;                |lpm_abs_4p9:my_abs_num|  ; 32 (32)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |memory_game|m100_counter:counter_unit|lpm_divide:Div2|lpm_divide_bpo:auto_generated|abs_divider_kbg:divider|lpm_abs_4p9:my_abs_num ; lpm_abs_4p9     ; work         ;
+;       |lpm_divide:Mod0|                  ; 1334 (0)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |memory_game|m100_counter:counter_unit|lpm_divide:Mod0                                                                              ; lpm_divide      ; work         ;
+;          |lpm_divide_uio:auto_generated| ; 1334 (0)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |memory_game|m100_counter:counter_unit|lpm_divide:Mod0|lpm_divide_uio:auto_generated                                                ; lpm_divide_uio  ; work         ;
+;             |abs_divider_4dg:divider|    ; 1334 (7)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |memory_game|m100_counter:counter_unit|lpm_divide:Mod0|lpm_divide_uio:auto_generated|abs_divider_4dg:divider                        ; abs_divider_4dg ; work         ;
+;                |alt_u_div_o2f:divider|   ; 1295 (1295)         ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |memory_game|m100_counter:counter_unit|lpm_divide:Mod0|lpm_divide_uio:auto_generated|abs_divider_4dg:divider|alt_u_div_o2f:divider  ; alt_u_div_o2f   ; work         ;
+;                |lpm_abs_4p9:my_abs_num|  ; 32 (32)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |memory_game|m100_counter:counter_unit|lpm_divide:Mod0|lpm_divide_uio:auto_generated|abs_divider_4dg:divider|lpm_abs_4p9:my_abs_num ; lpm_abs_4p9     ; work         ;
+;       |lpm_divide:Mod1|                  ; 1334 (0)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |memory_game|m100_counter:counter_unit|lpm_divide:Mod1                                                                              ; lpm_divide      ; work         ;
+;          |lpm_divide_uio:auto_generated| ; 1334 (0)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |memory_game|m100_counter:counter_unit|lpm_divide:Mod1|lpm_divide_uio:auto_generated                                                ; lpm_divide_uio  ; work         ;
+;             |abs_divider_4dg:divider|    ; 1334 (7)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |memory_game|m100_counter:counter_unit|lpm_divide:Mod1|lpm_divide_uio:auto_generated|abs_divider_4dg:divider                        ; abs_divider_4dg ; work         ;
+;                |alt_u_div_o2f:divider|   ; 1295 (1295)         ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |memory_game|m100_counter:counter_unit|lpm_divide:Mod1|lpm_divide_uio:auto_generated|abs_divider_4dg:divider|alt_u_div_o2f:divider  ; alt_u_div_o2f   ; work         ;
+;                |lpm_abs_4p9:my_abs_num|  ; 32 (32)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |memory_game|m100_counter:counter_unit|lpm_divide:Mod1|lpm_divide_uio:auto_generated|abs_divider_4dg:divider|lpm_abs_4p9:my_abs_num ; lpm_abs_4p9     ; work         ;
+;       |lpm_divide:Mod2|                  ; 1334 (0)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |memory_game|m100_counter:counter_unit|lpm_divide:Mod2                                                                              ; lpm_divide      ; work         ;
+;          |lpm_divide_uio:auto_generated| ; 1334 (0)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |memory_game|m100_counter:counter_unit|lpm_divide:Mod2|lpm_divide_uio:auto_generated                                                ; lpm_divide_uio  ; work         ;
+;             |abs_divider_4dg:divider|    ; 1334 (7)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |memory_game|m100_counter:counter_unit|lpm_divide:Mod2|lpm_divide_uio:auto_generated|abs_divider_4dg:divider                        ; abs_divider_4dg ; work         ;
+;                |alt_u_div_o2f:divider|   ; 1295 (1295)         ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |memory_game|m100_counter:counter_unit|lpm_divide:Mod2|lpm_divide_uio:auto_generated|abs_divider_4dg:divider|alt_u_div_o2f:divider  ; alt_u_div_o2f   ; work         ;
+;                |lpm_abs_4p9:my_abs_num|  ; 32 (32)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |memory_game|m100_counter:counter_unit|lpm_divide:Mod2|lpm_divide_uio:auto_generated|abs_divider_4dg:divider|lpm_abs_4p9:my_abs_num ; lpm_abs_4p9     ; work         ;
+;       |lpm_divide:Mod3|                  ; 1334 (0)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |memory_game|m100_counter:counter_unit|lpm_divide:Mod3                                                                              ; lpm_divide      ; work         ;
+;          |lpm_divide_uio:auto_generated| ; 1334 (0)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |memory_game|m100_counter:counter_unit|lpm_divide:Mod3|lpm_divide_uio:auto_generated                                                ; lpm_divide_uio  ; work         ;
+;             |abs_divider_4dg:divider|    ; 1334 (7)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |memory_game|m100_counter:counter_unit|lpm_divide:Mod3|lpm_divide_uio:auto_generated|abs_divider_4dg:divider                        ; abs_divider_4dg ; work         ;
+;                |alt_u_div_o2f:divider|   ; 1295 (1295)         ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |memory_game|m100_counter:counter_unit|lpm_divide:Mod3|lpm_divide_uio:auto_generated|abs_divider_4dg:divider|alt_u_div_o2f:divider  ; alt_u_div_o2f   ; work         ;
+;                |lpm_abs_4p9:my_abs_num|  ; 32 (32)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |memory_game|m100_counter:counter_unit|lpm_divide:Mod3|lpm_divide_uio:auto_generated|abs_divider_4dg:divider|lpm_abs_4p9:my_abs_num ; lpm_abs_4p9     ; work         ;
+;    |score_text:U2|                       ; 313 (313)           ; 11 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |memory_game|score_text:U2                                                                                                          ; score_text      ; work         ;
+;       |font_rom:font_unit|               ; 0 (0)               ; 11 (11)                   ; 0                 ; 0          ; 0    ; 0            ; |memory_game|score_text:U2|font_rom:font_unit                                                                                       ; font_rom        ; work         ;
+;    |vga_sync:vga_sync_unit|              ; 32 (32)             ; 23 (23)                   ; 0                 ; 0          ; 0    ; 0            ; |memory_game|vga_sync:vga_sync_unit                                                                                                 ; vga_sync        ; work         ;
++------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------+-----------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -255,114 +318,48 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------+--------------+---------+--------------+--------------+-------------------------------------+-----------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------+
-; User-Specified and Inferred Latches                                                                                            ;
-+------------------------------------------------------+------------------------------------------------+------------------------+
-; Latch Name                                           ; Latch Enable Signal                            ; Free of Timing Hazards ;
-+------------------------------------------------------+------------------------------------------------+------------------------+
-; input_handler:input_handler_inst|score_update[31]    ; input_handler:input_handler_inst|state_current ; yes                    ;
-; input_handler:input_handler_inst|score_update[1]     ; input_handler:input_handler_inst|state_current ; yes                    ;
-; input_handler:input_handler_inst|score_update[2]     ; input_handler:input_handler_inst|state_current ; yes                    ;
-; input_handler:input_handler_inst|score_update[3]     ; input_handler:input_handler_inst|state_current ; yes                    ;
-; input_handler:input_handler_inst|score_update[4]     ; input_handler:input_handler_inst|state_current ; yes                    ;
-; input_handler:input_handler_inst|score_update[5]     ; input_handler:input_handler_inst|state_current ; yes                    ;
-; input_handler:input_handler_inst|score_update[6]     ; input_handler:input_handler_inst|state_current ; yes                    ;
-; input_handler:input_handler_inst|score_update[7]     ; input_handler:input_handler_inst|state_current ; yes                    ;
-; input_handler:input_handler_inst|score_update[8]     ; input_handler:input_handler_inst|state_current ; yes                    ;
-; input_handler:input_handler_inst|score_update[9]     ; input_handler:input_handler_inst|state_current ; yes                    ;
-; input_handler:input_handler_inst|score_update[10]    ; input_handler:input_handler_inst|state_current ; yes                    ;
-; input_handler:input_handler_inst|score_update[11]    ; input_handler:input_handler_inst|state_current ; yes                    ;
-; input_handler:input_handler_inst|score_update[12]    ; input_handler:input_handler_inst|state_current ; yes                    ;
-; input_handler:input_handler_inst|score_update[13]    ; input_handler:input_handler_inst|state_current ; yes                    ;
-; input_handler:input_handler_inst|score_update[14]    ; input_handler:input_handler_inst|state_current ; yes                    ;
-; input_handler:input_handler_inst|score_update[15]    ; input_handler:input_handler_inst|state_current ; yes                    ;
-; input_handler:input_handler_inst|score_update[16]    ; input_handler:input_handler_inst|state_current ; yes                    ;
-; input_handler:input_handler_inst|score_update[17]    ; input_handler:input_handler_inst|state_current ; yes                    ;
-; input_handler:input_handler_inst|score_update[18]    ; input_handler:input_handler_inst|state_current ; yes                    ;
-; input_handler:input_handler_inst|score_update[19]    ; input_handler:input_handler_inst|state_current ; yes                    ;
-; input_handler:input_handler_inst|score_update[20]    ; input_handler:input_handler_inst|state_current ; yes                    ;
-; input_handler:input_handler_inst|score_update[21]    ; input_handler:input_handler_inst|state_current ; yes                    ;
-; input_handler:input_handler_inst|score_update[22]    ; input_handler:input_handler_inst|state_current ; yes                    ;
-; input_handler:input_handler_inst|score_update[23]    ; input_handler:input_handler_inst|state_current ; yes                    ;
-; input_handler:input_handler_inst|score_update[24]    ; input_handler:input_handler_inst|state_current ; yes                    ;
-; input_handler:input_handler_inst|score_update[25]    ; input_handler:input_handler_inst|state_current ; yes                    ;
-; input_handler:input_handler_inst|score_update[26]    ; input_handler:input_handler_inst|state_current ; yes                    ;
-; input_handler:input_handler_inst|score_update[27]    ; input_handler:input_handler_inst|state_current ; yes                    ;
-; input_handler:input_handler_inst|score_update[28]    ; input_handler:input_handler_inst|state_current ; yes                    ;
-; input_handler:input_handler_inst|score_update[29]    ; input_handler:input_handler_inst|state_current ; yes                    ;
-; input_handler:input_handler_inst|score_update[30]    ; input_handler:input_handler_inst|state_current ; yes                    ;
-; input_handler:input_handler_inst|score_update[0]     ; input_handler:input_handler_inst|state_current ; yes                    ;
-; prev_score[0]                                        ; process_0                                      ; yes                    ;
-; prev_score[1]                                        ; process_0                                      ; yes                    ;
-; prev_score[2]                                        ; process_0                                      ; yes                    ;
-; prev_score[3]                                        ; process_0                                      ; yes                    ;
-; prev_score[4]                                        ; process_0                                      ; yes                    ;
-; prev_score[5]                                        ; process_0                                      ; yes                    ;
-; prev_score[6]                                        ; process_0                                      ; yes                    ;
-; prev_score[7]                                        ; process_0                                      ; yes                    ;
-; prev_score[8]                                        ; process_0                                      ; yes                    ;
-; prev_score[9]                                        ; process_0                                      ; yes                    ;
-; prev_score[10]                                       ; process_0                                      ; yes                    ;
-; prev_score[11]                                       ; process_0                                      ; yes                    ;
-; prev_score[12]                                       ; process_0                                      ; yes                    ;
-; prev_score[13]                                       ; process_0                                      ; yes                    ;
-; prev_score[14]                                       ; process_0                                      ; yes                    ;
-; prev_score[15]                                       ; process_0                                      ; yes                    ;
-; prev_score[16]                                       ; process_0                                      ; yes                    ;
-; prev_score[17]                                       ; process_0                                      ; yes                    ;
-; prev_score[18]                                       ; process_0                                      ; yes                    ;
-; prev_score[19]                                       ; process_0                                      ; yes                    ;
-; prev_score[20]                                       ; process_0                                      ; yes                    ;
-; prev_score[21]                                       ; process_0                                      ; yes                    ;
-; prev_score[22]                                       ; process_0                                      ; yes                    ;
-; prev_score[23]                                       ; process_0                                      ; yes                    ;
-; prev_score[24]                                       ; process_0                                      ; yes                    ;
-; prev_score[25]                                       ; process_0                                      ; yes                    ;
-; prev_score[26]                                       ; process_0                                      ; yes                    ;
-; prev_score[27]                                       ; process_0                                      ; yes                    ;
-; prev_score[28]                                       ; process_0                                      ; yes                    ;
-; prev_score[29]                                       ; process_0                                      ; yes                    ;
-; prev_score[30]                                       ; process_0                                      ; yes                    ;
-; local_counter[31]                                    ; local_counter[0]                               ; yes                    ;
-; local_counter[0]                                     ; local_counter[0]                               ; yes                    ;
-; local_counter[1]                                     ; local_counter[0]                               ; yes                    ;
-; local_counter[2]                                     ; local_counter[0]                               ; yes                    ;
-; local_counter[3]                                     ; local_counter[0]                               ; yes                    ;
-; local_counter[4]                                     ; local_counter[0]                               ; yes                    ;
-; local_counter[5]                                     ; local_counter[0]                               ; yes                    ;
-; local_counter[6]                                     ; local_counter[0]                               ; yes                    ;
-; local_counter[7]                                     ; local_counter[0]                               ; yes                    ;
-; local_counter[8]                                     ; local_counter[0]                               ; yes                    ;
-; local_counter[9]                                     ; local_counter[0]                               ; yes                    ;
-; local_counter[10]                                    ; local_counter[0]                               ; yes                    ;
-; local_counter[11]                                    ; local_counter[0]                               ; yes                    ;
-; local_counter[12]                                    ; local_counter[0]                               ; yes                    ;
-; local_counter[13]                                    ; local_counter[0]                               ; yes                    ;
-; local_counter[14]                                    ; local_counter[0]                               ; yes                    ;
-; local_counter[15]                                    ; local_counter[0]                               ; yes                    ;
-; local_counter[16]                                    ; local_counter[0]                               ; yes                    ;
-; local_counter[17]                                    ; local_counter[0]                               ; yes                    ;
-; local_counter[18]                                    ; local_counter[0]                               ; yes                    ;
-; local_counter[19]                                    ; local_counter[0]                               ; yes                    ;
-; local_counter[20]                                    ; local_counter[0]                               ; yes                    ;
-; local_counter[21]                                    ; local_counter[0]                               ; yes                    ;
-; local_counter[22]                                    ; local_counter[0]                               ; yes                    ;
-; local_counter[23]                                    ; local_counter[0]                               ; yes                    ;
-; local_counter[24]                                    ; local_counter[0]                               ; yes                    ;
-; local_counter[25]                                    ; local_counter[0]                               ; yes                    ;
-; local_counter[26]                                    ; local_counter[0]                               ; yes                    ;
-; local_counter[27]                                    ; local_counter[0]                               ; yes                    ;
-; local_counter[28]                                    ; local_counter[0]                               ; yes                    ;
-; local_counter[29]                                    ; local_counter[0]                               ; yes                    ;
-; local_counter[30]                                    ; local_counter[0]                               ; yes                    ;
-; input_handler:input_handler_inst|combo[31]           ; input_handler:input_handler_inst|combo[0]      ; yes                    ;
-; input_handler:input_handler_inst|combo[1]            ; input_handler:input_handler_inst|combo[0]      ; yes                    ;
-; input_handler:input_handler_inst|combo[2]            ; input_handler:input_handler_inst|combo[0]      ; yes                    ;
-; input_handler:input_handler_inst|combo[3]            ; input_handler:input_handler_inst|combo[0]      ; yes                    ;
-; input_handler:input_handler_inst|combo[4]            ; input_handler:input_handler_inst|combo[0]      ; yes                    ;
-; Number of user-specified and inferred latches = 127  ;                                                ;                        ;
-+------------------------------------------------------+------------------------------------------------+------------------------+
-Table restricted to first 100 entries. Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
++-------------------------------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                                           ;
++-----------------------------------------------------+------------------------------------------------+------------------------+
+; Latch Name                                          ; Latch Enable Signal                            ; Free of Timing Hazards ;
++-----------------------------------------------------+------------------------------------------------+------------------------+
+; input_handler:input_handler_inst|internal_fail      ; input_handler:input_handler_inst|state_current ; yes                    ;
+; input_handler:input_handler_inst|internal_success   ; input_handler:input_handler_inst|state_current ; yes                    ;
+; input_handler:input_handler_inst|score_update[0]    ; input_handler:input_handler_inst|state_current ; yes                    ;
+; input_handler:input_handler_inst|score_update[1]    ; input_handler:input_handler_inst|state_current ; yes                    ;
+; input_handler:input_handler_inst|score_update[2]    ; input_handler:input_handler_inst|state_current ; yes                    ;
+; input_handler:input_handler_inst|score_update[3]    ; input_handler:input_handler_inst|state_current ; yes                    ;
+; input_handler:input_handler_inst|score_update[4]    ; input_handler:input_handler_inst|state_current ; yes                    ;
+; input_handler:input_handler_inst|score_update[5]    ; input_handler:input_handler_inst|state_current ; yes                    ;
+; input_handler:input_handler_inst|score_update[6]    ; input_handler:input_handler_inst|state_current ; yes                    ;
+; input_handler:input_handler_inst|score_update[7]    ; input_handler:input_handler_inst|state_current ; yes                    ;
+; input_handler:input_handler_inst|score_update[8]    ; input_handler:input_handler_inst|state_current ; yes                    ;
+; input_handler:input_handler_inst|score_update[9]    ; input_handler:input_handler_inst|state_current ; yes                    ;
+; input_handler:input_handler_inst|score_update[10]   ; input_handler:input_handler_inst|state_current ; yes                    ;
+; input_handler:input_handler_inst|score_update[11]   ; input_handler:input_handler_inst|state_current ; yes                    ;
+; input_handler:input_handler_inst|score_update[12]   ; input_handler:input_handler_inst|state_current ; yes                    ;
+; input_handler:input_handler_inst|score_update[13]   ; input_handler:input_handler_inst|state_current ; yes                    ;
+; input_handler:input_handler_inst|score_update[14]   ; input_handler:input_handler_inst|state_current ; yes                    ;
+; input_handler:input_handler_inst|score_update[15]   ; input_handler:input_handler_inst|state_current ; yes                    ;
+; input_handler:input_handler_inst|score_update[16]   ; input_handler:input_handler_inst|state_current ; yes                    ;
+; input_handler:input_handler_inst|score_update[17]   ; input_handler:input_handler_inst|state_current ; yes                    ;
+; input_handler:input_handler_inst|score_update[18]   ; input_handler:input_handler_inst|state_current ; yes                    ;
+; input_handler:input_handler_inst|score_update[19]   ; input_handler:input_handler_inst|state_current ; yes                    ;
+; input_handler:input_handler_inst|score_update[20]   ; input_handler:input_handler_inst|state_current ; yes                    ;
+; input_handler:input_handler_inst|score_update[21]   ; input_handler:input_handler_inst|state_current ; yes                    ;
+; input_handler:input_handler_inst|score_update[22]   ; input_handler:input_handler_inst|state_current ; yes                    ;
+; input_handler:input_handler_inst|score_update[23]   ; input_handler:input_handler_inst|state_current ; yes                    ;
+; input_handler:input_handler_inst|score_update[24]   ; input_handler:input_handler_inst|state_current ; yes                    ;
+; input_handler:input_handler_inst|score_update[25]   ; input_handler:input_handler_inst|state_current ; yes                    ;
+; input_handler:input_handler_inst|score_update[26]   ; input_handler:input_handler_inst|state_current ; yes                    ;
+; input_handler:input_handler_inst|score_update[27]   ; input_handler:input_handler_inst|state_current ; yes                    ;
+; input_handler:input_handler_inst|score_update[28]   ; input_handler:input_handler_inst|state_current ; yes                    ;
+; input_handler:input_handler_inst|score_update[29]   ; input_handler:input_handler_inst|state_current ; yes                    ;
+; input_handler:input_handler_inst|score_update[30]   ; input_handler:input_handler_inst|state_current ; yes                    ;
+; input_handler:input_handler_inst|score_update[31]   ; input_handler:input_handler_inst|state_current ; yes                    ;
+; Number of user-specified and inferred latches = 34  ;                                                ;                        ;
++-----------------------------------------------------+------------------------------------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
 
 
 +------------------------------------------------------------------------+
@@ -377,11 +374,11 @@ Table restricted to first 100 entries. Note: All latches listed above may not be
 ; draw:U1|vposExpected[0]                 ; Merged with draw:U1|vpos1[0] ;
 ; draw:U1|vposOut[0]                      ; Merged with draw:U1|vpos1[0] ;
 ; draw:U1|vposExpected[10..31]            ; Lost fanout                  ;
+; draw:U1|vposOut[10..31]                 ; Lost fanout                  ;
 ; draw:U1|vpos4[10..31]                   ; Lost fanout                  ;
 ; draw:U1|vpos3[10..31]                   ; Lost fanout                  ;
 ; draw:U1|vpos2[10..31]                   ; Lost fanout                  ;
 ; draw:U1|vpos1[10..31]                   ; Lost fanout                  ;
-; draw:U1|vposOut[10..31]                 ; Lost fanout                  ;
 ; Total Number of Removed Registers = 138 ;                              ;
 +-----------------------------------------+------------------------------+
 
@@ -391,69 +388,80 @@ Table restricted to first 100 entries. Note: All latches listed above may not be
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 211   ;
-; Number of registers using Synchronous Clear  ; 92    ;
+; Total registers                              ; 309   ;
+; Number of registers using Synchronous Clear  ; 199   ;
 ; Number of registers using Synchronous Load   ; 1     ;
-; Number of registers using Asynchronous Clear ; 105   ;
+; Number of registers using Asynchronous Clear ; 91    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 92    ;
+; Number of registers using Clock Enable       ; 173   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+---------------------------------------------------+
-; Inverted Register Statistics                      ;
-+-----------------------------------------+---------+
-; Inverted Register                       ; Fan out ;
-+-----------------------------------------+---------+
-; draw:U1|vpos4[5]                        ; 4       ;
-; draw:U1|vpos4[3]                        ; 3       ;
-; draw:U1|vpos1[0]                        ; 19      ;
-; draw:U1|vpos4[1]                        ; 4       ;
-; draw:U1|vpos4[7]                        ; 4       ;
-; draw:U1|vpos4[6]                        ; 4       ;
-; draw:U1|vpos3[1]                        ; 4       ;
-; draw:U1|vpos3[2]                        ; 3       ;
-; draw:U1|vpos3[7]                        ; 4       ;
-; draw:U1|vpos1[9]                        ; 3       ;
-; draw:U1|vpos1[8]                        ; 3       ;
-; draw:U1|vpos1[7]                        ; 3       ;
-; draw:U1|vpos1[5]                        ; 3       ;
-; draw:U1|vpos1[4]                        ; 3       ;
-; draw:U1|vpos1[3]                        ; 3       ;
-; draw:U1|vpos1[1]                        ; 4       ;
-; draw:U1|vpos1[2]                        ; 3       ;
-; draw:U1|vpos2[1]                        ; 4       ;
-; draw:U1|vpos2[5]                        ; 4       ;
-; draw:U1|vposExpected[1]                 ; 4       ;
-; draw:U1|vposExpected[8]                 ; 3       ;
-; draw:U1|vposExpected[3]                 ; 3       ;
-; draw:U1|vposExpected[2]                 ; 3       ;
-; draw:U1|vposExpected[6]                 ; 4       ;
-; draw:U1|vposOut[1]                      ; 4       ;
-; draw:U1|vposOut[7]                      ; 3       ;
-; draw:U1|vposOut[5]                      ; 3       ;
-; draw:U1|vposOut[4]                      ; 3       ;
-; draw:U1|vposOut[8]                      ; 4       ;
-; LFSR:lsfr_inst|q[0]                     ; 1       ;
-; Total number of inverted registers = 30 ;         ;
-+-----------------------------------------+---------+
++-------------------------------------------------------+
+; Inverted Register Statistics                          ;
++---------------------------------------------+---------+
+; Inverted Register                           ; Fan out ;
++---------------------------------------------+---------+
+; input_handler:input_handler_inst|combo[0]   ; 4       ;
+; input_handler:input_handler_inst|combo_up   ; 2       ;
+; input_handler:input_handler_inst|combo_down ; 3       ;
+; draw:U1|vpos1[0]                            ; 20      ;
+; draw:U1|vposExpected[1]                     ; 4       ;
+; draw:U1|vposExpected[8]                     ; 3       ;
+; draw:U1|vposExpected[6]                     ; 3       ;
+; draw:U1|vposExpected[3]                     ; 3       ;
+; draw:U1|vposExpected[2]                     ; 3       ;
+; draw:U1|vpos1[9]                            ; 3       ;
+; draw:U1|vpos1[8]                            ; 3       ;
+; draw:U1|vpos1[7]                            ; 3       ;
+; draw:U1|vpos1[5]                            ; 3       ;
+; draw:U1|vpos1[4]                            ; 3       ;
+; draw:U1|vpos1[3]                            ; 3       ;
+; draw:U1|vpos1[1]                            ; 4       ;
+; draw:U1|vpos1[2]                            ; 3       ;
+; draw:U1|vpos4[7]                            ; 3       ;
+; draw:U1|vpos4[6]                            ; 3       ;
+; draw:U1|vpos4[5]                            ; 3       ;
+; draw:U1|vpos4[3]                            ; 3       ;
+; draw:U1|vpos4[1]                            ; 4       ;
+; draw:U1|vposOut[8]                          ; 5       ;
+; draw:U1|vposOut[7]                          ; 4       ;
+; draw:U1|vposOut[5]                          ; 5       ;
+; draw:U1|vposOut[4]                          ; 4       ;
+; draw:U1|vposOut[1]                          ; 5       ;
+; draw:U1|vpos3[7]                            ; 3       ;
+; draw:U1|vpos3[1]                            ; 4       ;
+; draw:U1|vpos3[2]                            ; 3       ;
+; draw:U1|vpos2[5]                            ; 3       ;
+; draw:U1|vpos2[1]                            ; 4       ;
+; m100_counter:counter_unit|dig1_num[0]       ; 1       ;
+; m100_counter:counter_unit|dig0_num[0]       ; 1       ;
+; m100_counter:counter_unit|dig2_num[0]       ; 1       ;
+; m100_counter:counter_unit|dig3_num[0]       ; 1       ;
+; LFSR:lsfr_inst|q[0]                         ; 1       ;
+; Total number of inverted registers = 37     ;         ;
++---------------------------------------------+---------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                           ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                 ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------+
-; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |memory_game|clk_divider:clk_div_inst|count1[2]            ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |memory_game|clk_divider:clk_div_inst|count2[5]            ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |memory_game|clk_divider:clk_div_inst|count3[3]            ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |memory_game|m100_counter:counter_unit|dig0_reg[3]         ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |memory_game|m100_counter:counter_unit|dig1_reg[0]         ;
-; 16:1               ; 4 bits    ; 40 LEs        ; 28 LEs               ; 12 LEs                 ; Yes        ; |memory_game|score_text:U2|font_rom:font_unit|addr_reg[7]  ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |memory_game|input_handler:input_handler_inst|combo[6]     ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |memory_game|input_handler:input_handler_inst|score_update ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------+
+; 3:1                ; 31 bits   ; 62 LEs        ; 0 LEs                ; 62 LEs                 ; Yes        ; |memory_game|input_handler:input_handler_inst|combo[26]     ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |memory_game|m100_counter:counter_unit|dig3_num[1]          ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |memory_game|m100_counter:counter_unit|dig2_num[2]          ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |memory_game|m100_counter:counter_unit|dig1_num[2]          ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |memory_game|m100_counter:counter_unit|dig0_num[2]          ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |memory_game|clk_divider:clk_div_inst|count1[3]             ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |memory_game|clk_divider:clk_div_inst|count2[9]             ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |memory_game|clk_divider:clk_div_inst|count3[4]             ;
+; 3:1                ; 64 bits   ; 128 LEs       ; 0 LEs                ; 128 LEs                ; Yes        ; |memory_game|score[29]                                      ;
+; 16:1               ; 4 bits    ; 40 LEs        ; 28 LEs               ; 12 LEs                 ; Yes        ; |memory_game|score_text:U2|font_rom:font_unit|addr_reg[7]   ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |memory_game|input_handler:input_handler_inst|internal_fail ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |memory_game|input_handler:input_handler_inst|score_update  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------+
 
 
 +---------------------------------------------------------------------------------------------------------------------------+
@@ -703,14 +711,185 @@ Table restricted to first 100 entries. Note: All latches listed above may not be
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+-------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "input_handler:input_handler_inst"                                                      ;
-+---------+--------+----------+-------------------------------------------------------------------------------------+
-; Port    ; Type   ; Severity ; Details                                                                             ;
-+---------+--------+----------+-------------------------------------------------------------------------------------+
-; done    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; success ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+---------+--------+----------+-------------------------------------------------------------------------------------+
++--------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: m100_counter:counter_unit|lpm_divide:Div1 ;
++------------------------+----------------+--------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                             ;
++------------------------+----------------+--------------------------------------------------+
+; LPM_WIDTHN             ; 32             ; Untyped                                          ;
+; LPM_WIDTHD             ; 8              ; Untyped                                          ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                                          ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                                          ;
+; LPM_PIPELINE           ; 0              ; Untyped                                          ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                                          ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                          ;
+; CBXI_PARAMETER         ; lpm_divide_epo ; Untyped                                          ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                          ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                          ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                       ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                     ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                     ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                   ;
++------------------------+----------------+--------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: m100_counter:counter_unit|lpm_divide:Mod1 ;
++------------------------+----------------+--------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                             ;
++------------------------+----------------+--------------------------------------------------+
+; LPM_WIDTHN             ; 32             ; Untyped                                          ;
+; LPM_WIDTHD             ; 32             ; Untyped                                          ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                                          ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                                          ;
+; LPM_PIPELINE           ; 0              ; Untyped                                          ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                                          ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                          ;
+; CBXI_PARAMETER         ; lpm_divide_uio ; Untyped                                          ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                          ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                          ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                       ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                     ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                     ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                   ;
++------------------------+----------------+--------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: m100_counter:counter_unit|lpm_divide:Div2 ;
++------------------------+----------------+--------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                             ;
++------------------------+----------------+--------------------------------------------------+
+; LPM_WIDTHN             ; 32             ; Untyped                                          ;
+; LPM_WIDTHD             ; 5              ; Untyped                                          ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                                          ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                                          ;
+; LPM_PIPELINE           ; 0              ; Untyped                                          ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                                          ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                          ;
+; CBXI_PARAMETER         ; lpm_divide_bpo ; Untyped                                          ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                          ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                          ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                       ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                     ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                     ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                   ;
++------------------------+----------------+--------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: m100_counter:counter_unit|lpm_divide:Mod2 ;
++------------------------+----------------+--------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                             ;
++------------------------+----------------+--------------------------------------------------+
+; LPM_WIDTHN             ; 32             ; Untyped                                          ;
+; LPM_WIDTHD             ; 32             ; Untyped                                          ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                                          ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                                          ;
+; LPM_PIPELINE           ; 0              ; Untyped                                          ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                                          ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                          ;
+; CBXI_PARAMETER         ; lpm_divide_uio ; Untyped                                          ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                          ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                          ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                       ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                     ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                     ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                   ;
++------------------------+----------------+--------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: m100_counter:counter_unit|lpm_divide:Mod3 ;
++------------------------+----------------+--------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                             ;
++------------------------+----------------+--------------------------------------------------+
+; LPM_WIDTHN             ; 32             ; Untyped                                          ;
+; LPM_WIDTHD             ; 32             ; Untyped                                          ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                                          ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                                          ;
+; LPM_PIPELINE           ; 0              ; Untyped                                          ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                                          ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                          ;
+; CBXI_PARAMETER         ; lpm_divide_uio ; Untyped                                          ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                          ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                          ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                       ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                     ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                     ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                   ;
++------------------------+----------------+--------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: m100_counter:counter_unit|lpm_divide:Div0 ;
++------------------------+----------------+--------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                             ;
++------------------------+----------------+--------------------------------------------------+
+; LPM_WIDTHN             ; 32             ; Untyped                                          ;
+; LPM_WIDTHD             ; 11             ; Untyped                                          ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                                          ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                                          ;
+; LPM_PIPELINE           ; 0              ; Untyped                                          ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                                          ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                          ;
+; CBXI_PARAMETER         ; lpm_divide_oqo ; Untyped                                          ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                          ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                          ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                       ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                     ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                     ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                   ;
++------------------------+----------------+--------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: m100_counter:counter_unit|lpm_divide:Mod0 ;
++------------------------+----------------+--------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                             ;
++------------------------+----------------+--------------------------------------------------+
+; LPM_WIDTHN             ; 32             ; Untyped                                          ;
+; LPM_WIDTHD             ; 32             ; Untyped                                          ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                                          ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                                          ;
+; LPM_PIPELINE           ; 0              ; Untyped                                          ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                                          ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                          ;
+; CBXI_PARAMETER         ; lpm_divide_uio ; Untyped                                          ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                          ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                          ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                       ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                     ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                     ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                   ;
++------------------------+----------------+--------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------+
+; Port Connectivity Checks: "m100_counter:counter_unit" ;
++-------+-------+----------+----------------------------+
+; Port  ; Type  ; Severity ; Details                    ;
++-------+-------+----------+----------------------------+
+; d_inc ; Input ; Info     ; Stuck at GND               ;
++-------+-------+----------+----------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "input_handler:input_handler_inst"                                                               ;
++------------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port             ; Type   ; Severity ; Details                                                                             ;
++------------------+--------+----------+-------------------------------------------------------------------------------------+
+; done             ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; success          ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; out_combo[31..4] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +-----------------------------------------------------------------------------------------------------------------------------------------+
@@ -748,33 +927,39 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 211                         ;
+; arriav_ff             ; 309                         ;
 ;     CLR               ; 62                          ;
 ;     CLR SLD           ; 1                           ;
 ;     ENA               ; 20                          ;
-;     ENA CLR           ; 22                          ;
+;     ENA CLR           ; 8                           ;
 ;     ENA CLR SCLR      ; 20                          ;
-;     ENA SCLR          ; 30                          ;
-;     SCLR              ; 42                          ;
-;     plain             ; 14                          ;
-; arriav_lcell_comb     ; 1063                        ;
-;     arith             ; 258                         ;
-;         1 data inputs ; 246                         ;
-;         2 data inputs ; 12                          ;
-;     extend            ; 58                          ;
-;         7 data inputs ; 58                          ;
-;     normal            ; 747                         ;
+;     ENA SCLR          ; 125                         ;
+;     SCLR              ; 54                          ;
+;     plain             ; 19                          ;
+; arriav_lcell_comb     ; 8289                        ;
+;     arith             ; 3810                        ;
+;         0 data inputs ; 415                         ;
+;         1 data inputs ; 479                         ;
+;         2 data inputs ; 298                         ;
+;         3 data inputs ; 1229                        ;
+;         4 data inputs ; 1389                        ;
+;     extend            ; 53                          ;
+;         7 data inputs ; 53                          ;
+;     normal            ; 4382                        ;
 ;         0 data inputs ; 2                           ;
+;         1 data inputs ; 36                          ;
+;         2 data inputs ; 2501                        ;
+;         3 data inputs ; 269                         ;
+;         4 data inputs ; 981                         ;
+;         5 data inputs ; 259                         ;
+;         6 data inputs ; 334                         ;
+;     shared            ; 44                          ;
+;         0 data inputs ; 7                           ;
 ;         1 data inputs ; 37                          ;
-;         2 data inputs ; 36                          ;
-;         3 data inputs ; 154                         ;
-;         4 data inputs ; 69                          ;
-;         5 data inputs ; 117                         ;
-;         6 data inputs ; 332                         ;
 ; boundary_port         ; 43                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 8.00                        ;
-; Average LUT depth     ; 4.56                        ;
+; Max LUT depth         ; 141.90                      ;
+; Average LUT depth     ; 109.23                      ;
 +-----------------------+-----------------------------+
 
 
@@ -783,7 +968,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:02     ;
+; Top            ; 00:00:14     ;
 +----------------+--------------+
 
 
@@ -793,15 +978,18 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Tue May 11 18:44:44 2021
+    Info: Processing started: Tue May 11 23:05:59 2021
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off memory_game -c memory_game
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file edge_detect.vhd
+    Info (12022): Found design unit 1: edge_detect-MEALY_ARCHITECTURE File: C:/FPGA/FPGA_Memory_game/edge_detect.vhd Line: 12
+    Info (12023): Found entity 1: edge_detect File: C:/FPGA/FPGA_Memory_game/edge_detect.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file font_rom.vhd
     Info (12022): Found design unit 1: font_rom-arch File: C:/FPGA/FPGA_Memory_game/font_rom.vhd Line: 20
     Info (12023): Found entity 1: font_rom File: C:/FPGA/FPGA_Memory_game/font_rom.vhd Line: 12
 Info (12021): Found 2 design units, including 1 entities, in source file score_counter.vhd
-    Info (12022): Found design unit 1: m100_counter-arch File: C:/FPGA/FPGA_Memory_game/score_counter.vhd Line: 15
+    Info (12022): Found design unit 1: m100_counter-arch File: C:/FPGA/FPGA_Memory_game/score_counter.vhd Line: 16
     Info (12023): Found entity 1: m100_counter File: C:/FPGA/FPGA_Memory_game/score_counter.vhd Line: 6
 Info (12021): Found 2 design units, including 1 entities, in source file score_text.vhd
     Info (12022): Found design unit 1: score_text-arch File: C:/FPGA/FPGA_Memory_game/score_text.vhd Line: 17
@@ -822,7 +1010,7 @@ Info (12021): Found 2 design units, including 1 entities, in source file clk_div
     Info (12022): Found design unit 1: clk_divider-Behavioral File: C:/FPGA/FPGA_Memory_game/clk_divider.vhd Line: 16
     Info (12023): Found entity 1: clk_divider File: C:/FPGA/FPGA_Memory_game/clk_divider.vhd Line: 8
 Info (12021): Found 2 design units, including 1 entities, in source file input_handler.vhd
-    Info (12022): Found design unit 1: input_handler-MEALY_ARCHITECTURE File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 18
+    Info (12022): Found design unit 1: input_handler-MEALY_ARCHITECTURE File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 19
     Info (12023): Found entity 1: input_handler File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file memory_game.vhd
     Info (12022): Found design unit 1: memory_game-my_structural File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 22
@@ -841,84 +1029,14 @@ Info (12021): Found 1 design units, including 1 entities, in source file my_altp
 Info (12127): Elaborating entity "memory_game" for the top level hierarchy
 Warning (10541): VHDL Signal Declaration warning at memory_game.vhd(12): used implicit default value for signal "input_val" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 12
 Warning (10541): VHDL Signal Declaration warning at memory_game.vhd(18): used implicit default value for signal "led_red" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 18
-Warning (10036): Verilog HDL or VHDL warning at memory_game.vhd(92): object "clk" assigned a value but never read File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 92
-Warning (10036): Verilog HDL or VHDL warning at memory_game.vhd(97): object "input_done" assigned a value but never read File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 97
-Warning (10036): Verilog HDL or VHDL warning at memory_game.vhd(98): object "input_success" assigned a value but never read File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 98
-Warning (10540): VHDL Signal Declaration warning at memory_game.vhd(100): used explicit default value for signal "time_out" because signal was never assigned a value File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 100
-Warning (10492): VHDL Process Statement warning at memory_game.vhd(157): signal "prev_score" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 157
-Warning (10492): VHDL Process Statement warning at memory_game.vhd(158): signal "local_counter" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 158
-Warning (10492): VHDL Process Statement warning at memory_game.vhd(163): signal "local_counter" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 163
-Warning (10492): VHDL Process Statement warning at memory_game.vhd(165): signal "local_counter" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 165
-Warning (10492): VHDL Process Statement warning at memory_game.vhd(168): signal "local_counter" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 168
-Warning (10631): VHDL Process Statement warning at memory_game.vhd(155): inferring latch(es) for signal or variable "local_counter", which holds its previous value in one or more paths through the process File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-Warning (10631): VHDL Process Statement warning at memory_game.vhd(155): inferring latch(es) for signal or variable "prev_score", which holds its previous value in one or more paths through the process File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-Info (10041): Inferred latch for "prev_score[0]" at memory_game.vhd(155) File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-Info (10041): Inferred latch for "prev_score[1]" at memory_game.vhd(155) File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-Info (10041): Inferred latch for "prev_score[2]" at memory_game.vhd(155) File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-Info (10041): Inferred latch for "prev_score[3]" at memory_game.vhd(155) File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-Info (10041): Inferred latch for "prev_score[4]" at memory_game.vhd(155) File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-Info (10041): Inferred latch for "prev_score[5]" at memory_game.vhd(155) File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-Info (10041): Inferred latch for "prev_score[6]" at memory_game.vhd(155) File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-Info (10041): Inferred latch for "prev_score[7]" at memory_game.vhd(155) File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-Info (10041): Inferred latch for "prev_score[8]" at memory_game.vhd(155) File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-Info (10041): Inferred latch for "prev_score[9]" at memory_game.vhd(155) File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-Info (10041): Inferred latch for "prev_score[10]" at memory_game.vhd(155) File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-Info (10041): Inferred latch for "prev_score[11]" at memory_game.vhd(155) File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-Info (10041): Inferred latch for "prev_score[12]" at memory_game.vhd(155) File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-Info (10041): Inferred latch for "prev_score[13]" at memory_game.vhd(155) File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-Info (10041): Inferred latch for "prev_score[14]" at memory_game.vhd(155) File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-Info (10041): Inferred latch for "prev_score[15]" at memory_game.vhd(155) File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-Info (10041): Inferred latch for "prev_score[16]" at memory_game.vhd(155) File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-Info (10041): Inferred latch for "prev_score[17]" at memory_game.vhd(155) File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-Info (10041): Inferred latch for "prev_score[18]" at memory_game.vhd(155) File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-Info (10041): Inferred latch for "prev_score[19]" at memory_game.vhd(155) File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-Info (10041): Inferred latch for "prev_score[20]" at memory_game.vhd(155) File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-Info (10041): Inferred latch for "prev_score[21]" at memory_game.vhd(155) File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-Info (10041): Inferred latch for "prev_score[22]" at memory_game.vhd(155) File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-Info (10041): Inferred latch for "prev_score[23]" at memory_game.vhd(155) File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-Info (10041): Inferred latch for "prev_score[24]" at memory_game.vhd(155) File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-Info (10041): Inferred latch for "prev_score[25]" at memory_game.vhd(155) File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-Info (10041): Inferred latch for "prev_score[26]" at memory_game.vhd(155) File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-Info (10041): Inferred latch for "prev_score[27]" at memory_game.vhd(155) File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-Info (10041): Inferred latch for "prev_score[28]" at memory_game.vhd(155) File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-Info (10041): Inferred latch for "prev_score[29]" at memory_game.vhd(155) File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-Info (10041): Inferred latch for "prev_score[30]" at memory_game.vhd(155) File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-Info (10041): Inferred latch for "prev_score[31]" at memory_game.vhd(155) File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-Info (10041): Inferred latch for "local_counter[0]" at memory_game.vhd(155) File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-Info (10041): Inferred latch for "local_counter[1]" at memory_game.vhd(155) File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-Info (10041): Inferred latch for "local_counter[2]" at memory_game.vhd(155) File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-Info (10041): Inferred latch for "local_counter[3]" at memory_game.vhd(155) File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-Info (10041): Inferred latch for "local_counter[4]" at memory_game.vhd(155) File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-Info (10041): Inferred latch for "local_counter[5]" at memory_game.vhd(155) File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-Info (10041): Inferred latch for "local_counter[6]" at memory_game.vhd(155) File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-Info (10041): Inferred latch for "local_counter[7]" at memory_game.vhd(155) File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-Info (10041): Inferred latch for "local_counter[8]" at memory_game.vhd(155) File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-Info (10041): Inferred latch for "local_counter[9]" at memory_game.vhd(155) File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-Info (10041): Inferred latch for "local_counter[10]" at memory_game.vhd(155) File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-Info (10041): Inferred latch for "local_counter[11]" at memory_game.vhd(155) File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-Info (10041): Inferred latch for "local_counter[12]" at memory_game.vhd(155) File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-Info (10041): Inferred latch for "local_counter[13]" at memory_game.vhd(155) File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-Info (10041): Inferred latch for "local_counter[14]" at memory_game.vhd(155) File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-Info (10041): Inferred latch for "local_counter[15]" at memory_game.vhd(155) File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-Info (10041): Inferred latch for "local_counter[16]" at memory_game.vhd(155) File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-Info (10041): Inferred latch for "local_counter[17]" at memory_game.vhd(155) File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-Info (10041): Inferred latch for "local_counter[18]" at memory_game.vhd(155) File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-Info (10041): Inferred latch for "local_counter[19]" at memory_game.vhd(155) File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-Info (10041): Inferred latch for "local_counter[20]" at memory_game.vhd(155) File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-Info (10041): Inferred latch for "local_counter[21]" at memory_game.vhd(155) File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-Info (10041): Inferred latch for "local_counter[22]" at memory_game.vhd(155) File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-Info (10041): Inferred latch for "local_counter[23]" at memory_game.vhd(155) File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-Info (10041): Inferred latch for "local_counter[24]" at memory_game.vhd(155) File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-Info (10041): Inferred latch for "local_counter[25]" at memory_game.vhd(155) File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-Info (10041): Inferred latch for "local_counter[26]" at memory_game.vhd(155) File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-Info (10041): Inferred latch for "local_counter[27]" at memory_game.vhd(155) File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-Info (10041): Inferred latch for "local_counter[28]" at memory_game.vhd(155) File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-Info (10041): Inferred latch for "local_counter[29]" at memory_game.vhd(155) File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-Info (10041): Inferred latch for "local_counter[30]" at memory_game.vhd(155) File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-Info (10041): Inferred latch for "local_counter[31]" at memory_game.vhd(155) File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-Info (12128): Elaborating entity "color_map" for hierarchy "color_map:color_map_inst" File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 117
-Info (12128): Elaborating entity "clk_divider" for hierarchy "clk_divider:clk_div_inst" File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 124
-Info (12128): Elaborating entity "my_altpll" for hierarchy "my_altpll:alt_pll_inst" File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 125
+Warning (10036): Verilog HDL or VHDL warning at memory_game.vhd(93): object "clk" assigned a value but never read File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 93
+Warning (10036): Verilog HDL or VHDL warning at memory_game.vhd(98): object "input_done" assigned a value but never read File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 98
+Warning (10036): Verilog HDL or VHDL warning at memory_game.vhd(99): object "input_success" assigned a value but never read File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 99
+Warning (10540): VHDL Signal Declaration warning at memory_game.vhd(101): used explicit default value for signal "time_out" because signal was never assigned a value File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 101
+Warning (10540): VHDL Signal Declaration warning at memory_game.vhd(111): used explicit default value for signal "incr_score" because signal was never assigned a value File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 111
+Info (12128): Elaborating entity "color_map" for hierarchy "color_map:color_map_inst" File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 119
+Info (12128): Elaborating entity "clk_divider" for hierarchy "clk_divider:clk_div_inst" File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 126
+Info (12128): Elaborating entity "my_altpll" for hierarchy "my_altpll:alt_pll_inst" File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 127
 Info (12128): Elaborating entity "my_altpll_0002" for hierarchy "my_altpll:alt_pll_inst|my_altpll_0002:my_altpll_inst" File: C:/FPGA/FPGA_Memory_game/my_altpll.vhd Line: 32
 Info (12128): Elaborating entity "altera_pll" for hierarchy "my_altpll:alt_pll_inst|my_altpll_0002:my_altpll_inst|altera_pll:altera_pll_i" File: C:/FPGA/FPGA_Memory_game/my_altpll/my_altpll_0002.v Line: 85
 Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "wire_to_nowhere_64" into its bus
@@ -984,93 +1102,65 @@ Info (12133): Instantiated megafunction "my_altpll:alt_pll_inst|my_altpll_0002:m
     Info (12134): Parameter "duty_cycle17" = "50"
     Info (12134): Parameter "pll_type" = "General"
     Info (12134): Parameter "pll_subtype" = "General"
-Info (12128): Elaborating entity "LFSR" for hierarchy "LFSR:lsfr_inst" File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 126
+Info (12128): Elaborating entity "LFSR" for hierarchy "LFSR:lsfr_inst" File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 128
 Warning (10492): VHDL Process Statement warning at 2_lfsr.vhd(38): signal "q" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/2_lfsr.vhd Line: 38
-Info (12128): Elaborating entity "vga_sync" for hierarchy "vga_sync:vga_sync_unit" File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 137
-Info (12128): Elaborating entity "input_handler" for hierarchy "input_handler:input_handler_inst" File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 146
-Warning (10492): VHDL Process Statement warning at input_handler.vhd(31): signal "tick1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 31
-Warning (10492): VHDL Process Statement warning at input_handler.vhd(32): signal "tick2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 32
-Warning (10492): VHDL Process Statement warning at input_handler.vhd(33): signal "tick3" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 33
-Warning (10492): VHDL Process Statement warning at input_handler.vhd(34): signal "tick4" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 34
-Warning (10492): VHDL Process Statement warning at input_handler.vhd(57): signal "received_input" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 57
-Warning (10492): VHDL Process Statement warning at input_handler.vhd(62): signal "received_input" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 62
-Warning (10492): VHDL Process Statement warning at input_handler.vhd(64): signal "combo" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 64
-Warning (10492): VHDL Process Statement warning at input_handler.vhd(65): signal "combo" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 65
-Warning (10492): VHDL Process Statement warning at input_handler.vhd(67): signal "combo" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 67
-Warning (10492): VHDL Process Statement warning at input_handler.vhd(82): signal "internal_done" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 82
-Warning (10492): VHDL Process Statement warning at input_handler.vhd(83): signal "internal_success" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 83
-Warning (10631): VHDL Process Statement warning at input_handler.vhd(43): inferring latch(es) for signal or variable "internal_done", which holds its previous value in one or more paths through the process File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Warning (10631): VHDL Process Statement warning at input_handler.vhd(43): inferring latch(es) for signal or variable "internal_success", which holds its previous value in one or more paths through the process File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Warning (10631): VHDL Process Statement warning at input_handler.vhd(43): inferring latch(es) for signal or variable "score_update", which holds its previous value in one or more paths through the process File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Warning (10631): VHDL Process Statement warning at input_handler.vhd(43): inferring latch(es) for signal or variable "combo", which holds its previous value in one or more paths through the process File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Info (10041): Inferred latch for "combo[0]" at input_handler.vhd(43) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Info (10041): Inferred latch for "combo[1]" at input_handler.vhd(43) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Info (10041): Inferred latch for "combo[2]" at input_handler.vhd(43) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Info (10041): Inferred latch for "combo[3]" at input_handler.vhd(43) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Info (10041): Inferred latch for "combo[4]" at input_handler.vhd(43) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Info (10041): Inferred latch for "combo[5]" at input_handler.vhd(43) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Info (10041): Inferred latch for "combo[6]" at input_handler.vhd(43) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Info (10041): Inferred latch for "combo[7]" at input_handler.vhd(43) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Info (10041): Inferred latch for "combo[8]" at input_handler.vhd(43) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Info (10041): Inferred latch for "combo[9]" at input_handler.vhd(43) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Info (10041): Inferred latch for "combo[10]" at input_handler.vhd(43) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Info (10041): Inferred latch for "combo[11]" at input_handler.vhd(43) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Info (10041): Inferred latch for "combo[12]" at input_handler.vhd(43) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Info (10041): Inferred latch for "combo[13]" at input_handler.vhd(43) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Info (10041): Inferred latch for "combo[14]" at input_handler.vhd(43) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Info (10041): Inferred latch for "combo[15]" at input_handler.vhd(43) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Info (10041): Inferred latch for "combo[16]" at input_handler.vhd(43) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Info (10041): Inferred latch for "combo[17]" at input_handler.vhd(43) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Info (10041): Inferred latch for "combo[18]" at input_handler.vhd(43) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Info (10041): Inferred latch for "combo[19]" at input_handler.vhd(43) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Info (10041): Inferred latch for "combo[20]" at input_handler.vhd(43) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Info (10041): Inferred latch for "combo[21]" at input_handler.vhd(43) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Info (10041): Inferred latch for "combo[22]" at input_handler.vhd(43) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Info (10041): Inferred latch for "combo[23]" at input_handler.vhd(43) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Info (10041): Inferred latch for "combo[24]" at input_handler.vhd(43) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Info (10041): Inferred latch for "combo[25]" at input_handler.vhd(43) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Info (10041): Inferred latch for "combo[26]" at input_handler.vhd(43) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Info (10041): Inferred latch for "combo[27]" at input_handler.vhd(43) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Info (10041): Inferred latch for "combo[28]" at input_handler.vhd(43) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Info (10041): Inferred latch for "combo[29]" at input_handler.vhd(43) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Info (10041): Inferred latch for "combo[30]" at input_handler.vhd(43) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Info (10041): Inferred latch for "combo[31]" at input_handler.vhd(43) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Info (10041): Inferred latch for "score_update[0]" at input_handler.vhd(43) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Info (10041): Inferred latch for "score_update[1]" at input_handler.vhd(43) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Info (10041): Inferred latch for "score_update[2]" at input_handler.vhd(43) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Info (10041): Inferred latch for "score_update[3]" at input_handler.vhd(43) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Info (10041): Inferred latch for "score_update[4]" at input_handler.vhd(43) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Info (10041): Inferred latch for "score_update[5]" at input_handler.vhd(43) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Info (10041): Inferred latch for "score_update[6]" at input_handler.vhd(43) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Info (10041): Inferred latch for "score_update[7]" at input_handler.vhd(43) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Info (10041): Inferred latch for "score_update[8]" at input_handler.vhd(43) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Info (10041): Inferred latch for "score_update[9]" at input_handler.vhd(43) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Info (10041): Inferred latch for "score_update[10]" at input_handler.vhd(43) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Info (10041): Inferred latch for "score_update[11]" at input_handler.vhd(43) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Info (10041): Inferred latch for "score_update[12]" at input_handler.vhd(43) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Info (10041): Inferred latch for "score_update[13]" at input_handler.vhd(43) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Info (10041): Inferred latch for "score_update[14]" at input_handler.vhd(43) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Info (10041): Inferred latch for "score_update[15]" at input_handler.vhd(43) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Info (10041): Inferred latch for "score_update[16]" at input_handler.vhd(43) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Info (10041): Inferred latch for "score_update[17]" at input_handler.vhd(43) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Info (10041): Inferred latch for "score_update[18]" at input_handler.vhd(43) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Info (10041): Inferred latch for "score_update[19]" at input_handler.vhd(43) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Info (10041): Inferred latch for "score_update[20]" at input_handler.vhd(43) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Info (10041): Inferred latch for "score_update[21]" at input_handler.vhd(43) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Info (10041): Inferred latch for "score_update[22]" at input_handler.vhd(43) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Info (10041): Inferred latch for "score_update[23]" at input_handler.vhd(43) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Info (10041): Inferred latch for "score_update[24]" at input_handler.vhd(43) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Info (10041): Inferred latch for "score_update[25]" at input_handler.vhd(43) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Info (10041): Inferred latch for "score_update[26]" at input_handler.vhd(43) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Info (10041): Inferred latch for "score_update[27]" at input_handler.vhd(43) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Info (10041): Inferred latch for "score_update[28]" at input_handler.vhd(43) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Info (10041): Inferred latch for "score_update[29]" at input_handler.vhd(43) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Info (10041): Inferred latch for "score_update[30]" at input_handler.vhd(43) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Info (10041): Inferred latch for "score_update[31]" at input_handler.vhd(43) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Info (10041): Inferred latch for "internal_success" at input_handler.vhd(43) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Info (10041): Inferred latch for "internal_done" at input_handler.vhd(43) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Info (12128): Elaborating entity "m100_counter" for hierarchy "m100_counter:counter_unit" File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 149
-Info (12128): Elaborating entity "draw" for hierarchy "draw:U1" File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 207
+Info (12128): Elaborating entity "vga_sync" for hierarchy "vga_sync:vga_sync_unit" File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 139
+Info (12128): Elaborating entity "input_handler" for hierarchy "input_handler:input_handler_inst" File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 148
+Warning (10492): VHDL Process Statement warning at input_handler.vhd(32): signal "tick1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 32
+Warning (10492): VHDL Process Statement warning at input_handler.vhd(33): signal "tick2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 33
+Warning (10492): VHDL Process Statement warning at input_handler.vhd(34): signal "tick3" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 34
+Warning (10492): VHDL Process Statement warning at input_handler.vhd(35): signal "tick4" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 35
+Warning (10492): VHDL Process Statement warning at input_handler.vhd(81): signal "received_input" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 81
+Warning (10492): VHDL Process Statement warning at input_handler.vhd(86): signal "received_input" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 86
+Warning (10492): VHDL Process Statement warning at input_handler.vhd(89): signal "combo" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 89
+Warning (10492): VHDL Process Statement warning at input_handler.vhd(104): signal "internal_done" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 104
+Warning (10492): VHDL Process Statement warning at input_handler.vhd(105): signal "internal_success" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 105
+Warning (10492): VHDL Process Statement warning at input_handler.vhd(106): signal "combo" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 106
+Warning (10631): VHDL Process Statement warning at input_handler.vhd(65): inferring latch(es) for signal or variable "internal_done", which holds its previous value in one or more paths through the process File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 65
+Warning (10631): VHDL Process Statement warning at input_handler.vhd(65): inferring latch(es) for signal or variable "internal_success", which holds its previous value in one or more paths through the process File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 65
+Warning (10631): VHDL Process Statement warning at input_handler.vhd(65): inferring latch(es) for signal or variable "internal_fail", which holds its previous value in one or more paths through the process File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 65
+Warning (10631): VHDL Process Statement warning at input_handler.vhd(65): inferring latch(es) for signal or variable "score_update", which holds its previous value in one or more paths through the process File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 65
+Info (10041): Inferred latch for "score_update[0]" at input_handler.vhd(65) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 65
+Info (10041): Inferred latch for "score_update[1]" at input_handler.vhd(65) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 65
+Info (10041): Inferred latch for "score_update[2]" at input_handler.vhd(65) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 65
+Info (10041): Inferred latch for "score_update[3]" at input_handler.vhd(65) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 65
+Info (10041): Inferred latch for "score_update[4]" at input_handler.vhd(65) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 65
+Info (10041): Inferred latch for "score_update[5]" at input_handler.vhd(65) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 65
+Info (10041): Inferred latch for "score_update[6]" at input_handler.vhd(65) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 65
+Info (10041): Inferred latch for "score_update[7]" at input_handler.vhd(65) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 65
+Info (10041): Inferred latch for "score_update[8]" at input_handler.vhd(65) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 65
+Info (10041): Inferred latch for "score_update[9]" at input_handler.vhd(65) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 65
+Info (10041): Inferred latch for "score_update[10]" at input_handler.vhd(65) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 65
+Info (10041): Inferred latch for "score_update[11]" at input_handler.vhd(65) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 65
+Info (10041): Inferred latch for "score_update[12]" at input_handler.vhd(65) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 65
+Info (10041): Inferred latch for "score_update[13]" at input_handler.vhd(65) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 65
+Info (10041): Inferred latch for "score_update[14]" at input_handler.vhd(65) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 65
+Info (10041): Inferred latch for "score_update[15]" at input_handler.vhd(65) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 65
+Info (10041): Inferred latch for "score_update[16]" at input_handler.vhd(65) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 65
+Info (10041): Inferred latch for "score_update[17]" at input_handler.vhd(65) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 65
+Info (10041): Inferred latch for "score_update[18]" at input_handler.vhd(65) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 65
+Info (10041): Inferred latch for "score_update[19]" at input_handler.vhd(65) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 65
+Info (10041): Inferred latch for "score_update[20]" at input_handler.vhd(65) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 65
+Info (10041): Inferred latch for "score_update[21]" at input_handler.vhd(65) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 65
+Info (10041): Inferred latch for "score_update[22]" at input_handler.vhd(65) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 65
+Info (10041): Inferred latch for "score_update[23]" at input_handler.vhd(65) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 65
+Info (10041): Inferred latch for "score_update[24]" at input_handler.vhd(65) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 65
+Info (10041): Inferred latch for "score_update[25]" at input_handler.vhd(65) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 65
+Info (10041): Inferred latch for "score_update[26]" at input_handler.vhd(65) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 65
+Info (10041): Inferred latch for "score_update[27]" at input_handler.vhd(65) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 65
+Info (10041): Inferred latch for "score_update[28]" at input_handler.vhd(65) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 65
+Info (10041): Inferred latch for "score_update[29]" at input_handler.vhd(65) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 65
+Info (10041): Inferred latch for "score_update[30]" at input_handler.vhd(65) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 65
+Info (10041): Inferred latch for "score_update[31]" at input_handler.vhd(65) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 65
+Info (10041): Inferred latch for "internal_fail" at input_handler.vhd(65) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 65
+Info (10041): Inferred latch for "internal_success" at input_handler.vhd(65) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 65
+Info (10041): Inferred latch for "internal_done" at input_handler.vhd(65) File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 65
+Info (12128): Elaborating entity "m100_counter" for hierarchy "m100_counter:counter_unit" File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 151
+Warning (10492): VHDL Process Statement warning at score_counter.vhd(35): signal "dig0_num" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/score_counter.vhd Line: 35
+Warning (10492): VHDL Process Statement warning at score_counter.vhd(36): signal "dig1_num" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/score_counter.vhd Line: 36
+Warning (10492): VHDL Process Statement warning at score_counter.vhd(37): signal "dig2_num" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/score_counter.vhd Line: 37
+Warning (10492): VHDL Process Statement warning at score_counter.vhd(38): signal "dig3_num" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/score_counter.vhd Line: 38
+Info (12128): Elaborating entity "draw" for hierarchy "draw:U1" File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 206
 Warning (10540): VHDL Signal Declaration warning at draw.vhd(25): used explicit default value for signal "vpos1Init" because signal was never assigned a value File: C:/FPGA/FPGA_Memory_game/draw.vhd Line: 25
 Warning (10540): VHDL Signal Declaration warning at draw.vhd(26): used explicit default value for signal "vpos2Init" because signal was never assigned a value File: C:/FPGA/FPGA_Memory_game/draw.vhd Line: 26
 Warning (10540): VHDL Signal Declaration warning at draw.vhd(27): used explicit default value for signal "vpos3Init" because signal was never assigned a value File: C:/FPGA/FPGA_Memory_game/draw.vhd Line: 27
@@ -1085,7 +1175,7 @@ Warning (10492): VHDL Process Statement warning at draw.vhd(126): signal "vposEx
 Warning (10492): VHDL Process Statement warning at draw.vhd(127): signal "vposOutInit" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/FPGA/FPGA_Memory_game/draw.vhd Line: 127
 Warning (10542): VHDL Variable Declaration warning at draw.vhd(68): used initial value expression for variable "vposBoxStart" because variable was never assigned a value File: C:/FPGA/FPGA_Memory_game/draw.vhd Line: 68
 Warning (10542): VHDL Variable Declaration warning at draw.vhd(69): used initial value expression for variable "vposBoxEnd" because variable was never assigned a value File: C:/FPGA/FPGA_Memory_game/draw.vhd Line: 69
-Info (12128): Elaborating entity "score_text" for hierarchy "score_text:U2" File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 225
+Info (12128): Elaborating entity "score_text" for hierarchy "score_text:U2" File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 224
 Warning (10541): VHDL Signal Declaration warning at score_text.vhd(20): used implicit default value for signal "char_addr_o" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/FPGA/FPGA_Memory_game/score_text.vhd Line: 20
 Warning (10541): VHDL Signal Declaration warning at score_text.vhd(22): used implicit default value for signal "row_addr_o" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/FPGA/FPGA_Memory_game/score_text.vhd Line: 22
 Warning (10541): VHDL Signal Declaration warning at score_text.vhd(24): used implicit default value for signal "bit_addr_o" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/FPGA/FPGA_Memory_game/score_text.vhd Line: 24
@@ -1093,216 +1183,83 @@ Info (12128): Elaborating entity "font_rom" for hierarchy "score_text:U2|font_ro
 Warning (14284): Synthesized away the following node(s):
     Warning (14285): Synthesized away the following PLL node(s):
         Warning (14320): Synthesized away node "my_altpll:alt_pll_inst|my_altpll_0002:my_altpll_inst|altera_pll:altera_pll_i|outclk_wire[0]" File: c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altera_pll.v Line: 749
+Info (278001): Inferred 7 megafunctions from design logic
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "m100_counter:counter_unit|Div1" File: C:/FPGA/FPGA_Memory_game/score_counter.vhd Line: 30
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "m100_counter:counter_unit|Mod1" File: C:/FPGA/FPGA_Memory_game/score_counter.vhd Line: 30
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "m100_counter:counter_unit|Div2" File: C:/FPGA/FPGA_Memory_game/score_counter.vhd Line: 31
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "m100_counter:counter_unit|Mod2" File: C:/FPGA/FPGA_Memory_game/score_counter.vhd Line: 31
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "m100_counter:counter_unit|Mod3" File: C:/FPGA/FPGA_Memory_game/score_counter.vhd Line: 32
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "m100_counter:counter_unit|Div0" File: C:/FPGA/FPGA_Memory_game/score_counter.vhd Line: 29
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "m100_counter:counter_unit|Mod0" File: C:/FPGA/FPGA_Memory_game/score_counter.vhd Line: 29
+Info (12130): Elaborated megafunction instantiation "m100_counter:counter_unit|lpm_divide:Div1" File: C:/FPGA/FPGA_Memory_game/score_counter.vhd Line: 30
+Info (12133): Instantiated megafunction "m100_counter:counter_unit|lpm_divide:Div1" with the following parameter: File: C:/FPGA/FPGA_Memory_game/score_counter.vhd Line: 30
+    Info (12134): Parameter "LPM_WIDTHN" = "32"
+    Info (12134): Parameter "LPM_WIDTHD" = "8"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_HINT" = "LPM_REMAINDERPOSITIVE=FALSE"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_epo.tdf
+    Info (12023): Found entity 1: lpm_divide_epo File: C:/FPGA/FPGA_Memory_game/db/lpm_divide_epo.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/abs_divider_nbg.tdf
+    Info (12023): Found entity 1: abs_divider_nbg File: C:/FPGA/FPGA_Memory_game/db/abs_divider_nbg.tdf Line: 29
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_uve.tdf
+    Info (12023): Found entity 1: alt_u_div_uve File: C:/FPGA/FPGA_Memory_game/db/alt_u_div_uve.tdf Line: 23
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_abs_nn9.tdf
+    Info (12023): Found entity 1: lpm_abs_nn9 File: C:/FPGA/FPGA_Memory_game/db/lpm_abs_nn9.tdf Line: 23
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_abs_4p9.tdf
+    Info (12023): Found entity 1: lpm_abs_4p9 File: C:/FPGA/FPGA_Memory_game/db/lpm_abs_4p9.tdf Line: 23
+Info (12130): Elaborated megafunction instantiation "m100_counter:counter_unit|lpm_divide:Mod1" File: C:/FPGA/FPGA_Memory_game/score_counter.vhd Line: 30
+Info (12133): Instantiated megafunction "m100_counter:counter_unit|lpm_divide:Mod1" with the following parameter: File: C:/FPGA/FPGA_Memory_game/score_counter.vhd Line: 30
+    Info (12134): Parameter "LPM_WIDTHN" = "32"
+    Info (12134): Parameter "LPM_WIDTHD" = "32"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_HINT" = "LPM_REMAINDERPOSITIVE=FALSE"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_uio.tdf
+    Info (12023): Found entity 1: lpm_divide_uio File: C:/FPGA/FPGA_Memory_game/db/lpm_divide_uio.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/abs_divider_4dg.tdf
+    Info (12023): Found entity 1: abs_divider_4dg File: C:/FPGA/FPGA_Memory_game/db/abs_divider_4dg.tdf Line: 27
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_o2f.tdf
+    Info (12023): Found entity 1: alt_u_div_o2f File: C:/FPGA/FPGA_Memory_game/db/alt_u_div_o2f.tdf Line: 23
+Info (12130): Elaborated megafunction instantiation "m100_counter:counter_unit|lpm_divide:Div2" File: C:/FPGA/FPGA_Memory_game/score_counter.vhd Line: 31
+Info (12133): Instantiated megafunction "m100_counter:counter_unit|lpm_divide:Div2" with the following parameter: File: C:/FPGA/FPGA_Memory_game/score_counter.vhd Line: 31
+    Info (12134): Parameter "LPM_WIDTHN" = "32"
+    Info (12134): Parameter "LPM_WIDTHD" = "5"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_HINT" = "LPM_REMAINDERPOSITIVE=FALSE"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_bpo.tdf
+    Info (12023): Found entity 1: lpm_divide_bpo File: C:/FPGA/FPGA_Memory_game/db/lpm_divide_bpo.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/abs_divider_kbg.tdf
+    Info (12023): Found entity 1: abs_divider_kbg File: C:/FPGA/FPGA_Memory_game/db/abs_divider_kbg.tdf Line: 29
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_ove.tdf
+    Info (12023): Found entity 1: alt_u_div_ove File: C:/FPGA/FPGA_Memory_game/db/alt_u_div_ove.tdf Line: 23
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_abs_kn9.tdf
+    Info (12023): Found entity 1: lpm_abs_kn9 File: C:/FPGA/FPGA_Memory_game/db/lpm_abs_kn9.tdf Line: 23
+Info (12130): Elaborated megafunction instantiation "m100_counter:counter_unit|lpm_divide:Div0" File: C:/FPGA/FPGA_Memory_game/score_counter.vhd Line: 29
+Info (12133): Instantiated megafunction "m100_counter:counter_unit|lpm_divide:Div0" with the following parameter: File: C:/FPGA/FPGA_Memory_game/score_counter.vhd Line: 29
+    Info (12134): Parameter "LPM_WIDTHN" = "32"
+    Info (12134): Parameter "LPM_WIDTHD" = "11"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_HINT" = "LPM_REMAINDERPOSITIVE=FALSE"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_oqo.tdf
+    Info (12023): Found entity 1: lpm_divide_oqo File: C:/FPGA/FPGA_Memory_game/db/lpm_divide_oqo.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/abs_divider_1dg.tdf
+    Info (12023): Found entity 1: abs_divider_1dg File: C:/FPGA/FPGA_Memory_game/db/abs_divider_1dg.tdf Line: 29
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_i2f.tdf
+    Info (12023): Found entity 1: alt_u_div_i2f File: C:/FPGA/FPGA_Memory_game/db/alt_u_div_i2f.tdf Line: 23
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_abs_1p9.tdf
+    Info (12023): Found entity 1: lpm_abs_1p9 File: C:/FPGA/FPGA_Memory_game/db/lpm_abs_1p9.tdf Line: 23
 Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
-Warning (13012): Latch prev_score[0] has unsafe behavior File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_handler:input_handler_inst|score_update[0] File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Warning (13012): Latch prev_score[1] has unsafe behavior File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_handler:input_handler_inst|score_update[1] File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Warning (13012): Latch prev_score[2] has unsafe behavior File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_handler:input_handler_inst|score_update[2] File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Warning (13012): Latch prev_score[3] has unsafe behavior File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_handler:input_handler_inst|score_update[3] File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Warning (13012): Latch prev_score[4] has unsafe behavior File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_handler:input_handler_inst|score_update[4] File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Warning (13012): Latch prev_score[5] has unsafe behavior File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_handler:input_handler_inst|score_update[5] File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Warning (13012): Latch prev_score[6] has unsafe behavior File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_handler:input_handler_inst|score_update[6] File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Warning (13012): Latch prev_score[7] has unsafe behavior File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_handler:input_handler_inst|score_update[7] File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Warning (13012): Latch prev_score[8] has unsafe behavior File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_handler:input_handler_inst|score_update[8] File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Warning (13012): Latch prev_score[9] has unsafe behavior File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_handler:input_handler_inst|score_update[9] File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Warning (13012): Latch prev_score[10] has unsafe behavior File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_handler:input_handler_inst|score_update[10] File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Warning (13012): Latch prev_score[11] has unsafe behavior File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_handler:input_handler_inst|score_update[11] File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Warning (13012): Latch prev_score[12] has unsafe behavior File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_handler:input_handler_inst|score_update[12] File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Warning (13012): Latch prev_score[13] has unsafe behavior File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_handler:input_handler_inst|score_update[13] File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Warning (13012): Latch prev_score[14] has unsafe behavior File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_handler:input_handler_inst|score_update[14] File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Warning (13012): Latch prev_score[15] has unsafe behavior File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_handler:input_handler_inst|score_update[15] File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Warning (13012): Latch prev_score[16] has unsafe behavior File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_handler:input_handler_inst|score_update[16] File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Warning (13012): Latch prev_score[17] has unsafe behavior File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_handler:input_handler_inst|score_update[17] File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Warning (13012): Latch prev_score[18] has unsafe behavior File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_handler:input_handler_inst|score_update[18] File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Warning (13012): Latch prev_score[19] has unsafe behavior File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_handler:input_handler_inst|score_update[19] File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Warning (13012): Latch prev_score[20] has unsafe behavior File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_handler:input_handler_inst|score_update[20] File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Warning (13012): Latch prev_score[21] has unsafe behavior File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_handler:input_handler_inst|score_update[21] File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Warning (13012): Latch prev_score[22] has unsafe behavior File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_handler:input_handler_inst|score_update[22] File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Warning (13012): Latch prev_score[23] has unsafe behavior File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_handler:input_handler_inst|score_update[23] File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Warning (13012): Latch prev_score[24] has unsafe behavior File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_handler:input_handler_inst|score_update[24] File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Warning (13012): Latch prev_score[25] has unsafe behavior File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_handler:input_handler_inst|score_update[25] File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Warning (13012): Latch prev_score[26] has unsafe behavior File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_handler:input_handler_inst|score_update[26] File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Warning (13012): Latch prev_score[27] has unsafe behavior File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_handler:input_handler_inst|score_update[27] File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Warning (13012): Latch prev_score[28] has unsafe behavior File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_handler:input_handler_inst|score_update[28] File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Warning (13012): Latch prev_score[29] has unsafe behavior File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_handler:input_handler_inst|score_update[29] File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Warning (13012): Latch prev_score[30] has unsafe behavior File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_handler:input_handler_inst|score_update[30] File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Warning (13012): Latch local_counter[31] has unsafe behavior File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_handler:input_handler_inst|score_update[31] File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Warning (13012): Latch local_counter[0] has unsafe behavior File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_handler:input_handler_inst|score_update[0] File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Warning (13012): Latch local_counter[1] has unsafe behavior File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_handler:input_handler_inst|score_update[1] File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Warning (13012): Latch local_counter[2] has unsafe behavior File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_handler:input_handler_inst|score_update[2] File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Warning (13012): Latch local_counter[3] has unsafe behavior File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_handler:input_handler_inst|score_update[3] File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Warning (13012): Latch local_counter[4] has unsafe behavior File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_handler:input_handler_inst|score_update[4] File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Warning (13012): Latch local_counter[5] has unsafe behavior File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_handler:input_handler_inst|score_update[5] File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Warning (13012): Latch local_counter[6] has unsafe behavior File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_handler:input_handler_inst|score_update[6] File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Warning (13012): Latch local_counter[7] has unsafe behavior File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_handler:input_handler_inst|score_update[7] File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Warning (13012): Latch local_counter[8] has unsafe behavior File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_handler:input_handler_inst|score_update[8] File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Warning (13012): Latch local_counter[9] has unsafe behavior File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_handler:input_handler_inst|score_update[9] File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Warning (13012): Latch local_counter[10] has unsafe behavior File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_handler:input_handler_inst|score_update[10] File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Warning (13012): Latch local_counter[11] has unsafe behavior File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_handler:input_handler_inst|score_update[11] File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Warning (13012): Latch local_counter[12] has unsafe behavior File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_handler:input_handler_inst|score_update[12] File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Warning (13012): Latch local_counter[13] has unsafe behavior File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_handler:input_handler_inst|score_update[13] File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Warning (13012): Latch local_counter[14] has unsafe behavior File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_handler:input_handler_inst|score_update[14] File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Warning (13012): Latch local_counter[15] has unsafe behavior File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_handler:input_handler_inst|score_update[15] File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Warning (13012): Latch local_counter[16] has unsafe behavior File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_handler:input_handler_inst|score_update[16] File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Warning (13012): Latch local_counter[17] has unsafe behavior File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_handler:input_handler_inst|score_update[17] File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Warning (13012): Latch local_counter[18] has unsafe behavior File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_handler:input_handler_inst|score_update[18] File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Warning (13012): Latch local_counter[19] has unsafe behavior File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_handler:input_handler_inst|score_update[19] File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Warning (13012): Latch local_counter[20] has unsafe behavior File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_handler:input_handler_inst|score_update[20] File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Warning (13012): Latch local_counter[21] has unsafe behavior File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_handler:input_handler_inst|score_update[21] File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Warning (13012): Latch local_counter[22] has unsafe behavior File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_handler:input_handler_inst|score_update[22] File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Warning (13012): Latch local_counter[23] has unsafe behavior File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_handler:input_handler_inst|score_update[23] File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Warning (13012): Latch local_counter[24] has unsafe behavior File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_handler:input_handler_inst|score_update[24] File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Warning (13012): Latch local_counter[25] has unsafe behavior File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_handler:input_handler_inst|score_update[25] File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Warning (13012): Latch local_counter[26] has unsafe behavior File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_handler:input_handler_inst|score_update[26] File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Warning (13012): Latch local_counter[27] has unsafe behavior File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_handler:input_handler_inst|score_update[27] File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Warning (13012): Latch local_counter[28] has unsafe behavior File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_handler:input_handler_inst|score_update[28] File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Warning (13012): Latch local_counter[29] has unsafe behavior File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_handler:input_handler_inst|score_update[29] File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Warning (13012): Latch local_counter[30] has unsafe behavior File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 155
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_handler:input_handler_inst|score_update[30] File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-Warning (13012): Latch input_handler:input_handler_inst|combo[31] has unsafe behavior File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal expire File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 103
-Warning (13012): Latch input_handler:input_handler_inst|combo[1] has unsafe behavior File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal expire File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 103
-Warning (13012): Latch input_handler:input_handler_inst|combo[2] has unsafe behavior File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal expire File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 103
-Warning (13012): Latch input_handler:input_handler_inst|combo[3] has unsafe behavior File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal expire File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 103
-Warning (13012): Latch input_handler:input_handler_inst|combo[4] has unsafe behavior File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal expire File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 103
-Warning (13012): Latch input_handler:input_handler_inst|combo[5] has unsafe behavior File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal expire File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 103
-Warning (13012): Latch input_handler:input_handler_inst|combo[6] has unsafe behavior File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal expire File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 103
-Warning (13012): Latch input_handler:input_handler_inst|combo[7] has unsafe behavior File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal expire File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 103
-Warning (13012): Latch input_handler:input_handler_inst|combo[8] has unsafe behavior File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal expire File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 103
-Warning (13012): Latch input_handler:input_handler_inst|combo[9] has unsafe behavior File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal expire File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 103
-Warning (13012): Latch input_handler:input_handler_inst|combo[10] has unsafe behavior File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal expire File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 103
-Warning (13012): Latch input_handler:input_handler_inst|combo[11] has unsafe behavior File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal expire File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 103
-Warning (13012): Latch input_handler:input_handler_inst|combo[12] has unsafe behavior File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal expire File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 103
-Warning (13012): Latch input_handler:input_handler_inst|combo[13] has unsafe behavior File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal expire File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 103
-Warning (13012): Latch input_handler:input_handler_inst|combo[14] has unsafe behavior File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal expire File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 103
-Warning (13012): Latch input_handler:input_handler_inst|combo[15] has unsafe behavior File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal expire File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 103
-Warning (13012): Latch input_handler:input_handler_inst|combo[16] has unsafe behavior File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal expire File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 103
-Warning (13012): Latch input_handler:input_handler_inst|combo[17] has unsafe behavior File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal expire File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 103
-Warning (13012): Latch input_handler:input_handler_inst|combo[18] has unsafe behavior File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal expire File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 103
-Warning (13012): Latch input_handler:input_handler_inst|combo[19] has unsafe behavior File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal expire File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 103
-Warning (13012): Latch input_handler:input_handler_inst|combo[20] has unsafe behavior File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal expire File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 103
-Warning (13012): Latch input_handler:input_handler_inst|combo[21] has unsafe behavior File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal expire File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 103
-Warning (13012): Latch input_handler:input_handler_inst|combo[22] has unsafe behavior File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal expire File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 103
-Warning (13012): Latch input_handler:input_handler_inst|combo[23] has unsafe behavior File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal expire File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 103
-Warning (13012): Latch input_handler:input_handler_inst|combo[24] has unsafe behavior File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal expire File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 103
-Warning (13012): Latch input_handler:input_handler_inst|combo[25] has unsafe behavior File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal expire File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 103
-Warning (13012): Latch input_handler:input_handler_inst|combo[26] has unsafe behavior File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal expire File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 103
-Warning (13012): Latch input_handler:input_handler_inst|combo[27] has unsafe behavior File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal expire File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 103
-Warning (13012): Latch input_handler:input_handler_inst|combo[28] has unsafe behavior File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal expire File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 103
-Warning (13012): Latch input_handler:input_handler_inst|combo[29] has unsafe behavior File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal expire File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 103
-Warning (13012): Latch input_handler:input_handler_inst|combo[30] has unsafe behavior File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal expire File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 103
-Warning (13012): Latch input_handler:input_handler_inst|combo[0] has unsafe behavior File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 43
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal expire File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 103
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "input_val" is stuck at GND File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 12
     Warning (13410): Pin "vga_sync" is stuck at VCC File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 16
     Warning (13410): Pin "led_red" is stuck at GND File: C:/FPGA/FPGA_Memory_game/memory_game.vhd Line: 18
 Info (286030): Timing-Driven Synthesis is running
 Critical Warning (18061): Ignored Power-Up Level option on the following registers
-    Critical Warning (18010): Register draw:U1|vposExpected[8] will power up to High File: C:/FPGA/FPGA_Memory_game/draw.vhd Line: 121
-    Critical Warning (18010): Register draw:U1|vposExpected[6] will power up to High File: C:/FPGA/FPGA_Memory_game/draw.vhd Line: 121
-    Critical Warning (18010): Register draw:U1|vposExpected[3] will power up to High File: C:/FPGA/FPGA_Memory_game/draw.vhd Line: 121
-    Critical Warning (18010): Register draw:U1|vposExpected[2] will power up to High File: C:/FPGA/FPGA_Memory_game/draw.vhd Line: 121
-    Critical Warning (18010): Register draw:U1|vposExpected[1] will power up to High File: C:/FPGA/FPGA_Memory_game/draw.vhd Line: 121
-    Critical Warning (18010): Register draw:U1|vpos3[1] will power up to High File: C:/FPGA/FPGA_Memory_game/draw.vhd Line: 121
-    Critical Warning (18010): Register draw:U1|vpos3[7] will power up to High File: C:/FPGA/FPGA_Memory_game/draw.vhd Line: 121
-    Critical Warning (18010): Register draw:U1|vpos3[2] will power up to High File: C:/FPGA/FPGA_Memory_game/draw.vhd Line: 121
-    Critical Warning (18010): Register draw:U1|vpos4[1] will power up to High File: C:/FPGA/FPGA_Memory_game/draw.vhd Line: 121
-    Critical Warning (18010): Register draw:U1|vpos4[7] will power up to High File: C:/FPGA/FPGA_Memory_game/draw.vhd Line: 121
-    Critical Warning (18010): Register draw:U1|vpos4[6] will power up to High File: C:/FPGA/FPGA_Memory_game/draw.vhd Line: 121
-    Critical Warning (18010): Register draw:U1|vpos4[5] will power up to High File: C:/FPGA/FPGA_Memory_game/draw.vhd Line: 121
-    Critical Warning (18010): Register draw:U1|vpos4[3] will power up to High File: C:/FPGA/FPGA_Memory_game/draw.vhd Line: 121
+    Critical Warning (18010): Register input_handler:input_handler_inst|combo_up will power up to High File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 44
+    Critical Warning (18010): Register input_handler:input_handler_inst|combo_down will power up to High File: C:/FPGA/FPGA_Memory_game/input_handler.vhd Line: 44
     Critical Warning (18010): Register draw:U1|vpos1[9] will power up to High File: C:/FPGA/FPGA_Memory_game/draw.vhd Line: 121
     Critical Warning (18010): Register draw:U1|vpos1[8] will power up to High File: C:/FPGA/FPGA_Memory_game/draw.vhd Line: 121
     Critical Warning (18010): Register draw:U1|vpos1[7] will power up to High File: C:/FPGA/FPGA_Memory_game/draw.vhd Line: 121
@@ -1313,6 +1270,19 @@ Critical Warning (18061): Ignored Power-Up Level option on the following registe
     Critical Warning (18010): Register draw:U1|vpos1[1] will power up to High File: C:/FPGA/FPGA_Memory_game/draw.vhd Line: 121
     Critical Warning (18010): Register draw:U1|vpos2[5] will power up to High File: C:/FPGA/FPGA_Memory_game/draw.vhd Line: 121
     Critical Warning (18010): Register draw:U1|vpos2[1] will power up to High File: C:/FPGA/FPGA_Memory_game/draw.vhd Line: 121
+    Critical Warning (18010): Register draw:U1|vpos3[7] will power up to High File: C:/FPGA/FPGA_Memory_game/draw.vhd Line: 121
+    Critical Warning (18010): Register draw:U1|vpos3[2] will power up to High File: C:/FPGA/FPGA_Memory_game/draw.vhd Line: 121
+    Critical Warning (18010): Register draw:U1|vpos3[1] will power up to High File: C:/FPGA/FPGA_Memory_game/draw.vhd Line: 121
+    Critical Warning (18010): Register draw:U1|vpos4[7] will power up to High File: C:/FPGA/FPGA_Memory_game/draw.vhd Line: 121
+    Critical Warning (18010): Register draw:U1|vpos4[6] will power up to High File: C:/FPGA/FPGA_Memory_game/draw.vhd Line: 121
+    Critical Warning (18010): Register draw:U1|vpos4[5] will power up to High File: C:/FPGA/FPGA_Memory_game/draw.vhd Line: 121
+    Critical Warning (18010): Register draw:U1|vpos4[3] will power up to High File: C:/FPGA/FPGA_Memory_game/draw.vhd Line: 121
+    Critical Warning (18010): Register draw:U1|vpos4[1] will power up to High File: C:/FPGA/FPGA_Memory_game/draw.vhd Line: 121
+    Critical Warning (18010): Register draw:U1|vposExpected[8] will power up to High File: C:/FPGA/FPGA_Memory_game/draw.vhd Line: 121
+    Critical Warning (18010): Register draw:U1|vposExpected[6] will power up to High File: C:/FPGA/FPGA_Memory_game/draw.vhd Line: 121
+    Critical Warning (18010): Register draw:U1|vposExpected[3] will power up to High File: C:/FPGA/FPGA_Memory_game/draw.vhd Line: 121
+    Critical Warning (18010): Register draw:U1|vposExpected[2] will power up to High File: C:/FPGA/FPGA_Memory_game/draw.vhd Line: 121
+    Critical Warning (18010): Register draw:U1|vposExpected[1] will power up to High File: C:/FPGA/FPGA_Memory_game/draw.vhd Line: 121
     Critical Warning (18010): Register draw:U1|vposOut[8] will power up to High File: C:/FPGA/FPGA_Memory_game/draw.vhd Line: 121
     Critical Warning (18010): Register draw:U1|vposOut[7] will power up to High File: C:/FPGA/FPGA_Memory_game/draw.vhd Line: 121
     Critical Warning (18010): Register draw:U1|vposOut[5] will power up to High File: C:/FPGA/FPGA_Memory_game/draw.vhd Line: 121
@@ -1321,14 +1291,14 @@ Critical Warning (18061): Ignored Power-Up Level option on the following registe
 Info (17049): 132 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 1128 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 8385 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 8 input pins
     Info (21059): Implemented 35 output pins
-    Info (21061): Implemented 1085 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 274 warnings
-    Info: Peak virtual memory: 4880 megabytes
-    Info: Processing ended: Tue May 11 18:44:59 2021
-    Info: Elapsed time: 00:00:15
-    Info: Total CPU time (on all processors): 00:00:30
+    Info (21061): Implemented 8342 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 83 warnings
+    Info: Peak virtual memory: 4956 megabytes
+    Info: Processing ended: Tue May 11 23:06:27 2021
+    Info: Elapsed time: 00:00:28
+    Info: Total CPU time (on all processors): 00:00:44
 
 

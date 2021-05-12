@@ -149,7 +149,7 @@ begin
 					rgb <= horiz_rgb(hPos, input_2);			
 				elsif (vPos >= std_logic_vector(to_unsigned(vpos4, vPos'length))  and vPos <= std_logic_vector(to_unsigned(vpos4+50, vPos'length))) then
 					rgb <= horiz_rgb(hPos, input_1);		
-				elsif (vPos >= std_logic_vector(to_unsigned(vPosExpectedInit, vPos'length))  and vPos <= std_logic_vector(to_unsigned(vPosOutInit, vPos'length))) then
+				elsif (vPos >= std_logic_vector(to_unsigned(vPosExpectedInit, vPos'length))  and vPos <= std_logic_vector(to_unsigned(vposOut, vPos'length))) then
 					rgb <= draw_expected(hPos, vPos, vposExpected, expected_input);		
 				elsif (vPos >= std_logic_vector(to_unsigned(vposOut, vPos'length))  and vPos <= std_logic_vector(to_unsigned(vposOut+50, vPos'length))) then
 					rgb <= horiz_rgb(hPos, input_out);			
@@ -161,13 +161,6 @@ begin
 			end if;
 		end if;
 	end process;
-	
-
--- [(hPos >= "0000001010" and hPos <= "0000111100") OR (hPos >= "1001011000" and hPos <= "1100010101")] AND [(vPos >="0000001010"  and vPos <= "0000111100") OR (vPos >="0110010000"  and vPos <= "1011101110")]
-	--upper right box 
----------------------------------------------------------------------------------------------------------------------------------
-	--639 horizontal
-----479 vertical
 	
 
 	

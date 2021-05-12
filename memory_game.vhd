@@ -48,6 +48,7 @@ component input_handler is
 	  expected_input: in std_logic_vector(3 downto 0);
 	  done: out std_logic;
 	  success: out std_logic;
+	  out_combo: out integer;
      score_update: out integer
 	);
 end component;
@@ -98,7 +99,7 @@ signal input_done: std_logic := '0';
 signal input_success : std_logic := '0';
 signal score_inst, local_counter, prev_score : integer := 0;
 signal time_out : integer := 100;
-signal score : integer;
+signal score : integer := 0;
 signal difficulty_const : integer := 22;
 signal expire : std_logic := '0';
 signal counter : integer := 0;
@@ -111,6 +112,7 @@ signal incr_score : std_logic := '0';
 signal text_rgb : std_logic_vector(2 downto 0);
 signal text_on : std_logic;
 signal background_rgb: std_logic_vector(2 downto 0);
+signal out_combo : integer;
 begin
 
 
@@ -141,32 +143,29 @@ vga_sync_unit: entity work.vga_sync
            pixel_x=>pixel_x, pixel_y=>pixel_y
 			);
 
-leds <= curr_input; --output the expected sequence to the leds
+leds <= std_logic_vector(to_unsigned(out_combo,4)); --output the expected sequence to the leds
 --input handler component instance
-input_handler_inst : input_handler port map (btn1, btn2, btn3, btn4, reset, clk_50, expire, curr_input, input_done, input_success, score_inst);
+input_handler_inst : input_handler port map (btn1, btn2, btn3, btn4, reset, clk_50, expire, curr_input, input_done, input_success, out_combo, score_inst);
 
  
 counter_unit : entity work.m100_counter
-	port map(clk=> slowClk, reset=>reset,
-				d_inc=>incr_score, d_clr=>reset,
+	port map(clk=> clk_50, reset=>reset,
+				d_inc=>incr_score, d_clr=>reset, score=>score,
 				dig0=>dig0, dig1=>dig1, dig2=>dig2, dig3=>dig3
 				);
 
-process (score_inst)
+process (score_inst, clk_50, reset)
 begin
-	if (score_inst > 0 and prev_score /= score_inst) then
-		if (local_counter = 0) then
-			local_counter <= score_inst; 
+	if (clk_50'event and clk_50 = '1') then
+		if (reset = '1') then
+			score <= 0;
+			prev_score <= 0;
+		elsif (score_inst /= prev_score) then
+			score <= score + score_inst;
+			prev_score <= score_inst;
 		end if;
-		prev_score <= score_inst;
-		incr_score <= '0';
-	elsif (local_counter > 0) then
-			incr_score <= '1';
-			local_counter <= local_counter - 1;
-	else
-		incr_score <= '0';
-		local_counter <= local_counter;
 	end if;
+		
 end process;
 			
 
